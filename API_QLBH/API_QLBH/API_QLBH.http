@@ -1,0 +1,6 @@
+@API_QLBH_HostAddress = http://localhost:5094
+
+GET {{API_QLBH_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

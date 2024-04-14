@@ -1,0 +1,55 @@
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+tr > th {
+    background-color: #f3f3f3;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+tr > th:first-child {
+    padding-left: 16px;
+}
+
+.input-quantity {
+    padding: 0px 0 0 16px;
+    width: 50px;
+    font-size: 16px;
+}
+
+.order-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f3f3f3;
+    height: 60px;
+}
+
+.order {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.order-text {
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 0 4px;
+}
+
+.order-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.order-btn {
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+}

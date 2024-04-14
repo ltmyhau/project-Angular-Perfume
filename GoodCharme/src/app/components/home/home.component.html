@@ -1,0 +1,138 @@
+<div class="banner container">
+    <div class="banner_list">
+        <img src="/assets/images/banner-1.jpg" alt="" class="banner_item">
+        <img src="/assets/images/banner-2.jpg" alt="" class="banner_item">
+        <img src="/assets/images/banner-3.jpg" alt="" class="banner_item">
+        <img src="/assets/images/banner-4.jpg" alt="" class="banner_item">
+    </div>
+
+    <div class="banner_control">
+        <div class="banner_btn-left control-btn" (click)="moveLeft()">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="banner_btn-right control-btn" (click)="moveRight()">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="product_heading">BÁN CHẠY NHẤT</h1>
+    <div class="row">
+        <div class="product-2-4" *ngFor="let product of productsBestSeller">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a [routerLink]="['/product', product.MaSP]" class="image">
+                        <img [src]="product.HinhSP">
+                    </a>
+                    <ul class="product-links">
+                        <li>
+                            <button type="button" (click)="addToCart(product)">
+                                <i class="fa fa-shopping-cart"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#"><i class="far fa-heart"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-search"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <ul class="rating">
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                    </ul>
+                    <h3 class="title"><a [routerLink]="['/product', product.MaSP]">{{product.TenSP}}</a></h3>
+                    <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="product_heading">SẢN PHẨM MỚI</h1>
+    <div class="row">
+        <div class="product-2-4" *ngFor="let product of productsNew">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a [routerLink]="['/product', product.MaSP]" class="image">
+                        <img [src]="product.HinhSP">
+                    </a>
+                    <ul class="product-links">
+                        <li>
+                            <button type="button" (click)="addToCart(product)">
+                                <i class="fa fa-shopping-cart"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#"><i class="far fa-heart"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-search"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <ul class="rating">
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                    </ul>
+                    <h3 class="title"><a href="#">{{product.TenSP}}</a></h3>
+                    <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collections_heading">
+        <div></div>
+        <h3 class="collections_header">BỘ SƯU TẬP</h3>
+        <div></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="collections">
+                <h5 class="collections_title">BỘ SƯU TẬP NƯỚC HOA HẸN HÒ</h5>
+                <a href="">
+                    <img src="/assets/images/collection-hen-ho.jpg" alt="" class="collections_img">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="collections">
+                <h5 class="collections_title">BỘ SƯU TẬP NƯỚC HOA DẠO PHỐ</h5>
+                <a href="">
+                    <img src="/assets/images/collection-dao-pho.jpg" alt="" class="collections_img">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="collections">
+                <h5 class="collections_title">BỘ SƯU TẬP NƯỚC HOA LOUIS FOR HER</h5>
+                <a href="">
+                    <img src="/assets/images/collection-louis-for-her.jpg" alt="" class="collections_img">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="collections">
+                <h5 class="collections_title">BỘ SƯU TẬP NƯỚC HOA LOUIS</h5>
+                <a href="">
+                    <img src="/assets/images/collection-louis.jpg" alt="" class="collections_img">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="notify" *ngIf="isProductAdded">
+    <i class="notify-icon fa-solid fa-circle-check"></i>
+    <p class="notify-message">Sản phẩm đã được thông vào giỏ hàng</p>
+</div>

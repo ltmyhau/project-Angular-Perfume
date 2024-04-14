@@ -1,0 +1,142 @@
+<div class="product container" *ngFor="let product of product">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="product-img">
+                <img [src]="product.HinhSP">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="product-info">
+                <h1 class="product-info_name">
+                    {{product.TenSP}}
+                </h1>
+                <ul class="product-rating">
+                    <li class="product-item">
+                        <span class="product-text">4.9</span>
+                        <ul class="rating">
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                        </ul>
+                    </li>
+                    <li class="product-item">
+                        <span>Đánh giá</span>
+                        <span class="product-text">9</span>
+                    </li>
+                    <li class="product-item">
+                        <span>Đã bán</span>
+                        <span class="product-text">37</span>
+                    </li>
+                </ul>
+                <p class="product-info_type">
+                    Loại sản phẩm:
+                    <a href="" [routerLink]="['/product-type', product.MaLoaiSP]" class="product-info_type-link">{{product.TenLoaiSP}}</a>
+                </p>
+                <h3 class="product-info_price">{{ product.GiaBan | currency:'VND':true }}</h3>
+                <p class="product-info_capacity">
+                    Dung tích:
+                    <span>{{product.DungTich}} ML</span>
+                </p>
+                <div class="product-info_quantity">
+                    Số lượng:
+                    <div id="quantity">
+                        <button class="minus-btn quantity-btn" (click)="handleMinus()">
+                            <i class="quantity-btn-icon fa-solid fa-minus"></i>
+                        </button>
+                        <input type="text" name="quantity-input" id="quantity-input" [value]="quantity" readonly>
+                        <button class="plus-btn quantity-btn" (click)="handlePlus()">
+                            <i class="quantity-btn-icon fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-control">
+                <button class="btn btn-primary btn-add-cart" (click)="addToCart(product, quantity)">
+                    Thêm vào giỏ hàng
+                </button>
+                <button class="btn btn-primary btn-goodcharme-success" (click)="buyNow(product, quantity)">
+                    Mua ngay
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row product-detail">
+        <div class="product-desc">
+            <h2 class="product-desc_heading">
+                Mô tả sản phẩm
+            </h2>
+            <p class="product-desc_content">{{product.MoTa}}</p>
+            <table class="product-desc_table">
+                <tr>
+                    <td>Dung tích</td>
+                    <td>{{product.DungTich}} ML</td>
+                </tr>
+                <tr>
+                    <td>Loại sản phẩm</td>
+                    <td>{{product.TenLoaiSP}}</td>
+                </tr>
+                <tr>
+                    <td>Giá sản phẩm</td>
+                    <td>{{ product.GiaBan | currency:'VND':true }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="product-desc">
+            <h2 class="product-desc_heading">
+                Đánh giá
+            </h2>
+            <p class="product-desc_content">
+                Chưa có dánh giá nào
+            </p>
+        </div>
+    </div>
+
+    <div class="related-products_heading">
+        <div></div>
+        <h3 class="related-products_header">Sản phẩm liên quan</h3>
+        <div></div>
+    </div>
+    <div class="row">
+        <div class="product-2-4" *ngFor="let product of relatedProducts">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a [routerLink]="['/product', product.MaSP]" class="image">
+                        <img [src]="product.HinhSP">
+                    </a>
+                    <ul class="product-links">
+                        <li>
+                            <button type="button" (click)="addToCart(product)">
+                                <i class="fa fa-shopping-cart"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#"><i class="far fa-heart"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-search"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <ul class="rating">
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                    </ul>
+                    <h3 class="title"><a href="#">{{product.TenSP}}</a></h3>
+                    <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="notify" *ngIf="isProductAdded">
+    <i class="notify-icon fa-solid fa-circle-check"></i>
+    <p class="notify-message">Sản phẩm đã được thông vào giỏ hàng</p>
+</div>

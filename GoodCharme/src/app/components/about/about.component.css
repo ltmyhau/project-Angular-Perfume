@@ -1,0 +1,15 @@
+.introducing-text {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.introducing-link {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.introducing-img {
+    width: 100%;
+}

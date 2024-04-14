@@ -1,0 +1,68 @@
+<div class="alert text-center p-5 h2" *ngIf="items.length == 0" >
+    Chưa có sản phẩm nào trong giỏ hàng
+</div>
+<div class="container py-4" *ngIf="items.length > 0">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col">
+            <div div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="h5">Sản phẩm</th>
+                            <th scope="col" class="text-center">Giá bán</th>
+                            <th scope="col" class="text-center">Số lượng</th>
+                            <th scope="col" class="text-center">Thành tiền</th>
+                            <th scope="col"></th>                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items">
+                            <td scope="row">
+                                <div class="d-flex align-items-center">
+                                    <img [src]="item.hinhSP" class="img-fluid rounded-3" style="width: 100px;" alt="Book">
+                                    <div class="flex-column ms-4" style="font-size: 18px;">
+                                        <p class="mb-2">{{item.tenSP}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="mb-0" style="font-size: 18px;">{{ item.giaBan | currency:'VND':true }}</p>
+                            </td>
+                            <td class="align-middle">
+                                <div class="d-flex flex-row justify-content-center">
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" (click)="item.soLuong > 1 ? item.soLuong = item.soLuong - 1 : 1">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input id="form1" [(ngModel)]="item.soLuong" min="1" name="quantity" value="2" type="number" class="form-control form-control-sm input-quantity" />
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                        (click)="item.soLuong = item.soLuong + 1">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="align-middle text-center">
+                                <p class="mb-0" style="font-size: 18px;">{{ item.giaBan*item.soLuong | currency:'VND':true }}</p>
+                            </td>
+                            <td class="align-middle text-center">
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" style="font-size: 24px;" (click)="xoaSanPhamKhoiGioHang(item)">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </td>                
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-wrapper">
+        <div class="order container">
+            <div style="margin-right: 36px; line-height: 60px;">
+                <span class="order-text">Tổng thanh toán: </span>
+                <span class="order-price">{{tongTien() | currency:'VND':true }}  </span>
+            </div>
+            <a routerLink="order" class="btn btn-goodcharme-success order-btn">Mua hàng</a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,98 @@
+<div class="content container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 d-none d-md-block">
+            <div class="category">
+                <div class="category-menu">
+                    <h3 class="category_heading">Loại sản phẩm</h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/all" class="category-item_link">Tất cả</a>
+                        </li>
+                        <li class="category-item">
+                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa" class="category-item_link">Nước hoa</a>
+                            <ul class="category-item_list">
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-nam" class="category-item_item-link">Nước hoa nam</a>
+                                </li>
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-nu" class="category-item_item-link">Nước hoa nữ</a>
+                                </li>
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-tre-em" class="category-item_item-link">Nước hoa trẻ em</a>
+                                </li>
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-xe-hoi" class="category-item_item-link">Nước hoa xe hơi</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="category-item">
+                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/san-pham-khac" class="category-item_link">Sản phẩm khác</a>
+                            <ul class="category-item_list">
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/my-pham" class="category-item_item-link">Mỹ phẩm</a>
+                                </li>
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/cham-soc-toan-than" class="category-item_item-link">Chăm sóc toàn thân</a>
+                                </li>
+                                <li class="category-item_item">
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/tinh-dau-thien-nhien" class="category-item_item-link">Tinh dầu thiên nhiên</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="category-menu">
+                    <h3 class="category_heading">Giá</h3>
+                    <div class="category-price">
+                        <div class="category-price_inputs">
+                            <input type="text" [(ngModel)]="tuGia" class="category-price_input" placeholder="TỪ">
+                            <span>-</span>
+                            <input type="text" [(ngModel)]="denGia" class="category-price_input" placeholder="ĐẾN">
+                        </div>
+                        <button class="btn btn-goodcharme-success category-price_btn" (click)="getProductsByPrice()">ÁP DỤNG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+            <div class="product">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a [routerLink]="['/product', product.MaSP]" class="image">
+                                    <img [src]="product.HinhSP">
+                                </a>
+                                <ul class="product-links">
+                                    <li>
+                                        <button type="button" (click)="addToCart(product)">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </button>
+                                    </li>
+                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="product-content">
+                                <ul class="rating">
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                    <li class="fa fa-star"></li>
+                                </ul>
+                                <h3 class="title"><a [routerLink]="['/product', product.MaSP]">{{product.TenSP}}</a></h3>
+                                <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="notify" *ngIf="isProductAdded">
+    <i class="notify-icon fa-solid fa-circle-check"></i>
+    <p class="notify-message">Sản phẩm đã được thông vào giỏ hàng</p>
+</div>

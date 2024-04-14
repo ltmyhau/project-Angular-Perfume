@@ -1,0 +1,76 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12">
+            <ul id="progressbar" class="text-center">
+                <li class="active step0">
+                    <div class="d-flex justify-content-center align-items-center icon-content">
+                        <img class="icon" src="/assets/images/order-tracking-1.png">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">Chờ xác nhận</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="step0">
+                    <div class="d-flex justify-content-center align-items-center icon-content">
+                        <img class="icon" src="/assets/images/order-tracking-2.png">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">Đang xử lý</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="step0">
+                    <div class="d-flex justify-content-center align-items-center icon-content">
+                        <img class="icon" src="/assets/images/order-tracking-3.png">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">Đang giao hàng</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="step0">
+                    <div class="d-flex justify-content-center align-items-center icon-content">
+                        <img class="icon" src="/assets/images/order-tracking-4.png">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">Đánh giá</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="products">
+        <p class="heading">Chi tiết đơn hàng</p>
+        <div class="product d-flex align-items-center justify-content-between" *ngFor="let item of items">
+            <div class="d-flex align-items-center">
+                <img [src]="item.hinhSP" class="img-fluid rounded-3" style="width: 90px;" alt="">
+                <div class="flex-column ms-4" style="font-size: 18px;">
+                    <p class="fw-bold mb-2">{{item.tenSP}}</p>
+                    <p class="mb-2">x{{item.soLuong}}</p>
+                </div>
+            </div>
+            <div>
+                <p class="mb-2">{{ item.giaBan | currency:'VND':true }}</p>
+            </div>
+        </div>
+        <div class="order-info">
+            <div class="d-flex justify-content-end">
+                <p class="m-0">Tổng tiền hàng</p>
+                <p class="m-0 text-end" style="width: 20%;">{{ tongTien() | currency:'VND':true }}</p>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p class="m-0">Giảm giá</p>
+                <p class="m-0 text-end" style="width: 20%;">-{{ giamGia | currency:'VND':true }}</p>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p class="m-0">Phí vận chuyển</p>
+                <p class="m-0 text-end" style="width: 20%;">{{ phiVanChuyen | currency:'VND':true }}</p>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p class="m-0 fw-bold">Thành tiền</p>
+                <p class="m-0 text-end fw-bold" style="width: 20%;">{{ tongThanhToan() | currency:'VND':true }}</p>
+            </div>
+        </div>
+    </div>
+</div>

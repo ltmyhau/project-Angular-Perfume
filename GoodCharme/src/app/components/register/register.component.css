@@ -1,0 +1,96 @@
+@media (min-width: 992px) {
+    .input-group.col-lg-6 {
+        width: 50%;
+    }
+
+    .social-form {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .social-form a {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .btn-primary {
+        width: 100%;
+    }
+
+    .social-form {
+        display: block;
+    }
+
+    .social-form a {
+        margin: 4px 0;
+    }
+}
+
+.border-md {
+    border-width: 1px;
+}
+
+.btn-facebook {
+    background: #405D9D;
+    border: none;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+    background: #314879;
+}
+
+body {
+    min-height: 100vh;
+}
+
+select.form-control {
+    height: 52px;
+    padding-left: 0.5rem;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+
+.input-group-text {
+    padding: 10px 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.form-control {
+    border-left: none;
+}
+
+.btn:hover{
+    --bs-btn-hover-bg: var(--goodcharme-hover);
+}
+
+.social-form a {
+    display: flex;
+    align-items: center;
+}
+
+.social-form a span {
+    flex: 1;
+}
+
+.google-icon {
+    width: 18px;
+}
+
+.btn-google {
+    color: var(--text-color);
+    background-color: #dee2e6;
+    border-color: #dee2e6;
+}
+
+.btn-google:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,58 @@
+:root {
+    --goodcharme-color: #e6aa61;
+    --goodcharme-hover: #f6b567;
+    --text-color: #222;
+    --border-color: #dbdbdb;
+}
+
+@font-face {
+    font-family: 'Portrait';
+    src: url('/assets/fonts/portrait-gorpg.ttf');
+}
+
+.text-goodcharme {
+    color: var(--goodcharme-color);
+}
+
+.bg-goodcharme {
+    background-color: var(--goodcharme-color);
+}
+
+.btn-goodcharme-success {
+    --bs-btn-hover-bg: var(--goodcharme-hover);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: var(--goodcharme-hover);
+
+    --bs-btn-active-bg: var(--goodcharme-color);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: var(--goodcharme-color);
+
+    color: #fff;
+    background-color: var(--goodcharme-color);
+    border: none;
+}
+
+.btn-link {
+    --bs-link-color: #222;
+    --bs-btn-hover-color: #777;
+}
+
+.btn-primary {
+    --bs-btn-active-bg: var(--goodcharme-color);
+}
+
+.hover-goodcharme {
+    --bs-nav-link-color: #222;
+    --bs-nav-link-hover-color: var(--goodcharme-color);
+}
+
+.rating{
+    padding: 0;
+    margin: 0 0 7px;
+    list-style: none;
+}
+.rating li{
+    color: #f7bc3d;
+    font-size: 13px;
+}
+.rating li.far{ color: #777; }

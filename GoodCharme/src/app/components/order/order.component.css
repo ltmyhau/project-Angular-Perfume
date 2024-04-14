@@ -1,0 +1,52 @@
+@media (min-width: 992px) {
+    .form-control.col-lg-6 {
+        width: calc(50% - 16px);
+    }
+    .form-control.col-lg-12 {
+        width: calc(100% - 16px);
+    }
+    .form-control.col-lg-4 {
+        width: calc(33.3333% - 16px);
+    }
+}
+
+.icon-hover-primary:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+}
+
+.icon-hover-primary:hover i {
+    color: #3b71ca !important;
+}
+.icon-hover-danger:hover {
+    border-color: #dc4c64 !important;
+    background-color: white !important;
+}
+
+.icon-hover-danger:hover i {
+    color: #dc4c64 !important;
+}
+
+tr > th {
+    background-color: #f3f3f3;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+tr > th:first-child {
+    padding-left: 16px;
+}
+
+.delivery-info input {
+    margin: 0 8px 16px;
+}
+
+.payment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.payment-item input {
+    margin: 8px;
+}

@@ -1,0 +1,11 @@
+.logistic-img {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    background-color: #fff;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}

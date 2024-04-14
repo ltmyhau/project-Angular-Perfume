@@ -1,0 +1,63 @@
+@media (min-width: 992px) {
+    .social-form {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .social-form a {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .social-form {
+        display: block;
+    }
+
+    .social-form a {
+        margin: 4px 0;
+    }
+}
+
+.input-group-text {
+    padding: 10px 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.btn:hover{
+    --bs-btn-hover-bg: var(--goodcharme-hover);
+}
+
+.btn-facebook {
+    background: #405D9D;
+    border: none;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+    background: #314879;
+}
+
+.social-form a {
+    display: flex;
+    align-items: center;
+}
+
+.social-form a span {
+    flex: 1;
+}
+
+.google-icon {
+    width: 18px;
+}
+
+.btn-google {
+    color: var(--text-color);
+    background-color: #dee2e6;
+    border-color: #dee2e6;
+}
+
+.btn-google:hover {
+    opacity: 0.8;
+}

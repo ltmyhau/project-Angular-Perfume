@@ -282,3 +282,4 @@ D:\MIS\Framework\SourceCode\API_QLBH\API_QLBH\obj\Debug\net8.0\refint\API_QLBH.d
 D:\MIS\Framework\SourceCode\API_QLBH\API_QLBH\obj\Debug\net8.0\API_QLBH.pdb
 D:\MIS\Framework\SourceCode\API_QLBH\API_QLBH\obj\Debug\net8.0\API_QLBH.genruntimeconfig.cache
 D:\MIS\Framework\SourceCode\API_QLBH\API_QLBH\obj\Debug\net8.0\ref\API_QLBH.dll
+D:\MIS\2024 HK I\Phát triển hệ thống thông tin trên các framework\Đồ án\SourceCode\API_QLBH\API_QLBH\obj\Debug\net8.0\API_QLBH.sourcelink.json

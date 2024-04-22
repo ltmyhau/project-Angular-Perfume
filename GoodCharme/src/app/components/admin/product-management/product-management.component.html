@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between mb-3">
+    <h2>Quản lý sản phẩm</h2>
+    <a routerLink="add" class="add-btn">Thêm sản phẩm</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th style="width: 15%;">Mã sản phẩm</th>
+            <th style="width: 30%;">Tên sản phẩm</th>
+            <th style="width: 15%;">Đơn giá</th>
+            <th style="width: 15%;">Số lượng tồn</th>
+            <th style="width: 15%;">Hình ảnh</th>
+            <th style="width: 10%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td style="text-align: center;">{{product.MaSP}}</td>
+            <td>{{product.TenSP}}</td>
+            <td style="text-align: center;">{{product.GiaBan}}</td>
+            <td style="text-align: center;">{{product.SoLuongTon}}</td>
+            <td>
+                <img [src]="product.HinhSP" alt="Hình sản phẩm" class="product-img">
+            </td>
+            <td style="text-align: center;">
+                <a routerLink="edit/{{product.MaSP}}" class="edit-btn">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <button class="delete-btn" (click)="onDelete(product.MaSP)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

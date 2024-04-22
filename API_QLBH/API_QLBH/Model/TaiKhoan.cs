@@ -2,8 +2,9 @@
 {
     public class TaiKhoan
     {
-        public string username { get; set; }
-        public string passwork { get; set; }
-        public string phanquyen { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string? Phanquyen { get; set; }
+        public string? MaKH { get; set; }
     }
 }

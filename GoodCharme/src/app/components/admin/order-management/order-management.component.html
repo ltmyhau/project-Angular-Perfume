@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-between mb-3">
+    <h2>Quản lý đơn hàng</h2>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th style="width: 15%;">Mã đơn hàng</th>
+            <th style="width: 25%;">Khách hàng</th>
+            <th style="width: 15%;">Ngày đặt hàng</th>
+            <th style="width: 15%;">Ngày giao hàng</th>
+            <th style="width: 20%;">Trạng thái</th>
+            <th style="width: 10%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td style="text-align: center;">{{order.MaDH}}</td>
+            <td>{{order.HoTenKH}}</td>
+            <td style="text-align: center;">{{ order.NgayDat | date:'dd/MM/yyyy' }}</td>
+            <td style="text-align: center;">{{ order.NgayGiao | date:'dd/MM/yyyy' }}</td>
+            <td style="text-align: center;"> {{order.TinhTrang}}</td>
+            <td style="text-align: center;">
+                <button class="edit-btn" (click)="showOrderForm(order.MaDH)">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <!-- <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div #orderForm class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="d-flex justify-content-between">
+            <h2>Thông tin đơn hàng</h2>
+            <span class="close" (click)="hideOrderForm()">&times;</span>
+        </div>
+        <form action="" method="POST" [formGroup]="orderInfo" (submit)="onUpdate()">
+            <label for="customerName" class="order-label">Khách hàng:</label>
+            <input type="text" formControlName="HoTenKH" name="customerName" class="order-input" readonly>
+
+            <label for="orderDate" class="order-label">Ngày đặt:</label>
+            <input type="text" formControlName="NgayDat" name="orderDate" class="order-input" readonly>
+
+            <label for="deliveryDate" class="order-label">Ngày giao:</label>
+            <input type="date" formControlName="NgayGiao" name="deliveryDate" class="order-input">
+
+            <label for="orderStatus" class="order-label">Tình trạng:</label>
+            <select formControlName="MaTT" id="orderStatus" class="order-input">
+                <option *ngFor="let orderStatus of orderStatusList" value="{{orderStatus.MaTT}}">{{orderStatus.TinhTrang}}</option>
+            </select>
+    
+            <button type="submit" class="submit-btn">Lưu thông tin</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="modal-content">
+    <div class="d-flex mb-3">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h2 class="heading">Chỉnh sửa sản phẩm</h2>
+    </div>
+    <div class="product-info d-flex justify-content-evenly">
+        <form action="" method="POST" class="product-form" [formGroup]="productEdit" (submit)="onUpdate()">
+            <label for="productName" class="product-label">Tên sản phẩm:</label>
+            <!-- <input type="text" name="productName" class="product-input" value="{{product.TenSP}}"> -->
+            <input type="text" formControlName="TenSP" name="productName" class="product-input">
+            <!-- <div *ngIf="submited && f.TenSP.errors">
+                <small class="error-message" *ngIf="f.TenSP.errors['required']">Tên sản phẩm không được để trống</small>
+            </div> -->
+    
+            <label for="productPrice" class="product-label">Giá bán:</label>
+            <!-- <input type="text" name="productPrice" class="product-input" value="{{product.GiaBan}}"> -->
+            <input type="text" formControlName="GiaBan" name="productPrice" class="product-input">
+            <!-- <div *ngIf="submited && f.GiaBan.errors">
+                <small class="error-message" *ngIf="f.GiaBan.errors['required']">Giá bán không được để trống</small>
+            </div> -->
+    
+            <label for="productType" class="product-label">Loại sản phẩm:</label>
+            <select formControlName="MaLoaiSP" id="productType" class="product-input">
+                <option *ngFor="let productType of productTypes" value="{{productType.MaLoaiSP}}">{{productType.TenLoaiSP}}</option>
+            </select>
+    
+            <label for="productQuantity" class="product-label">Số lượng tồn:</label>
+            <!-- <input type="text" name="productQuantity" class="product-input" value="{{product.SoLuongTon}}"> -->
+            <input type="text" formControlName="SoLuongTon" name="productQuantity" class="product-input">
+            <!-- <div *ngIf="submited && f.SoLuongTon.errors">
+                <small class="error-message" *ngIf="f.SoLuongTon.errors['required']">Số lượng tồn không được để trống</small>
+            </div> -->
+    
+            <label for="productImage" class="product-label">Hình ảnh:</label>
+            <input type="file" accept="image/*" name="productImage" class="product-input" (change)="selectFile($event)">
+    
+            <button type="submit" class="submit-btn">Lưu thông tin</button>
+        </form>
+
+        <div class="product-image">
+            <img [src]="preview" alt="" class="product-img">
+        </div>
+    </div>
+</div>

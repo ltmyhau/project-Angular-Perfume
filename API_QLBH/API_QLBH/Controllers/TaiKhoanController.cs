@@ -19,7 +19,7 @@ namespace API_QLBH.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = "SELECT * FROM TaiKhoan";
+            string query = "SELECT * FROM vwTaiKhoan";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -41,7 +41,7 @@ namespace API_QLBH.Controllers
         [HttpPost]
         public JsonResult login(TaiKhoan taiKhoan)
         {
-            string query = $"SELECT COUNT(*) FROM TaiKhoan WHERE Username = '{taiKhoan.username}' AND Passwork = '{taiKhoan.passwork}'";
+            string query = $"SELECT * FROM vwTaiKhoan WHERE username = '{taiKhoan.Username}' AND password = '{taiKhoan.Password}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -63,7 +63,7 @@ namespace API_QLBH.Controllers
         [HttpPost]
         public JsonResult register(TaiKhoan taiKhoan)
         {
-            string query = String.Format("INSERT INTO TaiKhoan(Username, Passwork, PhanQuyen) VALUES ('{0}', '{0}', 'cus')", taiKhoan.username, taiKhoan.passwork);
+            string query = String.Format("INSERT INTO TaiKhoan(Username, Passwork, PhanQuyen) VALUES ('{0}', '{0}', 'cus')", taiKhoan.Username, taiKhoan.Password);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;

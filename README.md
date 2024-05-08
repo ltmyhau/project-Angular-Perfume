@@ -3,7 +3,8 @@
 # WEBSITE BÁN NƯỚC HOA TRỰC TUYẾN
 Dự án này nhằm mục đích phát triển một website bán nước hoa trực tuyến, cung cấp cho khách hàng một kênh mua sắm tiện lợi, cho phép khách hàng dễ dàng tìm kiếm, lựa chọn và mua sắm các sản phẩm nước hoa ưa thích của họ.
 
-![WEBSITE BÁN NƯỚC HOA TRỰC TUYẾN](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/098274c7-ec11-4d0f-8d37-9e0db180c027)
+![WEBSITE BÁN NƯỚC HOA TRỰC TUYẾN](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/6f34674a-0f87-4e08-b2b2-7ab57231d2e1)
+
 
 ## Mục lục
 
@@ -45,53 +46,53 @@ Thị trường nước hoa Việt Nam đang ngày càng phát triển với nhu
 ## 4. Chức năng
 * Trang chủ: Hiển thị banner quảng cáo giới thiệu các chương trình khuyến mãi, danh mục sản phẩm mới, sản phẩm bán chạy.
 
-![Trang chủ 1](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/05b55513-71c9-4601-a4f9-a48b20782c9d)
-![Trang chủ 2](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/1a4b05e2-0540-4192-a537-752da78fdef5)
+![Trang chủ 1](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/6f34674a-0f87-4e08-b2b2-7ab57231d2e1)
+![Trang chủ 2](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/dd7081d6-8f0e-40ff-a467-44bca3e7a978)
 
 * Danh mục sản phẩm: Lọc và tìm kiếm sản phẩm theo nhiều tiêu chí, phân loại nước hoa theo loại sản phẩm, giá cả.
 
-![Danh mục sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/f6e2b0b2-2dc5-4785-83e3-1105ea1d2f21)
+![Danh mục sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/34e42433-4f9e-4fc8-88e7-7eef465c3f03)
 
 * Trang sản phẩm: Hiển thị hình ảnh, thông tin chi tiết về sản phẩm, đánh giá của khách hàng và các sản phẩm liên quan.
 
-![Trang sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/ef6c2cdd-cc85-4304-b224-e7a4bfaa44c9)
+![Trang sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/33685daf-1707-4d24-8109-4432cbdb4457)
 
 * Giỏ hàng: Quản lý sản phẩm đã chọn, cập nhật số lượng, xóa sản phẩm, hiển thị tổng thanh toán, thanh toán.
 
-![Giỏ hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/69cc582f-fcbe-4ba0-a2b0-69425963eb75)
+![Giỏ hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/42b92f41-7444-4e0c-b225-9ab7b1963359)
 
 * Đặt hàng: Khi khách hàng đã chọn xong sản phẩm và muốn mua hàng, họ có thể tiến hành đặt hàng bằng cách điền đầy đủ thông tin cá nhân, địa chỉ giao hàng, phương thức thanh toán,...
 
-![Đặt hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/ce0c9c6c-ddc6-4796-9de3-4f50bb921241)
+![Đặt hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/16c43314-621a-44b9-8598-54c4869c5611)
 
 * Theo dõi đơn hàng: Sau khi đặt hàng, khách hàng có thể theo dõi trạng thái đơn hàng của mình trên trang web.
 
-![Theo dõi đơn hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/1c9be90b-fdce-40b9-99d6-6055717916d3)
+![Theo dõi đơn hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/41a502e1-ef1b-4173-a991-f4a8aae39369)
 
 * Liên hệ: Cung cấp thông tin liên hệ, form liên hệ để hỗ trợ khách hàng.
 
-![Liên hệ](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/0d7e5071-400f-4c3a-9e2c-18634ea2e1bd)
+![Liên hệ](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/8c294d87-6cdf-4d8f-b13c-e6172c6a3ac5)
 
 * Giới thiệu: Giới thiệu cửa hàng, thương hiệu, các giải thưởng và thành tựu.
 
-![Giới thiệu](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/d36e6878-9365-4afb-8b3a-eb49c7415c9f)
+![Giới thiệu](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/24987340-d647-432d-8792-8b203d820990)
 
 * Đăng ký:
 
-![Đăng ký](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/cd016e54-219f-4a7a-bf88-67d54bba8f31)
+![Đăng ký](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/6702913e-ac2d-411e-84ee-dc1ac88ac7e0)
 
 * Đăng nhập:
 
-![Đăng nhập](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/e7999eba-52dc-4d94-86cd-69a99b8593f0)
+![Đăng nhập](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/80f15c02-89c6-49fd-8893-4f4f497e4717)
 
 * **Chức năng dành cho quản trị viên:**
   * Quản lý sản phẩm: Thêm, sửa, xóa sản phẩm, cập nhật thông tin sản phẩm: tên sản phẩm, giá bán, chi tiết sản phẩm, hình ảnh,...
 
-![Quản lý sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/a94bd154-6a47-4a66-a29e-0a3e766d7d2b)
+![Quản lý sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/5761fbb3-6d9f-40aa-b617-f2db6ebfa6d6)
 
   * Quản lý đơn hàng: Xem danh sách đơn hàng, xử lý đơn hàng (xác nhận đơn hàng, đóng gói, giao hàng, hoàn thành đơn hàng)
 
-![Quản lý đơn hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/2fcc6d64-636e-4a38-a11a-f27653ce2522)
+![Quản lý đơn hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/6ac90bdc-6a61-430d-8770-8844a93d64bc)
 
 <div id="TacGia"></div>
 

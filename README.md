@@ -90,7 +90,7 @@ Thị trường nước hoa Việt Nam đang ngày càng phát triển với nhu
 
     ![Quản lý sản phẩm](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/5761fbb3-6d9f-40aa-b617-f2db6ebfa6d6)
 
-  * Quản lý đơn hàng: Xem danh sách đơn hàng, xử lý đơn hàng (xác nhận đơn hàng, đóng gói, giao hàng, hoàn thành đơn hàng)
+  * Quản lý đơn hàng: Xem danh sách đơn hàng, xử lý đơn hàng (chờ xử lý, đang xử lý, đã gửi hàng, hoàn thành đơn hàng)
 
     ![Quản lý đơn hàng](https://github.com/ltmyhau/project-Angular-Perfume/assets/152046332/6ac90bdc-6a61-430d-8770-8844a93d64bc)
 

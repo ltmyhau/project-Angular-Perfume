@@ -90,4 +90,8 @@ export class AppService {
   customerByID(idSP: any = 1): any {
     return this.http.get<any>(`${api}/KhachHang/GetKhachHangTheoMaKH?id=`+idSP);
   }
+
+  searchProduct(searchTerm: string) {
+    return this.http.get<any>(`${api}/SanPham/SearchSanPham?search=`+searchTerm);
+  }
 }

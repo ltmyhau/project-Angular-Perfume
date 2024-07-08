@@ -56,12 +56,12 @@
                 </div>
             </div>
 
-            <form class="d-flex flex-grow-1 navbar-search" role="search">
-                <input class="form-control shadow-none px-3" type="search" placeholder="Bạn muốn mua gì?" aria-label="Search">
+            <form class="d-flex flex-grow-1 navbar-search" role="search" (ngSubmit)="onSubmit()">
+                <input class="form-control shadow-none px-3" type="search" placeholder="Bạn muốn mua gì?" aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm">
                 <button class="btn btn-goodcharme-success" type="submit" style="width: 60px;">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-            </form>
+            </form>              
 
             <div class="d-none d-lg-flex gap-3" *ngIf="!loggedInUsername">
                 <a href="login" class="text-goodcharme text-decoration-none">Đăng nhập</a>

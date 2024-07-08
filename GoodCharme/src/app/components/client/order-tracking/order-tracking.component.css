@@ -6,6 +6,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.container {
+    height: 80vh;
+}
+
 .card {
     z-index: 0;
     padding-bottom: 20px;

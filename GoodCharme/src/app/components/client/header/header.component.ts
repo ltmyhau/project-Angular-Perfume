@@ -19,4 +19,18 @@ export class HeaderComponent {
     }
   }
 
+  searchTerm?: string;
+  onSubmit() {
+    if (this.searchTerm !== undefined) {
+      // this.app.searchProduct(this.searchTerm).subscribe((res: any) => {
+        
+      // })
+    }
+  }
+
+  // if (this.tuGia !== undefined && this.denGia !== undefined) {
+  //   this.app.productsByPrice(this.tuGia, this.denGia).subscribe((res: any) => {
+  //     this.products = res;
+  //   });
+  // }
 }

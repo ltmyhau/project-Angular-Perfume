@@ -19,6 +19,11 @@
     }
 }
 
+.container {
+    height: 80vh;
+    display: flex;
+}
+
 .input-group-text {
     padding: 10px 0;
     border-top-right-radius: 0;

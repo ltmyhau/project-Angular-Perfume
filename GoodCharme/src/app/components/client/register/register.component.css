@@ -27,6 +27,11 @@
     }
 }
 
+.container {
+    height: 80vh;
+    display: flex;
+}
+
 .border-md {
     border-width: 1px;
 }

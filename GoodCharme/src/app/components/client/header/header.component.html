@@ -13,9 +13,9 @@
                 </a>
             </li>
             <li class="top-bar_item">
-                <a href="tel:1900 636 638" class="top-bar_link">
+                <a href="tel:037 3485 725" class="top-bar_link">
                     <i class="top-bar_icon fa-solid fa-phone"></i>
-                    1900 636 638
+                    2121001000
                 </a>
             </li>
         </ul>
@@ -25,7 +25,7 @@
 <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top p-0">
     <div class="container" style="display: block;">
         <div class="d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" routerLink="/">
                 <img src="/assets/images/logo.png" alt="Good Charme" style="width: 100px;">
             </a>
             
@@ -71,6 +71,7 @@
             <div class="d-flex" *ngIf="loggedInUsername">
                 <a routerLink="cart" class="cart-btn">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">{{ cartCount }}</span>
                 </a>
                 <a routerLink="" class="d-none d-lg-flex account">
                     <i class="fa-solid fa-user"></i>

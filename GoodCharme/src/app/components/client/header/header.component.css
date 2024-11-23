@@ -95,6 +95,29 @@
     color: var(--goodcharme-hover);
 }
 
+.cart-btn:hover .cart-count {
+    border: 1px solid var(--goodcharme-hover);
+    color: var(--goodcharme-hover);
+    opacity: 0.9;
+}
+
+.cart-count {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: white;
+    border: 1px solid var(--goodcharme-color);
+    color: var(--goodcharme-color);
+    font-size: 14px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-link {
     --bs-nav-link-font-size: 16px;
 }

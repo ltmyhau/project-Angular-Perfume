@@ -57,7 +57,7 @@
         <div class="col-lg-9 col-md-8 col-12">
             <div class="product">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
+                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: p }">
                         <div class="product-grid">
                             <div class="product-image">
                                 <a [routerLink]="['/product', product.MaSP]" class="image">
@@ -87,6 +87,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="pagination-container">
+                <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page" [class.disabled]="p === 1"></a>
+                <pagination-controls class="pagination"
+                    (pageChange)="p = $event"
+                    [maxSize]="7"
+                    [autoHide]="true"
+                    [directionLinks]="true"
+                    [responsive]="true"
+                    previousLabel=""
+                    nextLabel="">
+                </pagination-controls>
+                <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page" [class.disabled]="p === totalPages"></a>
             </div>
         </div>
     </div>

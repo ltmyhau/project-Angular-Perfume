@@ -19,6 +19,7 @@ import { OrderManagementComponent } from './components/admin/order-management/or
 import { AddProductComponent } from './components/admin/add-product/add-product.component';
 import { EditProductComponent } from './components/admin/edit-product/edit-product.component';
 import { AdminGuard } from './guard/admin.guard';
+import { BehaviorSubject } from 'rxjs';
 
 const routes: Routes = [
   // {
@@ -45,6 +46,7 @@ const routes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'about', component: AboutComponent},
     {path: 'product/:id', component: SanPhamChiTietComponent},
+    {path: 'product-type', component: SanPhamDanhMucComponent},
     {path: 'product-type/:id', component: SanPhamDanhMucComponent},
     {path: 'cart', component: CartComponent},
     {path: 'cart/order', component: OrderComponent},
@@ -52,8 +54,8 @@ const routes: Routes = [
     ]
   },
   {path:'login',component:LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: '**', component: Page404Component}
+  {path: 'register', component: RegisterComponent}
+  // {path: '**', component: Page404Component}
 ];
 
 @NgModule({

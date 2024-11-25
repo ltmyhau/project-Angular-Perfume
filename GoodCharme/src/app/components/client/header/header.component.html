@@ -3,12 +3,12 @@
         <p class="top-bar_message">Tôn vinh phong cách</p>
         <ul class="top-bar_list">
             <li class="top-bar_item">
-                <a href="https://www.facebook.com/GoodCharmePerfume" target="_blank" class="top-bar_link">
+                <a href="https://www.facebook.com/ltmyhau" target="_blank" class="top-bar_link">
                     <i class="top-bar_icon fa-brands fa-facebook-f"></i>
                 </a>
             </li>
             <li class="top-bar_item">
-                <a href="https://www.instagram.com/goodcharmevietnam/" target="_blank" class="top-bar_link">
+                <a href="https://www.facebook.com/ltmyhau" target="_blank" class="top-bar_link">
                     <i class="top-bar_icon fa-brands fa-instagram"></i>
                 </a>
             </li>
@@ -50,25 +50,25 @@
                         </li>
                     </ul>
                     <div class="d-flex d-lg-none justify-content-center align-items-center gap-3">
-                        <a href="login" class="text-goodcharme text-decoration-none">Đăng nhập</a>
-                        <a href="register" class="btn-goodcharme-success text-white text-decoration-none bg-goodcharme px-3 py-1 radius-5">Đăng ký</a>
+                        <a routerLink="/login" class="text-goodcharme text-decoration-none">Đăng nhập</a>
+                        <a routerLink="/register" class="btn-goodcharme-success text-white text-decoration-none bg-goodcharme px-3 py-1 radius-5">Đăng ký</a>
                     </div>
                 </div>
             </div>
 
             <form class="d-flex flex-grow-1 navbar-search" role="search" (ngSubmit)="onSubmit()">
                 <input class="form-control shadow-none px-3" type="search" placeholder="Bạn muốn mua gì?" aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm">
-                <button class="btn btn-goodcharme-success" type="submit" style="width: 60px;">
+                <button class="btn btn-goodcharme-success btn-search" type="submit" style="width: 60px;">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-            </form>              
+            </form>
 
-            <div class="d-none d-lg-flex gap-3" *ngIf="!loggedInUsername">
-                <a href="login" class="text-goodcharme text-decoration-none">Đăng nhập</a>
-                <a href="register" class="btn btn-goodcharme-success text-white text-decoration-none bg-goodcharme px-3 py-1 radius-5">Đăng ký</a>
-            </div>
+            <!-- <div class="d-none d-lg-flex gap-3" *ngIf="!loggedInUsername">
+                <a routerLink="/login" class="text-goodcharme text-decoration-none">Đăng nhập</a>
+                <a routerLink="/register" class="btn btn-goodcharme-success text-white text-decoration-none bg-goodcharme px-3 py-1 radius-5">Đăng ký</a>
+            </div> -->
 
-            <div class="d-flex" *ngIf="loggedInUsername">
+            <!-- <div class="d-flex" *ngIf="loggedInUsername">
                 <a routerLink="cart" class="cart-btn">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-count">{{ cartCount }}</span>
@@ -77,6 +77,54 @@
                     <i class="fa-solid fa-user"></i>
                     <span>{{ loggedInUsername }}</span>
                 </a>
+            </div> -->
+            <div class="d-flex justify-content-between">
+                <div class="header__cart-warp">
+                    <a routerLink="/cart" class="cart-btn">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+                    </a>
+                    <div class="header__cart-list">
+                        <img src="./assets/images/empty-cart.png" alt="" class="header__cart-no-cart-img" *ngIf="cartCount === 0">
+                        <span class="header__cart-no-cart-msg" *ngIf="cartCount === 0">Chưa có sản phẩm</span>
+
+                        <h4 class="header__cart-heading" *ngIf="cartCount > 0">Sản phẩm mới thêm</h4>
+                        <ul class="header__cart-list-item" *ngIf="cartCount > 0">
+                            <!-- Cart item -->
+                            <li class="header__cart-item" *ngFor="let item of items" [routerLink]="['/product', item.maSP]">
+                                <img [src]="item.hinhSP" alt="" class="header__cart-item-img">
+                                <div class="header__cart-item-info">
+                                    <div class="header__cart-item-head">
+                                        <h5 class="header__cart-item-name">{{item.tenSP}}</h5>
+                                        <span class="header__cart-item-price">
+                                            {{ item.giaBan | currency:'VND':true }}
+                                        </span>
+                                    </div>
+                                    <div class="header__cart-item-body">
+                                        <span class="header__cart-item-description"></span>
+                                        <span class="header__cart-item-remove" (click)="xoaSanPhamKhoiGioHang(item)">
+                                            Xoá
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="header__cart-view">
+                            <a routerLink="/cart" class="header__cart-view-cart btn btn-goodcharme-success" *ngIf="cartCount > 0">Xem giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+                <a routerLink="" class="d-none d-lg-flex account" *ngIf="loggedInUsername">
+                    <i class="fa-solid fa-user"></i>
+                    <span>{{ loggedInUsername }}</span>
+                    <!-- <span>myhau</span> -->
+                </a>
+            </div>
+
+             <div class="d-none d-lg-flex gap-3" *ngIf="!loggedInUsername">
+                <a routerLink="/login" class="btn btn-login text-goodcharme text-decoration-none">Đăng nhập</a>
+                <a routerLink="/register" class="btn btn-goodcharme-success text-white text-decoration-none bg-goodcharme px-3 py-1 radius-5">Đăng ký</a>
             </div>
     
             <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +27,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SanPhamController.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\SanPhamController.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\SanPhamController.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\SanPhamController.cs",
+              "RelativeToolTip": "API_QLBH\\Controllers\\SanPhamController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAA1wBcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T04:30:49.656Z",
+              "EditorCaption": ""
             }
           ]
         }

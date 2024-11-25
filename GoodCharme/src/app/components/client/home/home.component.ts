@@ -27,18 +27,12 @@ export class HomeComponent implements OnInit{
   isProductAdded: boolean = false;
 
   addToCart(product: Product, quantity: number = 1) {
-    const loggedInUser = this.userService.getLoggedInUser();
-    if (loggedInUser) {
-      this.cartService.addToCart(product, quantity);
+    this.cartService.addToCart(product, quantity);
       console.log(this.cartService.getItems());
       this.isProductAdded = true;
       setTimeout(() => {
           this.isProductAdded = false;
       }, 3000);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
   }
 
   ngOnInit(): void {

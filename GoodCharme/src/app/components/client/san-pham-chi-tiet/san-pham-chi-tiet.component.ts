@@ -29,7 +29,6 @@ export class SanPhamChiTietComponent implements OnInit {
     }
   }
 
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -41,18 +40,12 @@ export class SanPhamChiTietComponent implements OnInit {
   isProductAdded: boolean = false;
 
   addToCart(product: Product, quantity: number = 1) {
-    const loggedInUser = this.userService.getLoggedInUser();
-    if (loggedInUser) {
-      this.cartService.addToCart(product, quantity);
+    this.cartService.addToCart(product, quantity);
       console.log(this.cartService.getItems());
       this.isProductAdded = true;
       setTimeout(() => {
           this.isProductAdded = false;
       }, 3000);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
   }
 
   buyNow(product: Product, quantity: number = 1) {
@@ -63,9 +56,17 @@ export class SanPhamChiTietComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productId = Number(this.route.snapshot.params['id']);
-    this.getProducts(this.productId);
-    this.getRelatedProducts();
+    // this.productId = Number(this.route.snapshot.params['id']);
+    // this.getProducts(this.productId);
+    // this.getRelatedProducts();
+    this.route.paramMap.subscribe((params) => {
+      const id = Number(params.get('id'));
+      if (id) {
+        this.productId = id;
+        this.getProducts(this.productId);
+        this.getRelatedProducts();
+      }
+    });
   }
 
   getProducts(idSP: number): void {

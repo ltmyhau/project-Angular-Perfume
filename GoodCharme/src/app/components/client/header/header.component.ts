@@ -3,6 +3,7 @@ import { UserService } from '../../../services/user.service';
 import { CartService } from '../../../services/cart.service';
 import { AppService } from '../../../services/app.service';
 import { Router } from '@angular/router';
+import { Cart } from '../../../interface/cart';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   loggedInUsername: string | undefined;
   cartCount: number = 0;
+  items = this.cartService.getItems();
 
   constructor(
     private app: AppService,
@@ -36,5 +38,9 @@ export class HeaderComponent {
     if (this.searchTerm !== undefined && this.searchTerm.trim() !== '') {
       this.router.navigate(['/product-type'], { queryParams: { search: this.searchTerm } });
     }
+  }
+
+  xoaSanPhamKhoiGioHang(sanPham: Cart) {
+    this.cartService.removeFromCart(sanPham);
   }
 }

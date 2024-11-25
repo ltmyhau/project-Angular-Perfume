@@ -6,36 +6,36 @@
                     <h3 class="category_heading">Loại sản phẩm</h3>
                     <ul class="category-list">
                         <li class="category-item">
-                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/all" class="category-item_link">Tất cả</a>
+                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/all" class="category-item_link" (click)="clearCategoryInput()">Tất cả</a>
                         </li>
                         <li class="category-item">
-                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa" class="category-item_link">Nước hoa</a>
+                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa" class="category-item_link" (click)="clearCategoryInput()">Nước hoa</a>
                             <ul class="category-item_list">
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-nam" class="category-item_item-link">Nước hoa nam</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-nam" class="category-item_item-link" (click)="clearCategoryInput()">Nước hoa nam</a>
                                 </li>
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-nu" class="category-item_item-link">Nước hoa nữ</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-nu" class="category-item_item-link" (click)="clearCategoryInput()">Nước hoa nữ</a>
                                 </li>
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-tre-em" class="category-item_item-link">Nước hoa trẻ em</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-tre-em" class="category-item_item-link" (click)="clearCategoryInput()">Nước hoa trẻ em</a>
                                 </li>
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-xe-hoi" class="category-item_item-link">Nước hoa xe hơi</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/nuoc-hoa-xe-hoi" class="category-item_item-link" (click)="clearCategoryInput()">Nước hoa xe hơi</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="category-item">
-                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/san-pham-khac" class="category-item_link">Sản phẩm khác</a>
+                            <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/san-pham-khac" class="category-item_link" (click)="clearCategoryInput()">Sản phẩm khác</a>
                             <ul class="category-item_list">
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/my-pham" class="category-item_item-link">Mỹ phẩm</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/my-pham" class="category-item_item-link" (click)="clearCategoryInput()">Mỹ phẩm</a>
                                 </li>
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/cham-soc-toan-than" class="category-item_item-link">Chăm sóc toàn thân</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/cham-soc-toan-than" class="category-item_item-link" (click)="clearCategoryInput()">Chăm sóc toàn thân</a>
                                 </li>
                                 <li class="category-item_item">
-                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/tinh-dau-thien-nhien" class="category-item_item-link">Tinh dầu thiên nhiên</a>
+                                    <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/product-type/tinh-dau-thien-nhien" class="category-item_item-link" (click)="clearCategoryInput()">Tinh dầu thiên nhiên</a>
                                 </li>
                             </ul>
                         </li>
@@ -55,9 +55,46 @@
             </div>
         </div>
         <div class="col-lg-9 col-md-8 col-12">
+            <div class="sort-filter hide-on-mobile-tablet">
+                <span class="sort-filter__label">Sắp xếp theo</span>
+                <button class="sort-filter__btn btn" [ngClass]="{'btn-goodcharme-success': activeSort === 'popular'}" (click)="sortBy('popular')">Phổ biến</button>
+                <button class="sort-filter__btn btn" [ngClass]="{'btn-goodcharme-success': activeSort === 'newest'}" (click)="sortBy('newest')">Mới nhất</button>
+                <button class="sort-filter__btn btn" [ngClass]="{'btn-goodcharme-success': activeSort === 'bestseller'}" (click)="sortBy('bestseller')">Bán chạy</button>
+
+                <div class="select-input">
+                    <span class="select-input__label" [ngClass]="{'goodcharme-color': activeSort === 'priceAsc' || activeSort === 'priceDesc'}">
+                        {{ activeSort === 'priceAsc' ? 'Giá: Thấp đến cao' : activeSort === 'priceDesc' ? 'Giá: Cao đến thấp' : 'Giá' }}
+                    </span>
+                    <i class="select-input__icon fa-solid fa-chevron-down"></i>
+                    <ul class="select-input__list">
+                        <li class="select-input__item" [ngClass]="{'goodcharme-color': activeSort === 'priceAsc'}" (click)="sortBy('priceAsc')">Giá: Thấp đến cao</li>
+                        <li class="select-input__item" [ngClass]="{'goodcharme-color': activeSort === 'priceDesc'}" (click)="sortBy('priceDesc')">Giá: Cao đến thấp</li>
+                    </ul>
+                </div>
+
+                <!-- <div class="sort-filter__page">
+                    <span class="sort-filter__page-number">
+                        <span class="sort-filter__page-current">{{ currentPage }}</span>/{{ totalPages }}
+                    </span>
+
+                    <div class="sort-filter__page-control">
+                        <a href="" class="sort-filter__page-btn sort-filter__page-btn--disable"
+                            [class.sort-filter__page-btn--disable]="currentPage === 1"
+                            (click)="prevPage($event)">
+                                <i class="sort-filter__page-icon fa-solid fa-chevron-left"></i>
+                        </a>
+                        <a href="" class="sort-filter__page-btn"
+                            [class.sort-filter__page-btn--disable]="currentPage === totalPages" 
+                            (click)="nextPage($event)">
+                                <i class="sort-filter__page-icon fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+
             <div class="product">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: p }">
+                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
                         <div class="product-grid">
                             <div class="product-image">
                                 <a [routerLink]="['/product', product.MaSP]" class="image">
@@ -90,9 +127,9 @@
             </div>
 
             <div class="pagination-container">
-                <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page" [class.disabled]="p === 1"></a>
+                <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page" [class.disabled]="currentPage === 1"></a>
                 <pagination-controls class="pagination"
-                    (pageChange)="p = $event"
+                    (pageChange)="currentPage = $event; preventScrollToTop()"
                     [maxSize]="7"
                     [autoHide]="true"
                     [directionLinks]="true"
@@ -100,7 +137,7 @@
                     previousLabel=""
                     nextLabel="">
                 </pagination-controls>
-                <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page" [class.disabled]="p === totalPages"></a>
+                <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page" [class.disabled]="currentPage === totalPages"></a>
             </div>
         </div>
     </div>

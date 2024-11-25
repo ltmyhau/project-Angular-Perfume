@@ -12,13 +12,25 @@ import { combineLatest } from 'rxjs';
   styleUrl: './san-pham-danh-muc.component.css'
 })
 export class SanPhamDanhMucComponent implements OnInit {
-  tuGia?: number;
-  denGia?: number;
-  products: any=[];
-  p: number = 1;
+  // tuGia: number | null = null;
+  // denGia: number | null = null;
+  // products: any=[];
+  // currentPage: number = 1;
+  // pageSize: number = 20;
+  // totalItems: number = 0;
+  // totalPages: number = 0;
+  // currentSort: string = '';
+
+  tuGia: number | null = null;
+  denGia: number | null = null;
+  products: Product[] = [];
+  currentPage: number = 1;
   pageSize: number = 20;
   totalItems: number = 0;
   totalPages: number = 0;
+  currentSort: string = '';
+
+  isProductAdded: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,99 +40,75 @@ export class SanPhamDanhMucComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  isProductAdded: boolean = false;
-
   addToCart(product: Product, quantity: number = 1) {
-    const loggedInUser = this.userService.getLoggedInUser();
-    if (loggedInUser) {
-      this.cartService.addToCart(product, quantity);
+    this.cartService.addToCart(product, quantity);
       console.log(this.cartService.getItems());
       this.isProductAdded = true;
       setTimeout(() => {
           this.isProductAdded = false;
       }, 3000);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
   }
 
   ngOnInit(): void {
-  combineLatest([
-    this.route.paramMap,
-    this.route.queryParams
-  ]).subscribe(([paramMap, queryParams]) => {
-    const searchTerm = queryParams['search'];
-    const idParam = paramMap.get('id');
+    combineLatest([this.route.paramMap, this.route.queryParams]).subscribe(([paramMap, queryParams]) => {
+      const searchTerm = queryParams['search'];
+      const idParam = paramMap.get('id');
+      this.currentPage = 1;
 
-    this.p = 1;
+      if (searchTerm) {
+        this.app.searchProduct(searchTerm).subscribe(res => {
+          this.products = res;
+          this.calculatePagination(res.length);
+        });
+      } else {
+        this.loadProductsByCategory(idParam);
+      }
+    });
+  }
 
-    if (searchTerm) {
-      this.app.searchProduct(searchTerm).subscribe((res: any) => {
+  loadProductsByCategory(idParam: string | null): void {
+    const categoryMap: { [key: string]: number } = {
+      'nuoc-hoa-nam': 1,
+      'nuoc-hoa-nu': 2,
+      'nuoc-hoa-tre-em': 3,
+      'nuoc-hoa-xe-hoi': 4,
+      'my-pham': 5,
+      'cham-soc-toan-than': 6,
+      'tinh-dau-thien-nhien': 7,
+    };
+
+    if (categoryMap[idParam!]) {
+      this.getProducts(categoryMap[idParam!]);
+    } else if (idParam === 'nuoc-hoa') {
+      this.app.NuocHoaList().subscribe(res => {
+        this.products = res;
+        this.calculatePagination(res.length);
+      });
+    } else if (idParam === 'san-pham-khac') {
+      this.app.SanPhamKhacList().subscribe(res => {
         this.products = res;
         this.calculatePagination(res.length);
       });
     } else {
-      this.loadProductsByCategory(idParam);
-    }
-  });
-}
- 
-
-  loadProductsByCategory(idParam: string | null): void {
-    switch (idParam) {
-      case 'nuoc-hoa-nam':
-        this.getProducts(1);
-        break;
-      case 'nuoc-hoa-nu':
-        this.getProducts(2);
-        break;
-      case 'nuoc-hoa-tre-em':
-        this.getProducts(3);
-        break;
-      case 'nuoc-hoa-xe-hoi':
-        this.getProducts(4);
-        break;
-      case 'my-pham':
-        this.getProducts(5);
-        break;
-      case 'cham-soc-toan-than':
-        this.getProducts(6);
-        break;
-      case 'tinh-dau-thien-nhien':
-        this.getProducts(7);
-        break;
-      case 'nuoc-hoa':
-        this.app.NuocHoaList().subscribe((res: any) => {
-          this.products = res;
-          this.calculatePagination(res.length);
-        });
-        break;
-      case 'san-pham-khac':
-        this.app.SanPhamKhacList().subscribe((res: any) => {
-          this.products = res;
-          this.calculatePagination(res.length);
-        });
-        break;
-      default:
-        this.app.productsList().subscribe((res: any) => {
-          this.products = res;
-          this.calculatePagination(res.length);
-        });
-        break;
+      this.app.productsList().subscribe(res => {
+        this.products = res;
+        this.calculatePagination(res.length);
+      });
     }
   }
 
   getProducts(id: number = 1): void {
     this.app.productsByMaLoaiSP(id).subscribe((res: any) => {
       this.products = res;
+      this.calculatePagination(res.length);
     });
   }
 
   getProductsByPrice() {
-    if (this.tuGia !== undefined && this.denGia !== undefined) {
+    if (this.tuGia !== undefined && this.denGia !== undefined && this.tuGia !== null && this.denGia !== null) {
       this.app.productsByPrice(this.tuGia, this.denGia).subscribe((res: any) => {
         this.products = res;
+        this.calculatePagination(res.length);
       });
     }
   }
@@ -131,17 +119,60 @@ export class SanPhamDanhMucComponent implements OnInit {
   }
 
   goToFirstPage() {
-    this.p = 1;
-    this.loadProductsByCategory(this.route.snapshot.paramMap.get('id'));
+    this.currentPage = 1;
+    if (this.tuGia !== undefined && this.denGia !== undefined && this.tuGia !== null && this.denGia !== null) {
+      this.app.productsByPrice(this.tuGia, this.denGia).subscribe((res: any) => {
+        this.products = res;
+        this.calculatePagination(res.length);
+      });
+    } else {
+      this.loadProductsByCategory(this.route.snapshot.paramMap.get('id'));
+    }
+    this.preventScrollToTop();
   }
 
   goToLastPage() {
-    this.p = this.totalPages;
-    this.loadProductsByCategory(this.route.snapshot.paramMap.get('id'));
+    this.currentPage = this.totalPages;
+    if (this.tuGia !== undefined && this.denGia !== undefined && this.tuGia !== null && this.denGia !== null) {
+      this.app.productsByPrice(this.tuGia, this.denGia).subscribe((res: any) => {
+        this.products = res;
+        this.calculatePagination(res.length);
+      });
+    } else {
+      this.loadProductsByCategory(this.route.snapshot.paramMap.get('id'));
+    }
+    this.preventScrollToTop();
   }
 
   get isSinglePage(): boolean {
     return this.totalPages <= 1;
   }
 
+  preventScrollToTop() {
+    window.scrollTo(0, document.body.scrollTop);
+  }
+
+  activeSort: string = 'popular';
+  selectedPriceSort: string = ''; 
+
+  sortBy(criteria: string): void {
+    this.activeSort = criteria;
+    const sortFunctions: { [key: string]: (a: Product, b: Product) => number } = {
+      popular: (a, b) => a.MaSP - b.MaSP,
+      newest: (a, b) => new Date(b.NgayThem).getTime() - new Date(a.NgayThem).getTime(),
+      bestseller: (a, b) => b.TongSoLuongBan - a.TongSoLuongBan,
+      priceAsc: (a, b) => a.GiaBan - b.GiaBan,
+      priceDesc: (a, b) => b.GiaBan - a.GiaBan,
+    };
+
+    const sortFunction = sortFunctions[criteria];
+    if (sortFunction) {
+      this.products.sort(sortFunction);
+    }
+  }
+
+  clearCategoryInput(): void {
+    this.tuGia = null;
+    this.denGia = null;
+  }
 }

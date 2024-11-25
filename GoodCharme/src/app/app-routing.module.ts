@@ -54,12 +54,17 @@ const routes: Routes = [
     ]
   },
   {path:'login',component:LoginComponent},
-  {path: 'register', component: RegisterComponent}
-  // {path: '**', component: Page404Component}
+  {path: 'register', component: RegisterComponent},
+  {path: '**', component: Page404Component}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

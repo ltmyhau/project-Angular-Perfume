@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 d-none d-md-block">
+            <div class="account-menu">
+                <a routerLink="/account/profile" 
+                    [class.active]="isActive('/account/profile') || isActive('/account/address') || isActive('/account/password')" 
+                    class="account-menu-heading">
+                    <i class="fa-solid fa-user account-menu-icon"></i>
+                    Tài khoản
+                </a>
+                <ul class="account-menu-list">
+                    <li class="account-menu-item" [class.active]="isActive('/account/profile')">
+                        <a routerLink="/account/profile" routerLinkActive="active">Thông tin cá nhân</a>
+                    </li>
+                    <li class="account-menu-item" [class.active]="isActive('/account/address')">
+                        <a a routerLink="/account/address" routerLinkActive="active">Thông tin giao hàng</a>
+                    </li>
+                    <li class="account-menu-item" [class.active]="isActive('/account/password')">
+                        <a routerLink="/account/password" routerLinkActive="active">Đổi mật khẩu</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="account-menu">
+                <a routerLink="/account/purchase" [class.active]="isActive('/account/purchase')" class="account-menu-heading">
+                    <i class="fa-solid fa-receipt account-menu-icon"></i>
+                    Đơn hàng
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-12">
+            <router-outlet></router-outlet>            
+        </div>
+    </div>
+</div>

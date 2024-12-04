@@ -92,6 +92,7 @@
     color: var(--goodcharme-color);
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .account:hover {
@@ -103,8 +104,80 @@
     margin-left: 16px;
 }
 
+.account img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .account span {
     margin-left: 8px;
+}
+
+.account ul {
+    padding: 0;
+    margin: 0;
+}
+
+.account:hover .account-menu {
+    display: block;
+}
+
+.account-menu {
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    list-style: none;
+    background-color: white;
+    top: calc(100% + 11px);
+    right: 0;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+    display: none;
+}
+
+.account-menu::before {
+    content: "";
+    border-width: 10px 14px;
+    border-style: solid;
+    border-color: transparent transparent var(--border-color) transparent;
+    position: absolute;
+    top: -20px;
+    right: 13px;
+}
+
+.account-menu::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: -16px;
+    right: 0;
+}
+
+.account-menu-item a {
+    color: var(--text-color);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 12px 16px;
+    display: block;
+    cursor: pointer;
+}
+
+.account-menu a:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.account-menu a:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.account-menu a:hover {
+    color: var(--goodcharme-hover);
+    background-color: #fafafa;
 }
 
 .btn-login {
@@ -197,7 +270,7 @@
     border: 1px solid #dee2e6;
 }
 
-.header__cart-list::after {
+.header__cart-list::before {
     cursor: pointer;
     content: "";
     position: absolute;
@@ -206,6 +279,15 @@
     border-color: transparent transparent var(--border-color) transparent;
     top: -20px;
     right: 13px;
+}
+
+.header__cart-list::after {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 20px;
+    top: -16px;
+    right: 0;
 }
 
 .header__cart-list--cart-no-cart {

@@ -115,10 +115,21 @@
                         </div>
                     </div>
                 </div>
-                <a routerLink="" class="d-none d-lg-flex account" *ngIf="loggedInUsername">
-                    <i class="fa-solid fa-user"></i>
+                <a class="d-none d-lg-flex account" *ngIf="loggedInUsername">                    
+                    <!-- <i class="fa-solid fa-user"></i> -->
+                    <img [src]="loggedInUserAvatar || '/assets/images/user-avatar.png'">
                     <span>{{ loggedInUsername }}</span>
-                    <!-- <span>myhau</span> -->
+                    <ul class="account-menu">
+                        <li class="account-menu-item">
+                            <a routerLink="/account/profile">Tài khoản của tôi</a>
+                        </li>
+                        <li class="account-menu-item">
+                            <a routerLink="/account/purchase">Đơn mua</a>
+                        </li>
+                        <li class="account-menu-item">
+                            <a href="">Đăng xuất</a>
+                        </li>
+                    </ul>
                 </a>
             </div>
 

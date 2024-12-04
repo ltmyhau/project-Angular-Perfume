@@ -3,6 +3,8 @@
     --goodcharme-hover: #f6b567;
     --text-color: #222;
     --border-color: #dbdbdb;
+
+    --gray-color: #515151;
 }
 
 @font-face {
@@ -30,6 +32,20 @@
     color: #fff;
     background-color: var(--goodcharme-color);
     border: none;
+}
+
+.btn-bg-white {
+    --bs-btn-hover-bg: #f8f8f8;
+    --bs-btn-hover-color: var(--goodcharme-hover);
+    --bs-btn-hover-border-color: var(--goodcharme-hover);
+
+    --bs-btn-active-bg: var(--goodcharme-color);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: var(--goodcharme-color);
+
+    color: var(--goodcharme-color);
+    background-color: #fff;
+    border: 1px solid var(--goodcharme-color);
 }
 
 .btn-link {

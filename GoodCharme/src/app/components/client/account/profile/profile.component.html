@@ -1,0 +1,82 @@
+<form action="" method="post" [formGroup]="customerInfoForm">
+    <h4 class="card-title mb-4">Thông tin cá nhân</h4>
+    <div class="row account-info">
+        <div class="col-lg-8 col-md-12 col-12">
+            <div class="row">
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="username" class="col-lg-4 col-md-12 col-12">Tên đăng nhập</label>
+                    <input type="text" id="username" formControlName="Username" class="account-info-input col-lg-8 col-md-12 col-12" placeholder="Tên đăng nhập" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="name" class="col-lg-4 col-md-12 col-12">Họ tên</label>
+                    <div class="account-info-warp">
+                        <input type="text" id="name" formControlName="HoTenKH" class="account-info-input col-lg-8 col-md-12 col-12" placeholder="Họ tên"
+                               [ngClass]="{'border-red': f['HoTenKH'].touched && f['HoTenKH'].invalid}" />
+                        <div *ngIf="f['HoTenKH'].touched && f['HoTenKH'].invalid" class="error-message">
+                            <small *ngIf="f['HoTenKH'].errors?.['required']">Vui lòng nhập họ tên</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="phone-number" class="col-lg-4 col-md-12 col-12">Điện thoại</label>
+                    <div class="account-info-warp">
+                        <input type="text" id="phone-number" formControlName="DienThoai" class="account-info-input col-lg-8 col-md-12 col-12" placeholder="Điện thoại"
+                               [ngClass]="{'border-red': f['DienThoai'].touched && f['DienThoai'].invalid}" />
+                        <div *ngIf="f['DienThoai'].touched && f['DienThoai'].invalid" class="error-message">
+                            <small *ngIf="f['DienThoai'].errors?.['required']">Vui lòng nhập số điện thoại</small>
+                            <small *ngIf="f['DienThoai'].errors?.['pattern']">Số điện thoại không hợp lệ</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="email" class="col-lg-4 col-md-12 col-12">Email</label>
+                    <div class="account-info-warp">
+                        <input type="text" id="email" formControlName="Email" class="account-info-input col-lg-8 col-md-12 col-12" placeholder="Email"
+                               [ngClass]="{'border-red': f['Email'].touched && f['Email'].invalid}" />
+                        <div *ngIf="f['Email'].touched && f['Email'].invalid" class="error-message">
+                            <small *ngIf="f['Email'].errors?.['required']">Vui lòng nhập email</small>
+                            <small *ngIf="f['Email'].errors?.['email']">Email không hợp lệ</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="gender" class="col-lg-4 col-md-12 col-12">Giới tính</label>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="male" formControlName="GioiTinh" class="form-check-input" value="Nam" name="gender" checked />
+                        <label class="form-check-label" for="male">Nam</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="female" formControlName="GioiTinh" class="form-check-input" value="Nữ" name="gender" />
+                        <label class="form-check-label" for="female">Nữ</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="other" formControlName="GioiTinh" class="form-check-input" value="Khác" name="gender" />
+                        <label class="form-check-label" for="other">Khác</label>
+                    </div> 
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="birthday" class="col-lg-4 col-md-12 col-12">Ngày sinh</label>
+                    <div class="account-info-warp">
+                        <input type="date" id="birthday" formControlName="NgaySinh" class="account-info-input col-lg-8 col-md-12 col-12" name="" placeholder="Ngày sinh"
+                               [ngClass]="{'border-red': f['NgaySinh'].touched && f['NgaySinh'].invalid}" />
+                        <div *ngIf="f['NgaySinh'].touched && f['NgaySinh'].invalid" class="error-message">
+                            <small *ngIf="f['NgaySinh'].errors?.['required']">Vui lòng nhập ngày sinh</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-goodcharme-success btn-save" (click)="saveCustomerInfo()">Lưu</button>
+        </div>
+        <div class="col-lg-4 col-md-12 col-12">
+            <div class="d-lg-flex account-avatar">
+                <img [src]="avatarUrl || '/assets/images/user-avatar.png'" alt="" class="account-img">
+                <button class="btn btn-bg-white" (click)="chooseImage()">Chọn ảnh</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="notify" *ngIf="isSaveCustomer">
+    <i class="notify-icon fa-solid fa-circle-check"></i>
+    <p class="notify-message">Cập nhật thông tin thành công</p>
+</div>

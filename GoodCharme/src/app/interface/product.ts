@@ -6,7 +6,7 @@ export interface Product {
     // HinhSP: string;
 
     MaSP: number;
-    MaLoaiSP: string;
+    MaLoaiSP: number;
     TenSP: string;
     GiaBan: number;
     DungTich: number;
@@ -14,4 +14,5 @@ export interface Product {
     HinhSP: string;
     NgayThem: string;
     TongSoLuongBan: number;
+    TenLoaiSP: string;
 }

@@ -94,4 +94,16 @@ export class AppService {
   searchProduct(searchTerm: string) {
     return this.http.get<any>(`${api}/SanPham/SearchSanPham?search=`+searchTerm);
   }
+
+  editCustomerInfo(maKH: string, data: any):Observable<any> {
+    return this.http.put<any>(`${api}/KhachHang/update-info/${maKH}`, data);
+  }
+
+  editCustomerAddress(maKH: string, data: any):Observable<any> {
+    return this.http.put<any>(`${api}/KhachHang/update-address/${maKH}`, data);
+  }
+
+  updatePassword(username: string, newPassword: string): Observable<any> {
+    return this.http.put<any>(`${api}/TaiKhoan/update-password`, { username, password: newPassword });
+  }  
 }

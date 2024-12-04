@@ -12,15 +12,6 @@ import { combineLatest } from 'rxjs';
   styleUrl: './san-pham-danh-muc.component.css'
 })
 export class SanPhamDanhMucComponent implements OnInit {
-  // tuGia: number | null = null;
-  // denGia: number | null = null;
-  // products: any=[];
-  // currentPage: number = 1;
-  // pageSize: number = 20;
-  // totalItems: number = 0;
-  // totalPages: number = 0;
-  // currentSort: string = '';
-
   tuGia: number | null = null;
   denGia: number | null = null;
   products: Product[] = [];
@@ -174,5 +165,31 @@ export class SanPhamDanhMucComponent implements OnInit {
   clearCategoryInput(): void {
     this.tuGia = null;
     this.denGia = null;
+  }
+
+  selectedDisplay: string = 'grid';
+
+  updatePageSize() {
+    this.pageSize = this.selectedDisplay === 'list' ? 10 : 20;
+    this.currentPage = 1;
+  }
+
+  setDisplay(displayType: string): void {
+    this.selectedDisplay = displayType;
+    this.updatePageSize();
+  }
+
+  productRoutes: { [key: number]: string } = {
+    1: 'nuoc-hoa-nam',
+    2: 'nuoc-hoa-nu',
+    3: 'nuoc-hoa-tre-em',
+    4: 'nuoc-hoa-xe-hoi',
+    5: 'my-pham',
+    6: 'cham-soc-toan-than',
+    7: 'tinh-dau-thien-nhien',
+  };
+
+  getRouterLink(maSP: number): string {
+    return this.productRoutes[maSP] ? `/product-type/${this.productRoutes[maSP]}` : '/product-type/all';
   }
 }

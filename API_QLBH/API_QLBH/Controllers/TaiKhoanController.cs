@@ -80,5 +80,26 @@ namespace API_QLBH.Controllers
             }
             return new JsonResult(table);
         }
+
+        [HttpPut("update-password")]
+        public JsonResult Put(TaiKhoan taiKhoan)
+        {
+            string query = String.Format("UPDATE TaiKhoan SET Password = N'{0}' WHERE Username = '{1}'", taiKhoan.Password, taiKhoan.Username);
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Cập nhật thành công!");
+        }
     }
 }

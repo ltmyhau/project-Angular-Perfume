@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SanPhamController.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\SanPhamController.cs",
-              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\SanPhamController.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\SanPhamController.cs",
-              "RelativeToolTip": "API_QLBH\\Controllers\\SanPhamController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAA1wBcAAAAzAAAA",
+              "Title": "TaiKhoanController.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\TaiKhoanController.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\TaiKhoanController.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\TaiKhoanController.cs",
+              "RelativeToolTip": "API_QLBH\\Controllers\\TaiKhoanController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAgwFwAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T04:30:49.656Z",
+              "WhenOpened": "2024-11-28T12:21:43.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KhachHangController.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\KhachHangController.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\KhachHangController.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\KhachHangController.cs",
+              "RelativeToolTip": "API_QLBH\\Controllers\\KhachHangController.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAiwH8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T09:11:51.617Z",
               "EditorCaption": ""
             }
           ]

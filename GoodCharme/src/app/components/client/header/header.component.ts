@@ -4,6 +4,7 @@ import { CartService } from '../../../services/cart.service';
 import { AppService } from '../../../services/app.service';
 import { Router } from '@angular/router';
 import { Cart } from '../../../interface/cart';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { Cart } from '../../../interface/cart';
 })
 export class HeaderComponent {
   loggedInUsername: string | undefined;
+  loggedInUserAvatar: string = '/assets/images/user-avatar.png';  
   cartCount: number = 0;
   items = this.cartService.getItems();
 
@@ -19,15 +21,33 @@ export class HeaderComponent {
     private app: AppService,
     private router: Router,
     private userService: UserService,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     const loggedInUser = this.userService.getLoggedInUser();
-    console.log(loggedInUser);
     if (loggedInUser) {
       this.loggedInUsername = loggedInUser.username;
+      this.app.customerByID(loggedInUser.MaKH).subscribe((res: any[]) => {
+        // res.forEach(customer => {
+        //   if (customer.HinhAnh) {
+        //     this.loggedInUserAvatar = customer.HinhAnh;
+        //   } else {
+        //     this.loggedInUserAvatar = '/assets/images/default-avatar.png';
+        //   }
+        // });
+        const customer = res[0];
+        if (customer && customer.HinhAnh) {
+          this.loggedInUserAvatar = customer.HinhAnh;
+          this.userService.setAvatar(customer.HinhAnh);
+        }
+      });
     }
+    this.userService.avatar$.subscribe(avatar => {
+      this.loggedInUserAvatar = avatar;
+    });
+
     this.cartService.cartCount$.subscribe((count) => {
       this.cartCount = count;
     });
@@ -42,5 +62,9 @@ export class HeaderComponent {
 
   xoaSanPhamKhoiGioHang(sanPham: Cart) {
     this.cartService.removeFromCart(sanPham);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

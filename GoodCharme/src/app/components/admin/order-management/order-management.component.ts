@@ -20,8 +20,8 @@ export class OrderManagementComponent implements OnInit {
     this.app.orderByID(orderID).subscribe((res: any[]) => {
       console.log(res);
       res.forEach(order => {
-        const formattedNgayDat = new Date(order.NgayDat).toISOString().slice(0, 10);
-        const formattedNgayGiao = new Date(order.NgayGiao).toISOString().slice(0, 10);
+        const formattedNgayDat = new Date(order.NgayDat + 'Z').toISOString().slice(0, 10);
+        const formattedNgayGiao = new Date(order.NgayGiao + 'Z').toISOString().slice(0, 10);
         this.orderInfo = this.fb.group({
           MaDH: [order.MaDH],
           HoTenKH: [order.HoTenKH],

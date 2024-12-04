@@ -90,39 +90,86 @@
                         </a>
                     </div>
                 </div> -->
+                <div class="display">
+                    <a href="javascript:void(0)" class="display-item"
+                        [ngClass]="{'active': selectedDisplay === 'list'}"
+                        (click)="setDisplay('list')">
+                        <i class="fa-solid fa-list display-icon"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="display-item"
+                        [ngClass]="{'active': selectedDisplay === 'grid'}"
+                        (click)="setDisplay('grid')">
+                        <svg width="24px" height="24px" enable-background="new 0 0 32 32"  id="Layer_1" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="grid-2"><path d="M10.246,4.228c0-0.547-0.443-0.991-0.99-0.991H3.914c-0.548,0-0.991,0.443-0.991,0.991V9.57   c0,0.546,0.443,0.99,0.991,0.99h5.342c0.547,0,0.99-0.444,0.99-0.99V4.228z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M19.453,4.228c0-0.547-0.443-0.991-0.991-0.991h-5.343c-0.546,0-0.99,0.443-0.99,0.991V9.57   c0,0.546,0.444,0.99,0.99,0.99h5.343c0.548,0,0.991-0.444,0.991-0.99V4.228z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M28.868,4.228c0-0.547-0.443-0.991-0.99-0.991h-5.342c-0.548,0-0.991,0.443-0.991,0.991V9.57   c0,0.546,0.443,0.99,0.991,0.99h5.342c0.547,0,0.99-0.444,0.99-0.99V4.228z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M10.246,13.224c0-0.547-0.443-0.99-0.99-0.99H3.914c-0.548,0-0.991,0.443-0.991,0.99v5.342   c0,0.549,0.443,0.99,0.991,0.99h5.342c0.547,0,0.99-0.441,0.99-0.99V13.224z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M19.453,13.224c0-0.547-0.443-0.99-0.991-0.99h-5.343c-0.546,0-0.99,0.443-0.99,0.99v5.342   c0,0.549,0.444,0.99,0.99,0.99h5.343c0.548,0,0.991-0.441,0.991-0.99V13.224z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M28.868,13.224c0-0.547-0.443-0.99-0.99-0.99h-5.342c-0.548,0-0.991,0.443-0.991,0.99v5.342   c0,0.549,0.443,0.99,0.991,0.99h5.342c0.547,0,0.99-0.441,0.99-0.99V13.224z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M10.246,22.43c0-0.545-0.443-0.99-0.99-0.99H3.914c-0.548,0-0.991,0.445-0.991,0.99v5.344   c0,0.547,0.443,0.99,0.991,0.99h5.342c0.547,0,0.99-0.443,0.99-0.99V22.43z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M19.453,22.43c0-0.545-0.443-0.99-0.991-0.99h-5.343c-0.546,0-0.99,0.445-0.99,0.99v5.344   c0,0.547,0.444,0.99,0.99,0.99h5.343c0.548,0,0.991-0.443,0.991-0.99V22.43z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/><path d="M28.868,22.43c0-0.545-0.443-0.99-0.99-0.99h-5.342c-0.548,0-0.991,0.445-0.991,0.99v5.344   c0,0.547,0.443,0.99,0.991,0.99h5.342c0.547,0,0.99-0.443,0.99-0.99V22.43z" [attr.fill]="selectedDisplay === 'grid' ? 'var(--goodcharme-color)' : 'var(--gray-color)'"/></g></svg>
+                    </a>
+                </div>
             </div>
 
             <div class="product">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
-                        <div class="product-grid">
-                            <div class="product-image">
-                                <a [routerLink]="['/product', product.MaSP]" class="image">
-                                    <img [src]="product.HinhSP">
-                                </a>
-                                <ul class="product-links">
-                                    <li>
-                                        <button type="button" (click)="addToCart(product)">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                    </li>
-                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product-content">
-                                <ul class="rating">
-                                    <li class="fa fa-star"></li>
-                                    <li class="fa fa-star"></li>
-                                    <li class="fa fa-star"></li>
-                                    <li class="fa fa-star"></li>
-                                    <li class="fa fa-star"></li>
-                                </ul>
-                                <h3 class="title"><a [routerLink]="['/product', product.MaSP]">{{product.TenSP}}</a></h3>
-                                <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                    <ng-container *ngIf="selectedDisplay === 'grid'">
+                        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                            <div class="product-grid">
+                                <div class="product-image">
+                                    <a [routerLink]="['/product', product.MaSP]" class="image">
+                                        <img [src]="product.HinhSP">
+                                    </a>
+                                    <ul class="product-links">
+                                        <li>
+                                            <button type="button" (click)="addToCart(product)">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </button>
+                                        </li>
+                                        <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-search"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product-content">
+                                    <ul class="rating">
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                    </ul>
+                                    <h3 class="title"><a [routerLink]="['/product', product.MaSP]">{{product.TenSP}}</a></h3>
+                                    <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </ng-container>
+                    <ng-container *ngIf="selectedDisplay === 'list'">
+                        <div class="col-lg-12 col-md-12 col-sm-12" *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                            <div class="product-list">
+                                <a [routerLink]="['/product', product.MaSP]" class="product-list-link">
+                                    <img [src]="product.HinhSP">
+                                </a>
+                                <div class="product-list-content">
+                                    <h3 class="title"><a [routerLink]="['/product', product.MaSP]">{{product.TenSP}}</a></h3>
+                                    <ul class="rating">
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                        <li class="fa fa-star"></li>
+                                    </ul>
+                                    <p class="text">
+                                        Phân loại:
+                                        <a [routerLink]="getRouterLink(product.MaLoaiSP)" class="category-item_item-link" (click)="clearCategoryInput()">{{ product.TenLoaiSP }}</a>
+                                    </p>
+                                    <p class="text">
+                                        Dung tích: {{ product.DungTich }} ml
+                                    </p>
+                                </div>
+                                <div class="product-list-btn">
+                                    <div class="price">{{ product.GiaBan | currency:'VND':true }}</div>
+                                    <button type="button" (click)="addToCart(product)" class="btn btn-goodcharme-success">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Thêm vào giỏ hàng
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
 

@@ -1,0 +1,51 @@
+.container {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.account-menu {
+    cursor: pointer;
+}
+
+.account-menu a {    
+    text-decoration: none;
+}
+
+.account-menu-heading {
+    margin: 0;
+    font-size: 18px;
+    padding: 8px 0;
+    color: var(--text-color);
+}
+
+.account-menu-icon {
+
+}
+
+.account-menu-list {
+    list-style: none;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.account-menu-item {
+    padding: 8px 0;
+}
+
+.account-menu-item a {
+    color: var(--text-color);
+}
+
+.account-menu-heading:hover,
+.account-menu-item span:hover {
+    color: var(--goodcharme-color);
+}
+
+.account-menu-heading.active,
+.account-menu-item.active a {
+    color: var(--goodcharme-color);
+}
+
+.account-menu-icon {
+    padding: 0 8px;
+}

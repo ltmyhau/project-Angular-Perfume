@@ -50,3 +50,10 @@ tr > th:first-child {
 .payment-item input {
     margin: 8px;
 }
+
+.form-control:focus {
+    color: var(--text-color);
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 1px  var(--border-color);
+}

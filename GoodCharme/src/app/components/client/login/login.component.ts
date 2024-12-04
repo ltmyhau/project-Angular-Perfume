@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginComponent {
       console.log(res);
       if (res && res.length > 0) {
         const loggedInUser = res[0];
-        this.userService.setLoggedInUser(res[0].Username, res[0].PhanQuyen, res[0].MaKH);
+        this.userService.setLoggedInUser(res[0].Username, res[0].Password, res[0].PhanQuyen, res[0].MaKH);
         if (loggedInUser.PhanQuyen === 'admin') {
           this.router.navigate(['/admin']);
         } else {
@@ -40,5 +41,4 @@ export class LoginComponent {
       }
     });
   }
-
 }

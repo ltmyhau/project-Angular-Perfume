@@ -21,7 +21,7 @@ namespace API_QLBH.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = "SELECT * FROM vwSanPham";
+            string query = "SELECT * FROM vwSanPham ORDER BY NEWID()";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;

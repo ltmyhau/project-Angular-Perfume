@@ -18,13 +18,19 @@ import { CartComponent } from './components/client/cart/cart.component';
 import { OrderComponent } from './components/client/order/order.component';
 import { OrderTrackingComponent } from './components/client/order-tracking/order-tracking.component';
 import { ContactComponent } from './components/client/contact/contact.component';
-import { Page404Component } from './components/client/page-404/page-404.component';
+import { Page404Component } from './components/page-404/page-404.component';
 import { IndexComponent } from './components/client/index/index.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { ProductManagementComponent } from './components/admin/product-management/product-management.component';
 import { OrderManagementComponent } from './components/admin/order-management/order-management.component';
 import { AddProductComponent } from './components/admin/add-product/add-product.component';
 import { EditProductComponent } from './components/admin/edit-product/edit-product.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
+import { AccountComponent } from './components/client/account/account.component';
+import { ProfileComponent } from './components/client/account/profile/profile.component';
+import { AddressComponent } from './components/client/account/address/address.component';
+import { PasswordComponent } from './components/client/account/password/password.component';
+import { PurchaseComponent } from './components/client/account/purchase/purchase.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,13 @@ import { EditProductComponent } from './components/admin/edit-product/edit-produ
     ProductManagementComponent,
     OrderManagementComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    AccessDeniedComponent,
+    AccountComponent,
+    ProfileComponent,
+    AddressComponent,
+    PasswordComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,60 @@
+<form action="" method="post" [formGroup]="customerAddressForm">
+    <h4 class="card-title mb-4">Thông tin giao hàng</h4>
+    <div class="row account-info">
+    <div class="col-lg-6 col-md-12 col-12 account-info-item mb-3">
+        <label for="hoTen">Họ tên</label>
+        <input type="text" id="hoTen" formControlName="HoTenKH" class="account-info-input" placeholder="Họ tên"
+            [ngClass]="{'border-red': f['HoTenKH'].touched && f['HoTenKH'].invalid}" />
+        <div *ngIf="f['HoTenKH'].touched && f['HoTenKH'].invalid" class="error-message">
+            <small *ngIf="f['HoTenKH'].errors?.['required']">Vui lòng nhập họ tên</small>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-12 account-info-item mb-3">
+        <label for="dienThoai">Điện thoại</label>
+        <input type="text" id="dienThoai" formControlName="DienThoai" class="account-info-input" placeholder="Điện thoại"
+            [ngClass]="{'border-red': f['DienThoai'].touched && f['DienThoai'].invalid}" />
+        <div *ngIf="f['DienThoai'].touched && f['DienThoai'].invalid" class="error-message">
+            <small *ngIf="f['DienThoai'].errors?.['required']">Vui lòng nhập số điện thoại</small>
+            <small *ngIf="f['DienThoai'].errors?.['pattern']">Số điện thoại không hợp lệ</small>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-12 account-info-item mb-3">
+        <label for="diaChi">Địa chỉ</label>
+        <input type="text" id="diaChi" formControlName="DiaChi" class="account-info-input" placeholder="Địa chỉ"
+            [ngClass]="{'border-red': f['DiaChi'].touched && f['DiaChi'].invalid}" />
+        <div *ngIf="f['DiaChi'].touched && f['DiaChi'].invalid" class="error-message">
+            <small *ngIf="f['DiaChi'].errors?.['required']">Vui lòng nhập địa chỉ</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-12 account-info-item mb-3">
+        <label for="phuongXa">Phường/Xã</label>
+        <input type="text" id="phuongXa" formControlName="Phuong" class="account-info-input" placeholder="Phường/Xã" 
+            [ngClass]="{'border-red': f['Phuong'].touched && f['Phuong'].invalid}" />
+        <div *ngIf="f['Phuong'].touched && f['Phuong'].invalid" class="error-message">
+            <small *ngIf="f['Phuong'].errors?.['required']">Vui lòng nhập phường/xã</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-12 account-info-item mb-3">
+        <label for="quanHuyen">Quận/Huyện</label>
+        <input type="text" id="quanHuyen" formControlName="Quan" class="account-info-input" placeholder="Quận/Huyện"
+            [ngClass]="{'border-red': f['Quan'].touched && f['Quan'].invalid}" />
+        <div *ngIf="f['Quan'].touched && f['Quan'].invalid" class="error-message">
+            <small *ngIf="f['Quan'].errors?.['required']">Vui lòng nhập quận/huyện</small>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-12 account-info-item mb-3">
+        <label for="tinhTP">Tỉnh/Thành phố</label>
+        <input type="text" id="tinhTP" formControlName="ThanhPho" class="account-info-input" placeholder="Tỉnh/Thành phố" 
+            [ngClass]="{'border-red': f['ThanhPho'].touched && f['ThanhPho'].invalid}" />
+        <div *ngIf="f['ThanhPho'].touched && f['ThanhPho'].invalid" class="error-message">
+            <small *ngIf="f['ThanhPho'].errors?.['required']">Vui lòng nhập tỉnh/thành phố</small>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-goodcharme-success btn-save" (click)="saveCustomerAddress()">Lưu</button>
+</form>
+
+<div id="notify" *ngIf="isSaveCustomer">
+    <i class="notify-icon fa-solid fa-circle-check"></i>
+    <p class="notify-message">Cập nhật thông tin thành công</p>
+</div>

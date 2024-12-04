@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 
 const api = 'http://localhost:5094/api';
 
@@ -13,9 +14,31 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient,
+    private router: Router
+  ) { }
 
-  login(username: string,password: string, role: string = 'admin'):Observable<any>{
-    return this.http.post<any>(`${api}/TaiKhoan/login`,{username,password,role},httpOptions);
+  login(account: { email: string; password: string }): Observable<any> {
+    return this.http.post(`${api}/TaiKhoan/login`, account).pipe(
+      map((response: any) => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('role', response.user.role);
+        return response.user.role;
+      })
+    );
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  getUserRole(): string | null {
+    return localStorage.getItem('role');
   }
 }

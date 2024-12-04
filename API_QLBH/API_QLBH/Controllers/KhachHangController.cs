@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
 
 namespace API_QLBH.Controllers
@@ -80,6 +81,51 @@ namespace API_QLBH.Controllers
         //    }
         //    return new JsonResult("Cập nhật thành công!");
         //}
+
+        [HttpPut("update-info/{maKH}")]
+        public JsonResult Put(string maKH, KhachHangInfo khachHang)
+        {
+            string hinhKHValue = string.IsNullOrEmpty(khachHang.HinhAnh) ? "NULL" : $"'{khachHang.HinhAnh}'";
+            string query = String.Format("UPDATE KhachHang SET HoTenKH = N'{0}', GioiTinh = N'{1}', NgaySinh = '{2}', DienThoai = N'{3}', Email = N'{4}', HinhAnh = {5} WHERE MaKH = '{6}'",
+                khachHang.HoTenKH, khachHang.GioiTinh, khachHang.NgaySinh, khachHang.DienThoai, khachHang.Email, hinhKHValue, maKH);
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Cập nhật thành công!");
+        }
+
+        [HttpPut("update-address/{maKH}")]
+        public JsonResult Put(string maKH, KhachHangAddress khachHang)
+        {
+            string query = String.Format("UPDATE KhachHang SET HoTenKH = N'{0}', DienThoai = N'{1}', DiaChi = N'{2}', Phuong = N'{3}', Quan = N'{4}', ThanhPho = N'{5}' WHERE MaKH = '{6}'",
+                khachHang.HoTenKH, khachHang.DienThoai, khachHang.DiaChi, khachHang.Phuong, khachHang.Quan, khachHang.ThanhPho, maKH);
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Cập nhật thành công!");
+        }
 
         [HttpDelete("{ma}")]
         public JsonResult Delete(int ma)

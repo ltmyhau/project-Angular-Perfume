@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data;
 
 namespace API_QLBH.Controllers
@@ -43,8 +44,10 @@ namespace API_QLBH.Controllers
         public JsonResult Post(SanPham sanPham)
         {
             string hinhSPValue = string.IsNullOrEmpty(sanPham.HinhSP) ? "NULL" : $"'{sanPham.HinhSP}'";
-            string query = String.Format("INSERT INTO SanPham (MaLoaiSP, TenSP, GiaBan, SoLuongTon, NgayThem, HinhSP) VALUES ({0}, N'{1}', {2}, {3}, GETDATE(), {4})",
+            string query = String.Format("INSERT INTO SanPham (MaSP, MaLoaiSP, TenSP, GiaBan, SoLuongTon, NgayThem, HinhSP) VALUES (dbo.f_AutoMaSP(), '{0}', N'{1}', {2}, {3}, GETDATE(), {4})",
                 sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, hinhSPValue);
+            //string query = String.Format("INSERT INTO SanPham (MaLoaiSP, TenSP, GiaBan, SoLuongTon, NgayThem, HinhSP) VALUES ({0}, N'{1}', {2}, {3}, GETDATE(), {4})",
+            //    sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, hinhSPValue);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -66,9 +69,7 @@ namespace API_QLBH.Controllers
         public JsonResult Put(SanPham sanPham)
         {
             string hinhSPValue = string.IsNullOrEmpty(sanPham.HinhSP) ? "NULL" : $"'{sanPham.HinhSP}'";
-            //string query = String.Format("UPDATE SanPham SET MaLoaiSP = {0}, TenSP = N'{1}', GiaBan = {2}, SoLuongTon = {3}, HinhSP = {4} WHERE MaSP = '{5}'",
-            //    sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, sanPham.HinhSP, sanPham.MaSP);
-            string query = String.Format("UPDATE SanPham SET MaLoaiSP = {0}, TenSP = N'{1}', GiaBan = {2}, SoLuongTon = {3} WHERE MaSP = '{4}'",
+            string query = String.Format("UPDATE SanPham SET MaLoaiSP = '{0}', TenSP = N'{1}', GiaBan = {2}, SoLuongTon = {3} WHERE MaSP = '{4}'",
                 sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, sanPham.MaSP);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
@@ -88,9 +89,9 @@ namespace API_QLBH.Controllers
         }
 
         [HttpDelete("{ma}")]
-        public JsonResult Delete(int ma)
+        public JsonResult Delete(string ma)
         {
-            string query = @"DELETE FROM SanPham WHERE MaSP = " + ma;
+            string query = $"DELETE FROM SanPham WHERE MaSP = '{ma}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -178,9 +179,9 @@ namespace API_QLBH.Controllers
 
         [Route("GetSanPhamTheoMaSP")]
         [HttpGet]
-        public JsonResult GetSanPhamTheoMaSP(int id = 1)
+        public JsonResult GetSanPhamTheoMaSP(string id = "SP000001")
         {
-            string query = $"SELECT * FROM vwSanPham WHERE MaSP = {id}";
+            string query = $"SELECT * FROM vwSanPham WHERE MaSP = '{id}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -200,9 +201,9 @@ namespace API_QLBH.Controllers
 
         [Route("GetSanPhamByID")]
         [HttpGet]
-        public JsonResult GetSanPhamByID(int id = 1)
+        public JsonResult GetSanPhamByID(string id = "SP000001")
         {
-            string query = $"SELECT MaSP, TenSP, MaLoaiSP, GiaBan, SoLuongTon FROM SanPham WHERE MaSP = {id}";
+            string query = $"SELECT MaSP, TenSP, MaLoaiSP, GiaBan, SoLuongTon FROM SanPham WHERE MaSP = '{id}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -222,9 +223,9 @@ namespace API_QLBH.Controllers
 
         [Route("GetSanPhamTheoMaLoaiSP")]
         [HttpGet]
-        public JsonResult GetSanPhamTheoMaLoaiSP(int id = 1)
+        public JsonResult GetSanPhamTheoMaLoaiSP(string id = "LSP000001")
         {
-            string query = $"SELECT * FROM vwSanPham WHERE MaLoaiSP = {id}";
+            string query = $"SELECT * FROM vwSanPham WHERE MaLoaiSP = '{id}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -246,7 +247,7 @@ namespace API_QLBH.Controllers
         [HttpGet]
         public JsonResult GetNuocHoa()
         {
-            string query = $"SELECT * FROM vwSanPham WHERE MaLoaiSP = 1 OR MaLoaiSP = 2 OR MaLoaiSP = 3 OR MaLoaiSP = 4";
+            string query = $"SELECT * FROM vwSanPham WHERE MaLoaiSP = 'LSP000001' OR MaLoaiSP = 'LSP000002' OR MaLoaiSP = 'LSP000003' OR MaLoaiSP = 'LSP000004'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -268,7 +269,7 @@ namespace API_QLBH.Controllers
         [HttpGet]
         public JsonResult GetSanPhamKhac()
         {
-            string query = $"SELECT * FROM vwSanPham WHERE MaLoaiSP = 5 OR MaLoaiSP = 6 OR MaLoaiSP = 7";
+            string query = $"SELECT * FROM vwSanPham WHERE MaLoaiSP = 'LSP000005' OR MaLoaiSP = 'LSP000006' OR MaLoaiSP = 'LSP000007'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;

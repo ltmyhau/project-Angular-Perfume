@@ -31,6 +31,7 @@ import { ProfileComponent } from './components/client/account/profile/profile.co
 import { AddressComponent } from './components/client/account/address/address.component';
 import { PasswordComponent } from './components/client/account/password/password.component';
 import { PurchaseComponent } from './components/client/account/purchase/purchase.component';
+import { PaymentCompleteComponent } from './components/client/payment-complete/payment-complete.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { PurchaseComponent } from './components/client/account/purchase/purchase
     ProfileComponent,
     AddressComponent,
     PasswordComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    PaymentCompleteComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
 {
     public class KhachHang
     {
-        public int MaKH { get; set; }
+        public string MaKH { get; set; }
         public string HoTenKH { get; set; }
         public string GioiTinh { get; set; }
         public DateTime NgaySinh { get; set; }
@@ -18,7 +18,7 @@
 
     public class KhachHangInfo
     {
-        public int MaKH { get; set; }
+        public string MaKH { get; set; }
         public string HoTenKH { get; set; }
         public string GioiTinh { get; set; }
         public DateTime NgaySinh { get; set; }
@@ -29,7 +29,7 @@
 
     public class KhachHangAddress
     {
-        public int MaKH { get; set; }
+        public string MaKH { get; set; }
         public string HoTenKH { get; set; }
         public string DienThoai { get; set; }
         public string DiaChi { get; set; }

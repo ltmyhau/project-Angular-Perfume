@@ -128,9 +128,9 @@ namespace API_QLBH.Controllers
         }
 
         [HttpDelete("{ma}")]
-        public JsonResult Delete(int ma)
+        public JsonResult Delete(string ma)
         {
-            string query = @"DELETE FROM KhachHang WHERE MaKH = " + ma;
+            string query = $"DELETE FROM KhachHang WHERE MaKH = '{ma}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -150,9 +150,9 @@ namespace API_QLBH.Controllers
 
         [Route("GetKhachHangTheoMaKH")]
         [HttpGet]
-        public JsonResult GetKhachHangTheoMaKH(int id = 1)
+        public JsonResult GetKhachHangTheoMaKH(string id = "KH000001")
         {
-            string query = $"SELECT * FROM KhachHang WHERE MaKH = {id}";
+            string query = $"SELECT * FROM KhachHang WHERE MaKH = '{id}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;

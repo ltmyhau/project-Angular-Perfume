@@ -125,13 +125,32 @@ body {
 }
 
 .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #f3f3f3;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 8px 16px;
+    padding: 12px 16px;
+}
+
+.heading h5 {
+    margin: 0;
     font-size: 20px;
     font-weight: 600;
+}
+
+.heading p {
     margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--goodcharme-color);
+}
+
+.payment {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .products {

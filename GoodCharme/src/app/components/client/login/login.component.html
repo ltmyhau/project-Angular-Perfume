@@ -15,7 +15,15 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input type="text" placeholder="Tên đăng nhập" name="username" formControlName="username" class="form-control bg-white border-left-0 border-md">
+                        <input 
+                            type="text" 
+                            placeholder="Tên đăng nhập" 
+                            name="username" 
+                            formControlName="username" 
+                            class="form-control bg-white border-left-0 border-md"
+                            [ngClass]="{'is-invalid': loginForm.controls['username'].errors && loginError}"
+                            (input)="clearError()"
+                        />
                     </div>
 
                     <div class="input-group col-lg-6 mb-4 ps-0">
@@ -24,14 +32,34 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input type="password" placeholder="Mật khẩu" name="password" formControlName="password" class="form-control bg-white border-left-0 border-md">
+                        <input
+                            [type]="showPassword ? 'text' : 'password'"
+                            placeholder="Mật khẩu"
+                            name="password"
+                            formControlName="password"
+                            class="form-control bg-white border-left-0 border-md"
+                            style="border-right: none;"
+                            [ngClass]="{'is-invalid': loginForm.controls['password'].errors && loginError}"
+                            (input)="clearError()"
+                        />
+                        <div class="input-group-append">
+                            <span 
+                                class="input-group-icon bg-white border-md" 
+                                (click)="togglePasswordVisibility()"
+                                [ngClass]="{'is-invalid': loginForm.controls['password'].errors && loginError}">
+                                <i class="fa" [class.fa-eye]="showPassword" [class.fa-eye-slash]="!showPassword"></i>
+                            </span>
+                        </div>
+                        <div *ngIf="loginForm.controls['password'].errors && loginError" class="invalid-feedback">
+                            Mật khẩu không chính xác.
+                        </div>
                     </div>
 
                     <div class="form-check col-lg-6 mb-4">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                            <label class="form-check-label" for="rememberPasswordCheck">
-                                Lưu mật khẩu
-                            </label>
+                        <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck" formControlName="rememberPassword">
+                        <label class="form-check-label" for="rememberPasswordCheck">
+                            Lưu mật khẩu
+                        </label>
                     </div>
 
                     <div class="form-check col-lg-6 mb-4 text-end">

@@ -82,12 +82,25 @@
                         <p class="mb-2">Phương thức thanh toán</p>
                         <ul class="payment-list">
                             <li class="payment-item">
-                                <input type="radio" id="rdoTienMat" name="PaymentMethod" checked>
-                                <label for="rdoTienMat">Thanh toán khi nhận hàng</label>
+                                <input type="radio" id="rdoTienMat" name="PaymentMethod" value="COD" checked>
+                                <label for="rdoTienMat">
+                                    <img src="/assets/images/cod.png" alt="MoMo Logo" class="payment-logo">
+                                    Thanh toán khi nhận hàng
+                                </label>
                             </li>
                             <li class="payment-item">
-                                <input type="radio" id="rdoChuyenKhoan" name="PaymentMethod">
-                                <label for="rdoChuyenKhoan">Thanh toán qua ngân hàng</label>
+                                <input type="radio" id="rdoChuyenKhoan" name="PaymentMethod" value="ATM">
+                                <label for="rdoChuyenKhoan">
+                                    <img src="/assets/images/atm.png" alt="MoMo Logo" class="payment-logo">
+                                    Thanh toán qua ngân hàng
+                                </label>
+                            </li>
+                            <li class="payment-item">
+                                <input type="radio" id="rdoMomo" name="PaymentMethod" value="MOMO">
+                                <label for="rdoMomo">
+                                    <img src="/assets/images/momo-logo.png" alt="MoMo Logo" class="payment-logo">
+                                    Thanh toán qua Momo
+                                </label>
                             </li>
                         </ul>
                     </div>

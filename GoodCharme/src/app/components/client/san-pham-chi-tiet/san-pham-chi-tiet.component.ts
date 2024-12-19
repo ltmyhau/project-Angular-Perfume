@@ -14,7 +14,7 @@ import { UserService } from '../../../services/user.service';
 export class SanPhamChiTietComponent implements OnInit {
   quantity: number = 1;
   product: any;
-  productId: number = 1;
+  productId: string = 'SP000001';
   relatedProducts: any=[];
 
   handlePlus() {
@@ -60,7 +60,7 @@ export class SanPhamChiTietComponent implements OnInit {
     // this.getProducts(this.productId);
     // this.getRelatedProducts();
     this.route.paramMap.subscribe((params) => {
-      const id = Number(params.get('id'));
+      const id = params.get('id');
       if (id) {
         this.productId = id;
         this.getProducts(this.productId);
@@ -69,7 +69,7 @@ export class SanPhamChiTietComponent implements OnInit {
     });
   }
 
-  getProducts(idSP: number): void {
+  getProducts(idSP: string): void {
     this.app.productDetail(idSP).subscribe((res: any) => {
       this.product = res;
     });

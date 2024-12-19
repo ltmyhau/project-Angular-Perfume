@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  passwordVisibility: { [key: string]: boolean } = {
+    password: false,
+    passwordConfirmation: false
+  };
 
+  toggleVisibility(field: string): void {
+      this.passwordVisibility[field] = !this.passwordVisibility[field];
+  }
 }

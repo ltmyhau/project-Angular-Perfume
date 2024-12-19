@@ -2,8 +2,8 @@
 {
     public class SanPham
     {
-        public int? MaSP { get; set; }
-        public int MaLoaiSP { get; set; }
+        public string? MaSP { get; set; }
+        public string MaLoaiSP { get; set; }
         public string? TenLoaiSP { get; set; }
         public string TenSP { get; set; }
         public float GiaBan { get; set; }

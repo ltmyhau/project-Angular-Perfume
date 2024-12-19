@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data;
 
 namespace API_QLBH.Controllers
@@ -40,7 +41,7 @@ namespace API_QLBH.Controllers
         [HttpPost]
         public JsonResult Post(LoaiSP loaiSP)
         {
-            string query = String.Format("INSERT INTO LoaiSP (TenLoaiSP) VALUES (N'{0}')", loaiSP.TenLoaiSP);
+            string query = String.Format("INSERT INTO LoaiSP (MaLoaiSP, TenLoaiSP) VALUES(dbo.f_AutoMaLoaiSP(), N'{0}')", loaiSP.TenLoaiSP);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -61,7 +62,7 @@ namespace API_QLBH.Controllers
         [HttpPut]
         public JsonResult Put(LoaiSP loaiSP)
         {
-            string query = String.Format("UPDATE LoaiSP SET TenLoaiSP = N'{0}' WHERE MaLoaiSP = {1}", loaiSP.TenLoaiSP, loaiSP.MaLoaiSP);
+            string query = String.Format("UPDATE LoaiSP SET TenLoaiSP = N'{0}' WHERE MaLoaiSP = '{1}'", loaiSP.TenLoaiSP, loaiSP.MaLoaiSP);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -80,9 +81,9 @@ namespace API_QLBH.Controllers
         }
 
         [HttpDelete("{ma}")]
-        public JsonResult Delete(int ma)
+        public JsonResult Delete(string ma)
         {
-            string query = @"DELETE FROM LoaiSP WHERE MaLoaiSP = " + ma;
+            string query = $"DELETE FROM LoaiSP WHERE MaLoaiSP = '{ma}'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;

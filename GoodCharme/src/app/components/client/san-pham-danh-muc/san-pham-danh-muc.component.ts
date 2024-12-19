@@ -58,14 +58,14 @@ export class SanPhamDanhMucComponent implements OnInit {
   }
 
   loadProductsByCategory(idParam: string | null): void {
-    const categoryMap: { [key: string]: number } = {
-      'nuoc-hoa-nam': 1,
-      'nuoc-hoa-nu': 2,
-      'nuoc-hoa-tre-em': 3,
-      'nuoc-hoa-xe-hoi': 4,
-      'my-pham': 5,
-      'cham-soc-toan-than': 6,
-      'tinh-dau-thien-nhien': 7,
+    const categoryMap: { [key: string]: string } = {
+      'nuoc-hoa-nam': 'LSP000001',
+      'nuoc-hoa-nu': 'LSP000002',
+      'nuoc-hoa-tre-em': 'LSP000003',
+      'nuoc-hoa-xe-hoi': 'LSP000004',
+      'my-pham': 'LSP000005',
+      'cham-soc-toan-than': 'LSP000006',
+      'tinh-dau-thien-nhien': 'LSP000007',
     };
 
     if (categoryMap[idParam!]) {
@@ -88,7 +88,7 @@ export class SanPhamDanhMucComponent implements OnInit {
     }
   }
 
-  getProducts(id: number = 1): void {
+  getProducts(id: string = 'LSP000001'): void {
     this.app.productsByMaLoaiSP(id).subscribe((res: any) => {
       this.products = res;
       this.calculatePagination(res.length);
@@ -149,7 +149,11 @@ export class SanPhamDanhMucComponent implements OnInit {
   sortBy(criteria: string): void {
     this.activeSort = criteria;
     const sortFunctions: { [key: string]: (a: Product, b: Product) => number } = {
-      popular: (a, b) => a.MaSP - b.MaSP,
+      popular: (a, b) => {
+        const numA = this.extractNumberFromMaSP(a.MaSP);
+        const numB = this.extractNumberFromMaSP(b.MaSP);
+        return numA - numB;
+      },
       newest: (a, b) => new Date(b.NgayThem).getTime() - new Date(a.NgayThem).getTime(),
       bestseller: (a, b) => b.TongSoLuongBan - a.TongSoLuongBan,
       priceAsc: (a, b) => a.GiaBan - b.GiaBan,
@@ -160,6 +164,11 @@ export class SanPhamDanhMucComponent implements OnInit {
     if (sortFunction) {
       this.products.sort(sortFunction);
     }
+  }
+
+  extractNumberFromMaSP(maSP: string): number {
+    const match = maSP.match(/\d+$/);
+    return match ? Number(match[0]) : 0;
   }
 
   clearCategoryInput(): void {
@@ -179,17 +188,17 @@ export class SanPhamDanhMucComponent implements OnInit {
     this.updatePageSize();
   }
 
-  productRoutes: { [key: number]: string } = {
-    1: 'nuoc-hoa-nam',
-    2: 'nuoc-hoa-nu',
-    3: 'nuoc-hoa-tre-em',
-    4: 'nuoc-hoa-xe-hoi',
-    5: 'my-pham',
-    6: 'cham-soc-toan-than',
-    7: 'tinh-dau-thien-nhien',
+  productRoutes: { [key: string]: string } = {
+    'LSP000001': 'nuoc-hoa-nam',
+    'LSP000002': 'nuoc-hoa-nu',
+    'LSP000003': 'nuoc-hoa-tre-em',
+    'LSP000004': 'nuoc-hoa-xe-hoi',
+    'LSP000005': 'my-pham',
+    'LSP000006': 'cham-soc-toan-than',
+    'LSP000007': 'tinh-dau-thien-nhien',
   };
 
-  getRouterLink(maSP: number): string {
+  getRouterLink(maSP: string): string {
     return this.productRoutes[maSP] ? `/product-type/${this.productRoutes[maSP]}` : '/product-type/all';
   }
 }

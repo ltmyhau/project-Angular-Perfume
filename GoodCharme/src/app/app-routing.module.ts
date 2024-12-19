@@ -26,6 +26,7 @@ import { ProfileComponent } from './components/client/account/profile/profile.co
 import { AddressComponent } from './components/client/account/address/address.component';
 import { PasswordComponent } from './components/client/account/password/password.component';
 import { PurchaseComponent } from './components/client/account/purchase/purchase.component';
+import { PaymentCompleteComponent } from './components/client/payment-complete/payment-complete.component';
 
 const routes: Routes = [
   // {
@@ -67,6 +68,7 @@ const routes: Routes = [
     },
     ]
   },
+  {path: 'payment-complete', component: PaymentCompleteComponent},
   {path:'login',component:LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'access-denied', component: AccessDeniedComponent},

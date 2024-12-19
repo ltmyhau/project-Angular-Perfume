@@ -1,5 +1,5 @@
 export interface Cart {
-    maSP: number;
+    maSP: string;
     tenSP: string;
     giaBan: number;
     soLuong: number;

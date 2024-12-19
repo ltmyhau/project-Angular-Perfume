@@ -69,8 +69,23 @@ select.form-control {
     border-right: none;
 }
 
-.form-control {
-    border-left: none;
+.input-group-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    padding: 10px 0;
+    border-radius: var(--bs-border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+}
+
+.form-control:focus {
+    outline: 0;
+    border-color: var(--border-color);
+    box-shadow: 0 0 0 1px  var(--border-color);
 }
 
 .btn:hover{

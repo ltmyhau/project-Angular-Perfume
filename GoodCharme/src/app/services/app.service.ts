@@ -23,15 +23,15 @@ export class AppService {
     return this.http.get<any>(`${api}/SanPham`);
   }
 
-  productDetail(id: number = 1): any {
+  productDetail(id: string = 'SP000001'): any {
     return this.http.get<any>(`${api}/SanPham/GetSanPhamTheoMaSP?id=`+id);
   }
 
-  productsByMaLoaiSP(idSP: number = 1): any {
-    return this.http.get<any>(`${api}/SanPham/GetSanPhamTheoMaLoaiSP?id=`+idSP);
+  productsByMaLoaiSP(id: string = 'LSP000001'): any {
+    return this.http.get<any>(`${api}/SanPham/GetSanPhamTheoMaLoaiSP?id=`+id);
   }
 
-  productsByMaSP(idSP: any = 1): any {
+  productsByMaSP(idSP: any = 'SP000001'): any {
     return this.http.get<any>(`${api}/SanPham/GetSanPhamTheoMaSP?id=`+idSP);
   }
 
@@ -87,6 +87,14 @@ export class AppService {
     return this.http.post<any>(`${api}/DonHang`, data);
   }
 
+  addOrderDetails(orderDetails: any[]): Observable<any> {
+    return this.http.post<any>(`${api}/ChiTietDonHang/`, orderDetails);
+  }
+
+  getOrderDetailsByOrderId(orderId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${api}/ChiTietDonHang/${orderId}`);
+  }  
+
   customerByID(idSP: any = 1): any {
     return this.http.get<any>(`${api}/KhachHang/GetKhachHangTheoMaKH?id=`+idSP);
   }
@@ -105,5 +113,13 @@ export class AppService {
 
   updatePassword(username: string, newPassword: string): Observable<any> {
     return this.http.put<any>(`${api}/TaiKhoan/update-password`, { username, password: newPassword });
-  }  
+  }
+
+  // getPaymentStatus(orderId: string): Observable<any> {
+  //   return this.http.get<any>(`https://b135-123-21-172-237.ngrok-free.app/check-status-transaction?orderId=${orderId}`);
+  // }
+  private apiUrl = 'http://localhost:5000'; 
+  getPaymentStatus(orderId: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/check-status-transaction`, { orderId });
+  }
 }

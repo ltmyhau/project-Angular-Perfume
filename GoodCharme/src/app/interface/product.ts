@@ -5,8 +5,8 @@ export interface Product {
     // SoLuong: number;
     // HinhSP: string;
 
-    MaSP: number;
-    MaLoaiSP: number;
+    MaSP: string;
+    MaLoaiSP: string;
     TenSP: string;
     GiaBan: number;
     DungTich: number;

@@ -41,17 +41,26 @@
     </div>
 
     <div class="products">
-        <p class="heading">Chi tiết đơn hàng</p>
-        <div class="product d-flex align-items-center justify-content-between" *ngFor="let item of items">
+        <div class="heading">
+            <h5>Chi tiết đơn hàng</h5>
+            <p *ngIf="paymentStatus !== 'Đang chờ thanh toán'">{{ paymentStatus }}</p>
+            <div class="payment" *ngIf="paymentStatus === 'Đang chờ thanh toán'">
+                <p>Đang chờ thanh toán</p>
+                <a [href]="payUrl" target="_blank">
+                    <button class="btn btn-goodcharme-success">Thanh toán</button>
+                </a>
+            </div>
+        </div>
+        <div class="product d-flex align-items-center justify-content-between" *ngFor="let item of orderDetails">
             <div class="d-flex align-items-center">
-                <img [src]="item.hinhSP" class="img-fluid rounded-3" style="width: 90px;" alt="">
+                <img [src]="item.HinhSP" class="img-fluid rounded-3" style="width: 90px;" alt="">
                 <div class="flex-column ms-4" style="font-size: 18px;">
-                    <p class="fw-bold mb-2">{{item.tenSP}}</p>
-                    <p class="mb-2">x{{item.soLuong}}</p>
+                    <p class="fw-bold mb-2">{{item.TenSP}}</p>
+                    <p class="mb-2">x{{item.SoLuong}}</p>
                 </div>
             </div>
             <div>
-                <p class="mb-2">{{ item.giaBan | currency:'VND':true }}</p>
+                <p class="mb-2">{{ item.GiaBan | currency:'VND':true }}</p>
             </div>
         </div>
         <div class="order-info">
@@ -70,6 +79,10 @@
             <div class="d-flex justify-content-end">
                 <p class="m-0 fw-bold">Thành tiền</p>
                 <p class="m-0 text-end fw-bold" style="width: 20%;">{{ tongThanhToan() | currency:'VND':true }}</p>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p class="m-0">Phương thức thanh toán</p>
+                <p class="m-0 text-end" style="width: 20%;">{{ order.TenPTTT }}</p>
             </div>
         </div>
     </div>

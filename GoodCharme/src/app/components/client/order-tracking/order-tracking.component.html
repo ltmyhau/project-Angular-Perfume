@@ -53,7 +53,7 @@
         </div>
         <div class="product d-flex align-items-center justify-content-between" *ngFor="let item of orderDetails">
             <div class="d-flex align-items-center">
-                <img [src]="item.HinhSP" class="img-fluid rounded-3" style="width: 90px;" alt="">
+                <img [src]="item.HinhSP || '/assets/images/perfume.png'" class="img-fluid rounded-3" style="width: 90px;" alt="">
                 <div class="flex-column ms-4" style="font-size: 18px;">
                     <p class="fw-bold mb-2">{{item.TenSP}}</p>
                     <p class="mb-2">x{{item.SoLuong}}</p>

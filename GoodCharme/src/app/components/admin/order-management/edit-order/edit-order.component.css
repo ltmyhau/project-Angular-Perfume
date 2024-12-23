@@ -1,0 +1,90 @@
+.content {
+    padding: 24px;
+}
+
+.back-link {
+    font-size: 16px;
+    color: var(--gray-color);
+    text-decoration: none;
+    font-style: italic;
+}
+
+.back-link span {
+    margin-left: 8px;
+}
+
+.back-link:hover {
+    opacity: 0.7;
+}
+
+.heading {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.order {
+    margin-left: 16px;
+}
+
+.order-item label {
+    width: 200px;
+}
+
+.order-item input,
+.order-item span {
+    width: calc(90% - 200px);
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 4px 8px;
+    pointer-events: none;
+}
+
+.order-item select {
+    width: calc(90% - 200px);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.order-item input:focus,
+.order-item select:focus {
+    outline: 0;
+}
+
+.order-detail {
+    margin: 60px 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.submit-btn {
+    padding: 8px 16px;
+    margin: 0 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    height: 40px;
+    float: right;
+    margin-top: 16px;
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}

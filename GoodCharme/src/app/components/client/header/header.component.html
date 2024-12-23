@@ -92,7 +92,7 @@
                         <ul class="header__cart-list-item" *ngIf="cartCount > 0">
                             <!-- Cart item -->
                             <li class="header__cart-item" *ngFor="let item of items" [routerLink]="['/product', item.maSP]">
-                                <img [src]="item.hinhSP" alt="" class="header__cart-item-img">
+                                <img [src]="item.hinhSP || '/assets/images/perfume.png'" alt="" class="header__cart-item-img">
                                 <div class="header__cart-item-info">
                                     <div class="header__cart-item-head">
                                         <h5 class="header__cart-item-name">{{item.tenSP}}</h5>

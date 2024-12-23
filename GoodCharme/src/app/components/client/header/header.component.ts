@@ -30,13 +30,6 @@ export class HeaderComponent {
     if (loggedInUser) {
       this.loggedInUsername = loggedInUser.username;
       this.app.customerByID(loggedInUser.MaKH).subscribe((res: any[]) => {
-        // res.forEach(customer => {
-        //   if (customer.HinhAnh) {
-        //     this.loggedInUserAvatar = customer.HinhAnh;
-        //   } else {
-        //     this.loggedInUserAvatar = '/assets/images/default-avatar.png';
-        //   }
-        // });
         const customer = res[0];
         if (customer && customer.HinhAnh) {
           this.loggedInUserAvatar = customer.HinhAnh;
@@ -50,6 +43,7 @@ export class HeaderComponent {
 
     this.cartService.cartCount$.subscribe((count) => {
       this.cartCount = count;
+      this.items = this.cartService.getItems();
     });
   }
 

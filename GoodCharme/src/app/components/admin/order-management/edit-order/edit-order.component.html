@@ -1,0 +1,90 @@
+<div class="content">
+    <div class="d-flex mb-4">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Quay lại</span>
+        </a>
+        <h5 class="heading">Cập nhật đơn hàng</h5>
+    </div>
+    <div class="order row">
+        <div class="col-lg-6 col-md-12 col-12">
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="maDh">Mã đơn hàng</label>
+                <input type="text" id="maDh" placeholder="Mã đơn hàng" value="{{ order.MaDH }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="ngayDat">Ngày đặt hàng</label>
+                <input type="text" id="ngayDat" placeholder="Ngày đặt hàng"
+                    value="{{ order.NgayDat | date:'dd/MM/yyyy HH:ss:mm'}}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="phuongThucTT">Phương thức thanh toán</label>
+                <select id="paymentMethods" [(ngModel)]="selectedPaymentMethod">
+                    <option *ngFor="let item of paymentMethods" value="{{item.MaPTTT}}">
+                        {{item.TenPTTT}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="tinhTrang">Tình trạng</label>
+                <select id="orderStatus" [(ngModel)]="selectedOrderStatus">
+                    <option *ngFor="let orderStatus of orderStatusList" value="{{orderStatus.MaTT}}">
+                        {{orderStatus.TinhTrang}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="tongTien">Giá tri đơn hàng</label>
+                <input type="text" id="tongTien" placeholder="Giá tri đơn hàng"
+                    value="{{ order.TongTien | currency:'VND':true }}" readonly />
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="maKh">Mã khách hàng</label>
+                <input type="text" id="maKh" placeholder="Mã khách hàng" value="{{ order.MaKH }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="hoTenKh">Khách hàng</label>
+                <input type="text" id="hoTenKh" placeholder="Khách hàng" value="{{ order.HoTenKH }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="dienThoai">Điện thoại</label>
+                <input type="text" id="dienThoai" placeholder="Điện thoại" value="{{ order.DienThoai }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item d-flex">
+                <label for="diaChi">Địa chỉ giao hàng</label>
+                <span>{{order.DiaChi}}, {{order.Phuong}}, {{order.Quan}}, {{order.ThanhPho}}</span>
+            </div>
+        </div>
+    </div>
+    <button class="btn submit-btn" (click)="saveOrder()">Lưu thông tin</button>
+    <div class="order-detail">
+        <h4>Chi tiết đơn hàng</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Sản phẩm</th>
+                    <th style="width: 15%;">Đơn giá</th>
+                    <th style="width: 15%;">Số lượng</th>
+                    <th style="width: 15%;">Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of orderDetails">
+                    <td>
+                        <img [src]="item.HinhSP" alt="Hình sản phẩm" style="width: 15%; margin-right: 16px;">
+                        {{item.TenSP}}
+                    </td>
+                    <td style="text-align: center;">{{ item.GiaBan | currency:'VND':true }}</td>
+                    <td style="text-align: center;">{{item.SoLuong}}</td>
+                    <td style="text-align: center;">{{item.SoLuong * item.GiaBan | currency:'VND':true }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right; font-weight: bold;">Tổng cộng:</td>
+                    <td style="text-align: center; font-weight: bold;">{{ tongTien() | currency:'VND':true }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

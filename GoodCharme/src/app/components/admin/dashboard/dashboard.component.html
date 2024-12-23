@@ -1,15 +1,36 @@
 <div class="sidebar">
-    <h2 style="color: #fff;">Admin Panel</h2>
+    <div class="logo d-flex align-items-center">
+        <img src="./assets/images/logo.png" alt="">
+        <h3>GoodCharme</h3>
+    </div>
     <ul>
-        <li><a href="admin">Dashboard</a></li>
-        <li><a routerLink="product">Sản phẩm</a></li>
-        <li><a routerLink="order">Đơn hàng</a></li>
-        <li><a href="login">Đăng xuất</a></li>
+        <li routerLinkActive="active">
+            <a routerLink="dashboard"><i class="fa-solid fa-house"></i>Tổng quan</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="orders"><i class="fa-solid fa-receipt"></i>Đơn hàng</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="products"><i class="fa-solid fa-spray-can-sparkles"></i>Sản phẩm</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="customers"><i class="fa-solid fa-users"></i>Khách hàng</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="employees"><i class="fa-solid fa-user-tie"></i>Nhân viên</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="users"><i class="fa-solid fa-user"></i>Tài khoản người dùng</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="statistics"><i class="fa-solid fa-chart-simple"></i>Thống kê</a>
+        </li>
+        <li>
+            <a href="login"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
+        </li>
     </ul>
 </div>
 
 <div class="content">
-    <!-- <h2>Dashboard</h2>
-    <p>Welcome to the admin panel.</p> -->
     <router-outlet></router-outlet>
 </div>

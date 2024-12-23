@@ -22,7 +22,7 @@
                                             <tr *ngFor="let item of items">
                                                 <td scope="row">
                                                     <div class="d-flex align-items-center">
-                                                        <img [src]="item.hinhSP" class="img-fluid rounded-3" style="width: 100px;" alt="">
+                                                        <img [src]="item.hinhSP || '/assets/images/perfume.png'" class="img-fluid rounded-3" style="width: 100px;" alt="">
                                                         <div class="flex-column ms-4" style="font-size: 18px;">
                                                             <p class="mb-2">{{item.tenSP}}</p>
                                                         </div>
@@ -82,17 +82,17 @@
                         <p class="mb-2">Phương thức thanh toán</p>
                         <ul class="payment-list">
                             <li class="payment-item">
-                                <input type="radio" id="rdoTienMat" name="PaymentMethod" value="COD" checked>
+                                <input type="radio" id="rdoTienMat" name="PaymentMethod" value="CASH" checked>
                                 <label for="rdoTienMat">
                                     <img src="/assets/images/cod.png" alt="MoMo Logo" class="payment-logo">
                                     Thanh toán khi nhận hàng
                                 </label>
                             </li>
                             <li class="payment-item">
-                                <input type="radio" id="rdoChuyenKhoan" name="PaymentMethod" value="ATM">
+                                <input type="radio" id="rdoChuyenKhoan" name="PaymentMethod" value="CARD">
                                 <label for="rdoChuyenKhoan">
                                     <img src="/assets/images/atm.png" alt="MoMo Logo" class="payment-logo">
-                                    Thanh toán qua ngân hàng
+                                    Thẻ ghi nợ/ Thẻ tín dụng
                                 </label>
                             </li>
                             <li class="payment-item">

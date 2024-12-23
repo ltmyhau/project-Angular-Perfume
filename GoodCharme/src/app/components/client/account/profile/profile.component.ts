@@ -109,6 +109,7 @@ export class ProfileComponent {
     if (loggedInUser) {
       customerData.MaKH = loggedInUser.MaKH;
     }
+    console.log(customerData.MaKH, customerData);
     
     this.app.editCustomerInfo(customerData.MaKH, customerData).subscribe(response => {
       console.log('Thông tin khách hàng đã được lưu thành công', response);

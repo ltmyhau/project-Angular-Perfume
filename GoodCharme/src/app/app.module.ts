@@ -23,8 +23,8 @@ import { IndexComponent } from './components/client/index/index.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { ProductManagementComponent } from './components/admin/product-management/product-management.component';
 import { OrderManagementComponent } from './components/admin/order-management/order-management.component';
-import { AddProductComponent } from './components/admin/add-product/add-product.component';
-import { EditProductComponent } from './components/admin/edit-product/edit-product.component';
+import { AddProductComponent } from './components/admin/product-management/add-product/add-product.component';
+import { EditProductComponent } from './components/admin/product-management/edit-product/edit-product.component';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 import { AccountComponent } from './components/client/account/account.component';
 import { ProfileComponent } from './components/client/account/profile/profile.component';
@@ -32,6 +32,18 @@ import { AddressComponent } from './components/client/account/address/address.co
 import { PasswordComponent } from './components/client/account/password/password.component';
 import { PurchaseComponent } from './components/client/account/purchase/purchase.component';
 import { PaymentCompleteComponent } from './components/client/payment-complete/payment-complete.component';
+import { OverviewComponent } from './components/admin/overview/overview.component';
+import { DetailOrderComponent } from './components/admin/order-management/detail-order/detail-order.component';
+import { EditOrderComponent } from './components/admin/order-management/edit-order/edit-order.component';
+import { DetailProductComponent } from './components/admin/product-management/detail-product/detail-product.component';
+import { CustomerManagementComponent } from './components/admin/customer-management/customer-management.component';
+import { DetailCustomerComponent } from './components/admin/customer-management/detail-customer/detail-customer.component';
+import { EditCustomerComponent } from './components/admin/customer-management/edit-customer/edit-customer.component';
+import { EmployeeManagementComponent } from './components/admin/employee-management/employee-management.component';
+import { DetailEmployeeComponent } from './components/admin/employee-management/detail-employee/detail-employee.component';
+import { EditEmployeeComponent } from './components/admin/employee-management/edit-employee/edit-employee.component';
+import { AddEmployeeComponent } from './components/admin/employee-management/add-employee/add-employee.component';
+import { AddCustomerComponent } from './components/admin/customer-management/add-customer/add-customer.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +73,19 @@ import { PaymentCompleteComponent } from './components/client/payment-complete/p
     AddressComponent,
     PasswordComponent,
     PurchaseComponent,
-    PaymentCompleteComponent
+    PaymentCompleteComponent,
+    OverviewComponent,
+    DetailOrderComponent,
+    EditOrderComponent,
+    DetailProductComponent,
+    CustomerManagementComponent,
+    DetailCustomerComponent,
+    EditCustomerComponent,
+    EmployeeManagementComponent,
+    DetailEmployeeComponent,
+    EditEmployeeComponent,
+    AddEmployeeComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,

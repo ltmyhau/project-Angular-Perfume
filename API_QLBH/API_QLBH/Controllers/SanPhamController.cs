@@ -22,7 +22,7 @@ namespace API_QLBH.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = "SELECT * FROM vwSanPham ORDER BY NEWID()";
+            string query = "SELECT * FROM vwSanPham";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -44,10 +44,11 @@ namespace API_QLBH.Controllers
         public JsonResult Post(SanPham sanPham)
         {
             string hinhSPValue = string.IsNullOrEmpty(sanPham.HinhSP) ? "NULL" : $"'{sanPham.HinhSP}'";
-            string query = String.Format("INSERT INTO SanPham (MaSP, MaLoaiSP, TenSP, GiaBan, SoLuongTon, NgayThem, HinhSP) VALUES (dbo.f_AutoMaSP(), '{0}', N'{1}', {2}, {3}, GETDATE(), {4})",
-                sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, hinhSPValue);
-            //string query = String.Format("INSERT INTO SanPham (MaLoaiSP, TenSP, GiaBan, SoLuongTon, NgayThem, HinhSP) VALUES ({0}, N'{1}', {2}, {3}, GETDATE(), {4})",
+            string moTaValue = string.IsNullOrEmpty(sanPham.MoTa) ? "NULL" : $"N'{sanPham.MoTa}'";
+            //string query = String.Format("INSERT INTO SanPham (MaSP, MaLoaiSP, TenSP, GiaBan, SoLuongTon, NgayThem, HinhSP) VALUES (dbo.f_AutoMaSP(), '{0}', N'{1}', {2}, {3}, GETDATE(), {4})",
             //    sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, hinhSPValue);
+            string query = String.Format("INSERT INTO SanPham (MaSP, MaLoaiSP, TenSP, GiaBan, DungTich, SoLuongTon, NgayThem, HinhSP, MoTa) VALUES (dbo.f_AutoMaSP(), '{0}', N'{1}', {2}, {3}, {4}, GETDATE(), {5}, {6})",
+                sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.DungTich, sanPham.SoLuongTon, hinhSPValue, moTaValue);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;
@@ -69,8 +70,11 @@ namespace API_QLBH.Controllers
         public JsonResult Put(SanPham sanPham)
         {
             string hinhSPValue = string.IsNullOrEmpty(sanPham.HinhSP) ? "NULL" : $"'{sanPham.HinhSP}'";
-            string query = String.Format("UPDATE SanPham SET MaLoaiSP = '{0}', TenSP = N'{1}', GiaBan = {2}, SoLuongTon = {3} WHERE MaSP = '{4}'",
-                sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, sanPham.MaSP);
+            string moTaValue = string.IsNullOrEmpty(sanPham.MoTa) ? "NULL" : $"N'{sanPham.MoTa}'";
+            string query = String.Format("UPDATE SanPham SET MaLoaiSP = '{0}', TenSP = N'{1}', GiaBan = {2}, DungTich = {3}, SoLuongTon = {4}, HinhSP = {5}, MoTa = {6} WHERE MaSP = '{7}'",
+                sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.DungTich, sanPham.SoLuongTon, hinhSPValue, moTaValue, sanPham.MaSP);
+            //string query = String.Format("UPDATE SanPham SET MaLoaiSP = '{0}', TenSP = N'{1}', GiaBan = {2}, SoLuongTon = {3} WHERE MaSP = '{4}'",
+            //    sanPham.MaLoaiSP, sanPham.TenSP, sanPham.GiaBan, sanPham.SoLuongTon, sanPham.MaSP);
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
             SqlDataReader myReader;

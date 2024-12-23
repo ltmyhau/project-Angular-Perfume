@@ -40,6 +40,7 @@ namespace API_QLBH.Controllers
             }
             return new JsonResult(table);
         }
+
         [HttpPost]
         public JsonResult Post(DonHang donHang)
         {
@@ -83,6 +84,27 @@ namespace API_QLBH.Controllers
             return new JsonResult("Cập nhật thành công!");
         }
 
+        [HttpDelete("{ma}")]
+        public JsonResult Delete(string ma)
+        {
+            string query = $"DELETE FROM DonHang WHERE MaDH = '{ma}'";
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Xóa bỏ thành công!");
+        }
+
         [Route("GetDonHangTheoMaDH")]
         [HttpGet]
         public JsonResult GetDonHangTheoMaDH(string id = "ORD000000")
@@ -103,6 +125,72 @@ namespace API_QLBH.Controllers
                 }
             }
             return new JsonResult(table);
+        }
+
+        [Route("GetOrders")]
+        [HttpGet]
+        public JsonResult GetOrders()
+        {
+            string query = "SELECT * FROM vwOrders ORDER BY NgayDat DESC";
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult(table);
+        }
+
+        [Route("GetOrderById")]
+        [HttpGet]
+        public JsonResult GetOrderById(string id = "ORD000000")
+        {
+            string query = $"SELECT * FROM vwOrders WHERE MaDH = '{id}'";
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult(table);
+        }
+
+        [Route("UpdateOrderStatus")]
+        [HttpPut]
+        public JsonResult UpdateOrderStatus(DonHang donHang)
+        {
+            string query = String.Format("UPDATE DonHang SET MaTT = N'{0}', MaPTTT = N'{1}' WHERE MaDH = N'{2}'", donHang.MaTT, donHang.MaPTTT, donHang.MaDH);
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Cập nhật thành công!");
         }
     }
 }

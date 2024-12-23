@@ -1,0 +1,59 @@
+<div class="content">
+    <div class="d-flex mb-4">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Quay lại</span>        
+        </a>
+        <h5 class="heading">Chỉnh sửa sản phẩm</h5>
+    </div>
+    <div class="product-info d-flex justify-content-evenly">
+        <div class="product-image">
+            <img [src]="productUrl || '/assets/images/perfume.png'" alt="" class="product-img">
+            <button class="btn select-btn" (click)="chooseImage()">Chọn ảnh</button>
+        </div>
+        
+        <form action="" method="POST" class="product-form" [formGroup]="productEdit" (submit)="onUpdate()">
+            <label for="productName" class="product-label">Tên sản phẩm</label>
+            <input type="text" formControlName="TenSP" name="productName" class="product-input">
+            <div *ngIf="submited && f.TenSP.errors">
+                <small class="error-message" *ngIf="f.TenSP.errors['required']">Vui lòng nhập tên sản phẩm</small>
+            </div>
+        
+            <label for="productType" class="product-label">Loại sản phẩm</label>
+            <select formControlName="MaLoaiSP" id="productType" class="product-input">
+                <option *ngFor="let productType of productTypes" value="{{productType.MaLoaiSP}}">{{productType.TenLoaiSP}}</option>
+            </select>
+            <div *ngIf="submited && f.MaLoaiSP.errors">
+                <small class="error-message" *ngIf="f.MaLoaiSP.errors['required']">Vui lòng chọn loại sản phẩm</small>
+            </div>
+
+            <label for="productPrice" class="product-label">Giá bán</label>
+            <input type="text" formControlName="GiaBan" name="productPrice" class="product-input">
+            <div *ngIf="submited && f.GiaBan.errors">
+                <small class="error-message" *ngIf="f.GiaBan.errors['required']">Vui lòng nhập giá bán</small>
+                <small class="error-message" *ngIf="f.GiaBan.errors['positiveNumber']">Giá bán phải là số dương</small>
+            </div>
+
+            <label for="productCapacity" class="product-label">Dung tích (ml)</label>
+            <input type="text" formControlName="DungTich" name="productCapacity" class="product-input">
+            <div *ngIf="submited && f.DungTich.errors">
+                <small class="error-message" *ngIf="f.DungTich.errors['required']">Vui lòng nhập dung tích</small>
+                <small class="error-message" *ngIf="f.DungTich.errors['positiveNumber']">Dung tích phải là số dương</small>
+            </div>
+    
+            <label for="productQuantity" class="product-label">Số lượng tồn</label>
+            <input type="text" formControlName="SoLuongTon" name="productQuantity" class="product-input">
+            <div *ngIf="submited && f.SoLuongTon.errors">
+                <small class="error-message" *ngIf="f.SoLuongTon.errors['required']">Vui lòng nhập số lượng tồn</small>
+                <small class="error-message" *ngIf="f.SoLuongTon.errors['positiveNumber']">Số lượng tồn phải là số dương</small>
+            </div>
+
+            <div class="d-flex" style="margin: 8px 0;">
+                <label for="productDescription" class="product-label">Mô tả sản phẩm</label>
+                <textarea formControlName="MoTa" rows="9" name="productDescription" class="product-input"></textarea>
+            </div>
+    
+            <button type="submit" class="submit-btn">Lưu thông tin</button>
+        </form>
+    </div>
+</div>

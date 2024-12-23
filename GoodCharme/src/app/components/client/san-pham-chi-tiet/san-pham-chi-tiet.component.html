@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-12">
             <div class="product-img">
-                <img [src]="product.HinhSP">
+                <img [src]="product.HinhSP || '/assets/images/perfume.png'">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-12">
@@ -104,7 +104,7 @@
             <div class="product-grid">
                 <div class="product-image">
                     <a [routerLink]="['/product', product.MaSP]" class="image">
-                        <img [src]="product.HinhSP">
+                        <img [src]="product.HinhSP || '/assets/images/perfume.png'">
                     </a>
                     <ul class="product-links">
                         <li>

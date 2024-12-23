@@ -16,10 +16,12 @@ export class SanPhamDanhMucComponent implements OnInit {
   denGia: number | null = null;
   products: Product[] = [];
   currentPage: number = 1;
-  pageSize: number = 20;
   totalItems: number = 0;
   totalPages: number = 0;
-  currentSort: string = '';
+  currentSort: string = '';  
+  pageSize: number = 20;
+  pageSizeList: number = 10;
+  pageSizeGrid = this.pageSize;
 
   isProductAdded: boolean = false;
 
@@ -179,7 +181,7 @@ export class SanPhamDanhMucComponent implements OnInit {
   selectedDisplay: string = 'grid';
 
   updatePageSize() {
-    this.pageSize = this.selectedDisplay === 'list' ? 10 : 20;
+    this.pageSize = this.selectedDisplay === 'list' ? this.pageSizeList : this.pageSizeGrid;
     this.currentPage = 1;
   }
 

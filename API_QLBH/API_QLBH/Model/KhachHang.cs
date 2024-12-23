@@ -12,7 +12,7 @@
         public string Phuong { get; set; }
         public string Quan { get; set; }
         public string ThanhPho { get; set; }
-        public int MaTK { get; set; }
+        public int? MaTK { get; set; }
         public string? HinhAnh { get; set; }
     }
 

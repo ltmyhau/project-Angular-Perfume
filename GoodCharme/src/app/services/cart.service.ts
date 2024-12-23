@@ -34,7 +34,11 @@ export class CartService {
 
   getItems() { return this.items; }
 
-  clearCart() { this.items = []; return this.items; }
+  clearCart() {
+    this.items = [];
+    this.updateCartCount();
+    return this.items;
+  }
 
   removeFromCart(product: Cart) {
     const index = this.items.findIndex(item => item.maSP === product.maSP);

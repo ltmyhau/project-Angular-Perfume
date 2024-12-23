@@ -63,7 +63,7 @@ export class AppService {
     return this.http.put<any>(`${api}/SanPham`, data);
   }
 
-  deleteProduct(id: number):Observable<any> {
+  deleteProduct(id: string):Observable<any> {
     return this.http.delete<any>(`${api}/SanPham/`+id);
   }
 
@@ -75,16 +75,28 @@ export class AppService {
     return this.http.get<any>(`${api}/TinhTrangDonHang`);
   }
 
+  getPaymentMethods():Observable<any[]> {
+    return this.http.get<any>(`${api}/PhuongThucThanhToan`);
+  }
+
   orderByID(idSP: any = 1):Observable<any[]> {
     return this.http.get<any>(`${api}/DonHang/GetDonHangTheoMaDH?id=`+idSP);
   }
 
+  // editOrder(data: any):Observable<any> {
+  //   return this.http.put<any>(`${api}/DonHang`, data);
+  // }
+
   editOrder(data: any):Observable<any> {
-    return this.http.put<any>(`${api}/DonHang`, data);
+    return this.http.put<any>(`${api}/DonHang/UpdateOrderStatus`, data);
   }
 
   addOrder(data: any):Observable<any> {
     return this.http.post<any>(`${api}/DonHang`, data);
+  }
+
+  deleteOrder(id: string):Observable<any> {
+    return this.http.delete<any>(`${api}/DonHang/`+id);
   }
 
   addOrderDetails(orderDetails: any[]): Observable<any> {
@@ -93,10 +105,26 @@ export class AppService {
 
   getOrderDetailsByOrderId(orderId: string): Observable<any[]> {
     return this.http.get<any[]>(`${api}/ChiTietDonHang/${orderId}`);
-  }  
+  }
+
+  customersList():Observable<any[]> {
+    return this.http.get<any>(`${api}/KhachHang`);
+  }
 
   customerByID(idSP: any = 1): any {
     return this.http.get<any>(`${api}/KhachHang/GetKhachHangTheoMaKH?id=`+idSP);
+  }
+
+  addCustomer(data: any):Observable<any> {
+    return this.http.post<any>(`${api}/KhachHang`, data);
+  }
+
+  editCustomer(data: any):Observable<any> {
+    return this.http.put<any>(`${api}/KhachHang`, data);
+  }
+
+  deleteCustomer(id: string):Observable<any> {
+    return this.http.delete<any>(`${api}/KhachHang/`+id);
   }
 
   searchProduct(searchTerm: string) {
@@ -113,6 +141,26 @@ export class AppService {
 
   updatePassword(username: string, newPassword: string): Observable<any> {
     return this.http.put<any>(`${api}/TaiKhoan/update-password`, { username, password: newPassword });
+  }
+
+  employeesList():Observable<any[]> {
+    return this.http.get<any>(`${api}/NhanVien`);
+  }
+
+  deleteEmployee(id: string):Observable<any> {
+    return this.http.delete<any>(`${api}/NhanVien/`+id);
+  }
+
+  employeeByID(idSP: any = 1): any {
+    return this.http.get<any>(`${api}/NhanVien/GetNhanVienTheoMaNV?id=`+idSP);
+  }
+
+  addEmployee(data: any):Observable<any> {
+    return this.http.post<any>(`${api}/NhanVien`, data);
+  }
+
+  editEmployee(data: any):Observable<any> {
+    return this.http.put<any>(`${api}/NhanVien`, data);
   }
 
   // getPaymentStatus(orderId: string): Observable<any> {

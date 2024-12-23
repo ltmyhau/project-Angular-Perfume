@@ -1,3 +1,7 @@
+.content {
+    padding: 24px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -11,6 +15,21 @@ table, th, td {
 th {
     background-color: #f2f2f2;
     text-align: center;
+    user-select: none;
+}
+
+th i {
+    margin-left: 4px;
+}
+
+.product-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.product-row p {
+    margin: 0;
 }
 
 button {
@@ -38,14 +57,23 @@ button {
     opacity: 0.9;
 }
 
+.detail-btn:hover,
 .edit-btn:hover,
 .delete-btn:hover {
     opacity: 0.8;
 }
 
+.detail-btn {
+    background-color: #4CAF50;
+    padding: 5px 7px 6px;
+    margin: 0 4px;
+    color: white;
+    border-radius: 4px;
+}
+
 .edit-btn {
     background-color: #015198;
-    padding: 5px 7px 6px;
+    padding: 5px 8px 6px;
     margin: 0 4px;
     color: white;
     border-radius: 4px;
@@ -53,6 +81,7 @@ button {
 
 .delete-btn {
     background-color: #ff0000;
+    padding: 4px 9px;
 }
 
 .modal {
@@ -93,7 +122,7 @@ button {
 }
 
 .product-img {
-    width: 100%;
+    width: 20%;
 }
 
 .product-label {
@@ -121,4 +150,117 @@ button {
     text-align: right;
     color: red;
     margin-bottom: 8px;
+}
+
+
+/* Pagination */
+.pagination-container {
+    margin-top: 16px;
+}
+
+.pagination-container,
+pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px;
+    font-size: 20px;
+    color: #939393;
+}
+
+.pagination /deep/ .ngx-pagination {
+    margin: 0;
+    padding: 0;
+}
+
+.pagination /deep/ .ngx-pagination .current {
+    background-color: var(--dashboard-gray); 
+    color: white;
+    text-align: center;
+    min-width: 40px;
+    border-radius: 2px;
+    margin: 0 8px;
+}
+
+.btn-pagination,
+.pagination /deep/ .ngx-pagination li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    min-width: 40px;
+    border-radius: 2px;
+    margin: 0 8px;
+}
+
+.pagination /deep/ .pagination-previous.disabled:before,
+.pagination /deep/ li.pagination-previous a::after {
+    content: "\f104";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+.pagination /deep/ .pagination-next.disabled:after,
+.pagination /deep/ li.pagination-next a::before {
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+.pagination /deep/ .pagination-previous.disabled,
+.pagination /deep/ .pagination-next.disabled {
+    color: #dfdfdf;
+    text-decoration: none;
+    text-align: center;
+    min-width: 40px;
+    border-radius: 2px;
+    margin: 0 8px;
+}
+
+.pagination /deep/ .pagination-previous.disabled:before,
+.pagination /deep/ .pagination-next.disabled:after {
+    margin: 0;    
+}
+
+.pagination /deep/ li.pagination-previous a::before,
+.pagination /deep/ li.pagination-next a::after {
+    content: none;
+}
+
+.btn-pagination {
+    padding: 4px 0;
+    color: #939393;
+    cursor: pointer;
+}
+
+.btn-first-page:before,
+.btn-last-page::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+.btn-first-page:before {
+    content: "\f100";
+}
+
+.btn-last-page::after {
+    content: "\f101";
+}
+
+.btn-first-page:hover,
+.btn-last-page:hover {
+    background: #e6e6e6;
+}
+
+.btn-first-page.disabled,
+.btn-last-page.disabled {
+    color: #dfdfdf;
+    cursor: default;
+}
+
+.btn-first-page.disabled:hover,
+.btn-last-page.disabled:hover {
+    pointer-events: none;
+    color: #dfdfdf;
+    cursor: default;
+    background-color: inherit;
 }

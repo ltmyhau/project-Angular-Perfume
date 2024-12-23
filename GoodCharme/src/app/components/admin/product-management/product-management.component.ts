@@ -11,6 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductManagementComponent {
 
   products: any=[];
+  currentPage: number = 1;
+  totalItems: number = 0;
+  totalPages: number = 0;
+  pageSize: number = 20;
 
   constructor( 
     private app: AppService,
@@ -20,32 +24,17 @@ export class ProductManagementComponent {
   ) { }
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts():void {
     this.app.productsList().subscribe((res: any) => {
       this.products = res;
+      this.calculatePagination(res.length);
     });
-  }
+  }  
 
-  submited: boolean = false;
-  productAdd = this.fb.group({
-    MaSP: [''],
-    TenSP: ['', Validators.required],
-    MaLoaiSP: ['', Validators.required],
-    GiaBan: ['', Validators.required],
-    SoLuongTon: ['', Validators.required]
-  });
-
-  get f() {return this.productAdd.controls}
-  onSubmit(): any {
-    this.submited = true;
-    if(this.productAdd.invalid) {return false;}
-
-    console.log(this.productAdd.value);
-    this.app.addProduct(this.productAdd.value).subscribe(res => {
-      this.router.navigate(['/admin']);
-    })
-  }
-
-  onDelete(productId: number) {
+  onDelete(productId: string) {
     const confirmDelete = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
     if (confirmDelete) {
       console.log(productId);
@@ -54,10 +43,52 @@ export class ProductManagementComponent {
           this.products = res;
         });
         alert("Xóa sản phẩm thành công.");
-        this.app.productsList().subscribe((res: any) => {
-          this.products = res;
-        });
       });
     }
+  }
+
+  calculatePagination(totalItems: number): void {
+    this.totalItems = totalItems;
+    this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+  }
+
+  goToFirstPage() {
+    this.currentPage = 1;
+    this.loadProducts();
+    this.preventScrollToTop();
+  }
+
+  goToLastPage() {
+    this.currentPage = this.totalPages;
+    this.loadProducts();
+    this.preventScrollToTop();
+  }
+
+  preventScrollToTop() {
+    window.scrollTo(0, document.body.scrollTop);
+  }
+
+  get isSinglePage(): boolean {
+    return this.totalPages <= 1;
+  }
+
+  sortColumn: string = '';
+  sortDirection: string = 'desc';
+
+  sortProducts(column: string): void {
+    if (this.sortColumn === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = 'desc';
+    }
+
+    this.products.sort((a: any, b: any) => {
+      const valueA = a[column];
+      const valueB = b[column];
+      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
+        return 0;
+    });
   }
 }

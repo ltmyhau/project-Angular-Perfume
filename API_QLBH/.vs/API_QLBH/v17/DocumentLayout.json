@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\chitietdonhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\chitietdonhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\loaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\loaispcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,53 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DonHangController.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\DonHangController.cs",
-              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\DonHangController.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\DonHangController.cs",
-              "RelativeToolTip": "API_QLBH\\Controllers\\DonHangController.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAkwGYAAAARAAAA",
+              "Title": "NhanVienController.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\NhanVienController.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\NhanVienController.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\NhanVienController.cs",
+              "RelativeToolTip": "API_QLBH\\Controllers\\NhanVienController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwGkAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:53:39.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoaiSPController.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\LoaiSPController.cs",
-              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\LoaiSPController.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\LoaiSPController.cs",
-              "RelativeToolTip": "API_QLBH\\Controllers\\LoaiSPController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwDsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:52:39.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChiTietDonHangController.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\ChiTietDonHangController.cs",
-              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\ChiTietDonHangController.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\ChiTietDonHangController.cs",
-              "RelativeToolTip": "API_QLBH\\Controllers\\ChiTietDonHangController.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAAwE8AAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:51:53.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "KhachHangController.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\KhachHangController.cs",
-              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\KhachHangController.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\KhachHangController.cs",
-              "RelativeToolTip": "API_QLBH\\Controllers\\KhachHangController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:51:33.184Z",
+              "WhenOpened": "2024-12-23T16:45:37.107Z",
               "EditorCaption": ""
             }
           ]

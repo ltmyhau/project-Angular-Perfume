@@ -1,58 +1,78 @@
-<div class="d-flex justify-content-between mb-3">
-    <h2>Quản lý đơn hàng</h2>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th style="width: 15%;">Mã đơn hàng</th>
-            <th style="width: 25%;">Khách hàng</th>
-            <th style="width: 15%;">Ngày đặt hàng</th>
-            <th style="width: 15%;">Ngày giao hàng</th>
-            <th style="width: 20%;">Trạng thái</th>
-            <th style="width: 10%;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let order of orders">
-            <td style="text-align: center;">{{order.MaDH}}</td>
-            <td>{{order.HoTenKH}}</td>
-            <td style="text-align: center;">{{ order.NgayDat | date:'dd/MM/yyyy' }}</td>
-            <td style="text-align: center;">{{ order.NgayGiao | date:'dd/MM/yyyy' }}</td>
-            <td style="text-align: center;"> {{order.TinhTrang}}</td>
-            <td style="text-align: center;">
-                <button class="edit-btn" (click)="showOrderForm(order.MaDH)">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <!-- <button class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button> -->
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<div #orderForm class="modal" style="display: none;">
-    <div class="modal-content">
-        <div class="d-flex justify-content-between">
-            <h2>Thông tin đơn hàng</h2>
-            <span class="close" (click)="hideOrderForm()">&times;</span>
-        </div>
-        <form action="" method="POST" [formGroup]="orderInfo" (submit)="onUpdate()">
-            <label for="customerName" class="order-label">Khách hàng:</label>
-            <input type="text" formControlName="HoTenKH" name="customerName" class="order-input" readonly>
-
-            <label for="orderDate" class="order-label">Ngày đặt:</label>
-            <input type="text" formControlName="NgayDat" name="orderDate" class="order-input" readonly>
-
-            <label for="deliveryDate" class="order-label">Ngày giao:</label>
-            <input type="date" formControlName="NgayGiao" name="deliveryDate" class="order-input">
-
-            <label for="orderStatus" class="order-label">Tình trạng:</label>
-            <select formControlName="MaTT" id="orderStatus" class="order-input">
-                <option *ngFor="let orderStatus of orderStatusList" value="{{orderStatus.MaTT}}">{{orderStatus.TinhTrang}}</option>
-            </select>
+<div class="content">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Quản lý đơn hàng</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 15%;" (click)="sortOrders('MaDH')" [ngClass]="{'sorted-column': sortColumn === 'MaDH'}">
+                    Mã đơn hàng
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'MaDH' && sortDirection === 'asc', 
+                                   'fa-angle-down': sortColumn === 'MaDH' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;" (click)="sortOrders('NgayDat')" [ngClass]="{'sorted-column': sortColumn === 'NgayDat'}">
+                    Ngày đặt hàng
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'NgayDat' && sortDirection === 'asc', 
+                                   'fa-angle-down': sortColumn === 'NgayDat' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 20%;" (click)="sortOrders('HoTenKH')" [ngClass]="{'sorted-column': sortColumn === 'HoTenKH'}">
+                    Khách hàng
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'HoTenKH' && sortDirection === 'asc', 
+                                   'fa-angle-down': sortColumn === 'HoTenKH' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 10%;" (click)="sortOrders('DienThoai')" [ngClass]="{'sorted-column': sortColumn === 'DienThoai'}">
+                    Điện thoại
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'DienThoai' && sortDirection === 'asc', 
+                                   'fa-angle-down': sortColumn === 'DienThoai' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;" (click)="sortOrders('TinhTrang')" [ngClass]="{'sorted-column': sortColumn === 'TinhTrang'}">
+                    Tình trạng
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'TinhTrang' && sortDirection === 'asc', 
+                                   'fa-angle-down': sortColumn === 'TinhTrang' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 13%;" (click)="sortOrders('TongTien')" [ngClass]="{'sorted-column': sortColumn === 'TongTien'}">
+                    Tổng tiền
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'TongTien' && sortDirection === 'asc', 
+                                   'fa-angle-down': sortColumn === 'TongTien' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 12%;"></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let order of orders | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                <td style="text-align: center;">{{ order.MaDH }}</td>
+                <td style="text-align: center;">{{ order.NgayDat | date:'dd/MM/yyyy HH:ss:mm' }}</td>
+                <td>{{order.HoTenKH}}</td>
+                <td style="text-align: center;">{{ order.DienThoai }}</td>
+                <td style="text-align: center;"> {{ order.TinhTrang }}</td>
+                <td style="text-align: center;">{{ order.TongTien | currency:'VND':true }}</td>
+                <td style="text-align: center;">
+                    <button class="detail-btn" (click)="viewDetail(order.MaDH)">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                    <button class="edit-btn" (click)="editOrder(order.MaDH)">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                    <button class="delete-btn" (click)="deleteOrder(order.MaDH)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     
-            <button type="submit" class="submit-btn">Lưu thông tin</button>
-        </form>
+    <div class="pagination-container">
+        <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page" [class.disabled]="currentPage === 1"></a>
+        <pagination-controls class="pagination"
+            (pageChange)="currentPage = $event; preventScrollToTop()"
+            [maxSize]="7"
+            [autoHide]="true"
+            [directionLinks]="true"
+            [responsive]="true"
+            previousLabel=""
+            nextLabel="">
+        </pagination-controls>
+        <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page" [class.disabled]="currentPage === totalPages"></a>
     </div>
 </div>

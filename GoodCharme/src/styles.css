@@ -6,6 +6,13 @@
     --border-color: #dbdbdb;
 
     --gray-color: #515151;
+
+    --dashboard-width: 300px;
+    --dashboard-color: #212631;
+    --dashboard-border:#323a49;
+    --dashboard-white: rgba(255, 255, 255, 0.87);
+    --dashboard-hover: #2a303d;
+    --dashboard-gray: #75797f;
 }
 
 @font-face {

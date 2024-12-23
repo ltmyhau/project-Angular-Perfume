@@ -1,0 +1,37 @@
+<div class="content">
+    <div class="d-flex mb-4">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Quay lại</span>        
+        </a>
+        <h5 class="heading">Thông tin sản phẩm</h5>
+    </div>
+    <div class="product-info d-flex justify-content-evenly">
+        <div class="product-image">
+            <img [src]="product.HinhSP || '/assets/images/perfume.png'" alt="" class="product-img">
+        </div>
+        
+        <div class="product-form">
+            <h3>{{ product.TenSP }}</h3>
+            
+            <label for="productId" class="product-label">Mã sản phẩm</label>
+            <input type="text" name="productId" class="product-input" value="{{ product.MaSP }}" readonly>
+        
+            <label for="productType" class="product-label">Loại sản phẩm</label>
+            <input type="text" name="productType" class="product-input" value="{{ product.TenLoaiSP }}" readonly>
+
+            <label for="productPrice" class="product-label">Giá bán</label>
+            <input type="text" name="productPrice" class="product-input" value="{{ product.GiaBan | currency:'VND':true }}" readonly>
+
+            <label for="productCapacity" class="product-label">Dung tích (ml)</label>
+            <input type="text" name="productCapacity" class="product-input" value="{{ product.DungTich }}" readonly>
+    
+            <label for="productQuantity" class="product-label">Số lượng tồn</label>
+            <input type="text" name="productQuantity" class="product-input" value="{{ product.SoLuongTon }}" readonly>
+        </div>
+    </div>
+    <div class="product-description">
+        <h5>Mô tả sản phẩm</h5>
+        <p>{{ product.MoTa }}</p>
+    </div>
+</div>

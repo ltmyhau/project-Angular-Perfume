@@ -1,0 +1,87 @@
+<div class="content">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Quản lý nhân viên</h2>
+        <a routerLink="add" class="add-btn">Thêm nhân viên</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 11%;" (click)="sortEmployees('MaNV')">
+                    <span>Mã nhân viên</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'MaNV' && sortDirection === 'asc', 
+                    'fa-angle-down': sortColumn === 'MaNV' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 20%;" (click)="sortEmployees('HoTenNV')">
+                    <span>Tên nhân viên</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'HoTenNV' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'HoTenNV' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 9%;" (click)="sortEmployees('GioiTinh')">
+                    <span>Giới tính</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'GioiTinh' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'GioiTinh' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 12%;" (click)="sortEmployees('NgaySinh')">
+                    <span>Ngày sinh</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'NgaySinh' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'NgaySinh' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 12%;" (click)="sortEmployees('NgayVaoLam')">
+                    <span>Ngày vào làm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'NgayVaoLam' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'NgayVaoLam' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 10%;" (click)="sortEmployees('DienThoai')">
+                    <span>Điện thoại</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'DienThoai' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'DienThoai' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 13%;" (click)="sortEmployees('Email')">
+                    <span>Email</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'Email' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'Email' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 13%;"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let employee of employees | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                <td style="text-align: center;">{{ employee.MaNV }}</td>
+                <td>
+                    <div class="product-row">
+                        <img [src]="employee.HinhAnh || '/assets/images/user-avatar.png'" alt="Hình sản phẩm"
+                            class="product-img">
+                        <p>{{ employee.HoTenNV }}</p>
+                    </div>
+                </td>
+                <td style="text-align: center;">{{ employee.GioiTinh }}</td>
+                <td style="text-align: center;">{{ employee.NgaySinh | date:'dd/MM/yyyy' }}</td>
+                <td style="text-align: center;">{{ employee.NgayVaoLam | date:'dd/MM/yyyy' }}</td>
+                <td style="text-align: center;">{{ employee.DienThoai }}</td>
+                <td style="text-align: center;">{{ employee.Email }}</td>
+                <td style="text-align: center;">
+                    <a routerLink="detail/{{employee.MaNV}}" class="detail-btn">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a routerLink="edit/{{employee.MaNV}}" class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <button class="delete-btn" (click)="onDelete(employee.MaNV)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination-container">
+        <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page"
+            [class.disabled]="currentPage === 1"></a>
+        <pagination-controls class="pagination" (pageChange)="currentPage = $event; preventScrollToTop()" [maxSize]="7"
+            [autoHide]="true" [directionLinks]="true" [responsive]="true" previousLabel="" nextLabel="">
+        </pagination-controls>
+        <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page"
+            [class.disabled]="currentPage === totalPages"></a>
+    </div>
+</div>

@@ -1,9 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppService } from '../../../services/app.service';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { formatDate } from '@angular/common';
-import { DatePipe } from '@angular/common';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { OrderService } from '../../../services/order.service';
 
 @Component({
   selector: 'app-order-management',
@@ -11,74 +10,93 @@ import { DatePipe } from '@angular/common';
   styleUrl: './order-management.component.css'
 })
 
-export class OrderManagementComponent implements OnInit {
-  @ViewChild('orderForm') orderForm!: ElementRef;
+export class OrderManagementComponent { 
+  orders: any = [];
+  currentPage: number = 1;
+  totalItems: number = 0;
+  totalPages: number = 0;
+  pageSize: number = 30;
 
-  showOrderForm(orderID: number) {
-    this.orderForm.nativeElement.style.display = 'block';
-
-    this.app.orderByID(orderID).subscribe((res: any[]) => {
-      console.log(res);
-      res.forEach(order => {
-        const formattedNgayDat = new Date(order.NgayDat + 'Z').toISOString().slice(0, 10);
-        const formattedNgayGiao = new Date(order.NgayGiao + 'Z').toISOString().slice(0, 10);
-        this.orderInfo = this.fb.group({
-          MaDH: [order.MaDH],
-          HoTenKH: [order.HoTenKH],
-          NgayDat: [formattedNgayDat],
-          NgayGiao: [formattedNgayGiao, Validators.required],
-          MaTT: [order.MaTT, Validators.required]
-        });
-      });
-    });
-  }
-  
-
-  hideOrderForm() {
-    this.orderForm.nativeElement.style.display = 'none';
-  }
-
-  datePipe = new DatePipe('en-US');
-  orders: any=[];
-  orderStatusList: any=[];
-
-  constructor( 
+  constructor(
     private app: AppService,
     private fb: FormBuilder,
+    private orderService: OrderService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.app.orderList().subscribe((res: any) => {
-      this.orders = res;
-    });
+    this.loadOrders();
+  }
 
-    this.app.orderStatusList().subscribe(res => {
-      this.orderStatusList = res;
+  loadOrders(): void {
+    this.orderService.getOrders().subscribe((res: any) => {
+      this.orders = res;
+      this.calculatePagination(res.length);
     });
   }
 
-  submited: boolean = false;
-  orderInfo = this.fb.group({
-    MaDH: [''],
-    HoTenKH: [''],
-    NgayDat: [''],
-    NgayGiao: ['', Validators.required],
-    MaTT: ['', Validators.required]
-  });
+  viewDetail(orderId: string): void {
+    this.router.navigate(['/admin/orders/detail', orderId]);
+  }
 
-  get f() {return this.orderInfo.controls}
-  onUpdate(): any {
-    this.submited = true;
-    if(this.orderInfo.invalid) {return false;}
+  editOrder(orderId: string): void {
+    this.router.navigate(['/admin/orders/edit', orderId]);
+  }
 
-    console.log(this.orderInfo.value);
-    this.app.editOrder(this.orderInfo.value).subscribe(res => {
-      alert("Cập nhập đơn hàng thành công.");
-      this.orderForm.nativeElement.style.display = 'none';
-      this.app.orderList().subscribe((res: any) => {
-        this.orders = res;
+  deleteOrder(orderId: string): void {
+    const confirmDelete = confirm("Bạn có chắc chắn muốn xóa đơn hàng này?");
+    if (confirmDelete) {
+      this.app.deleteOrder(orderId).subscribe(res => {
+        this.orderService.getOrders().subscribe((res: any) => {
+          this.orders = res;
+        });
+        alert("Xóa đơn hàng thành công.");
       });
-    })
+    }
+  }
+
+  calculatePagination(totalItems: number): void {
+    this.totalItems = totalItems;
+    this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+  }
+
+  goToFirstPage() {
+    this.currentPage = 1;
+    this.loadOrders();
+    this.preventScrollToTop();
+  }
+
+  goToLastPage() {
+    this.currentPage = this.totalPages;
+    this.loadOrders();
+    this.preventScrollToTop();
+  }
+
+  preventScrollToTop() {
+    window.scrollTo(0, document.body.scrollTop);
+  }
+
+  get isSinglePage(): boolean {
+    return this.totalPages <= 1;
+  }
+
+  sortColumn: string = '';
+  sortDirection: string = 'asc';
+
+  sortOrders(column: string): void {
+    if (this.sortColumn === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = 'asc';
+    }
+
+    this.orders.sort((a: any, b: any) => {
+      const valueA = a[column];
+      const valueB = b[column];
+      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
+        return 0;
+    });
   }
 }

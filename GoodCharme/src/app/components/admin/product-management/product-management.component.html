@@ -1,35 +1,81 @@
-<div class="d-flex justify-content-between mb-3">
-    <h2>Quản lý sản phẩm</h2>
-    <a routerLink="add" class="add-btn">Thêm sản phẩm</a>
+<div class="content">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Quản lý sản phẩm</h2>
+        <a routerLink="add" class="add-btn">Thêm sản phẩm</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 11%;" (click)="sortProducts('MaSP')">
+                    <span>Mã sản phẩm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'MaSP' && sortDirection === 'asc', 
+                    'fa-angle-down': sortColumn === 'MaSP' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 25%;" (click)="sortProducts('TenSP')">
+                    <span>Sản phẩm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'TenSP' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'TenSP' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;" (click)="sortProducts('TenLoaiSP')">
+                    <span>Loại sản phẩm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'TenLoaiSP' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'TenLoaiSP' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 11%;" (click)="sortProducts('DungTich')">
+                    <span>Dung tích</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'DungTich' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'DungTich' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 13%;" (click)="sortProducts('GiaBan')">
+                    <span>Đơn giá</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'GiaBan' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'GiaBan' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 13%;" (click)="sortProducts('SoLuongTon')">
+                    <span>Số lượng tồn</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'SoLuongTon' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'SoLuongTon' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 12%;"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                <td style="text-align: center;">{{ product.MaSP }}</td>
+                <td>
+                    <div class="product-row">
+                        <img [src]="product.HinhSP || '/assets/images/perfume.png'" alt="Hình sản phẩm"
+                            class="product-img">
+                        <p>{{ product.TenSP }}</p>
+                    </div>
+                </td>
+                <td style="text-align: center;">{{ product.TenLoaiSP }}</td>
+                <td style="text-align: center;">{{ product.DungTich }} ml</td>
+                <td style="text-align: center;">{{ product.GiaBan | currency:'VND':true }}</td>
+                <td style="text-align: center;">{{ product.SoLuongTon }}</td>
+                <td style="text-align: center;">
+                    <a routerLink="detail/{{product.MaSP}}" class="detail-btn">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a routerLink="edit/{{product.MaSP}}" class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <button class="delete-btn" (click)="onDelete(product.MaSP)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination-container">
+        <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page"
+            [class.disabled]="currentPage === 1"></a>
+        <pagination-controls class="pagination" (pageChange)="currentPage = $event; preventScrollToTop()" [maxSize]="7"
+            [autoHide]="true" [directionLinks]="true" [responsive]="true" previousLabel="" nextLabel="">
+        </pagination-controls>
+        <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page"
+            [class.disabled]="currentPage === totalPages"></a>
+    </div>
 </div>
-<table>
-    <thead>
-        <tr>
-            <th style="width: 15%;">Mã sản phẩm</th>
-            <th style="width: 30%;">Tên sản phẩm</th>
-            <th style="width: 15%;">Đơn giá</th>
-            <th style="width: 15%;">Số lượng tồn</th>
-            <th style="width: 15%;">Hình ảnh</th>
-            <th style="width: 10%;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products">
-            <td style="text-align: center;">{{product.MaSP}}</td>
-            <td>{{product.TenSP}}</td>
-            <td style="text-align: center;">{{product.GiaBan}}</td>
-            <td style="text-align: center;">{{product.SoLuongTon}}</td>
-            <td>
-                <img [src]="product.HinhSP" alt="Hình sản phẩm" class="product-img">
-            </td>
-            <td style="text-align: center;">
-                <a routerLink="edit/{{product.MaSP}}" class="edit-btn">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </a>
-                <button class="delete-btn" (click)="onDelete(product.MaSP)">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>

@@ -19,7 +19,7 @@
                         <tr *ngFor="let item of items">
                             <td scope="row">
                                 <div class="d-flex align-items-center">
-                                    <img [src]="item.hinhSP" class="img-fluid rounded-3" style="width: 100px;" alt="Book">
+                                    <img [src]="item.hinhSP || '/assets/images/perfume.png'" class="img-fluid rounded-3" style="width: 100px;" alt="Book">
                                     <div class="flex-column ms-4" style="font-size: 18px;">
                                         <p class="mb-2">{{item.tenSP}}</p>
                                     </div>

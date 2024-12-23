@@ -1,0 +1,67 @@
+<div class="content">
+    <div class="d-flex mb-4">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Quay lại</span>        
+        </a>
+        <h5 class="heading">Thông tin khách hàng</h5>
+    </div>
+    <div class="row account-info">
+        <div class="col-lg-3 col-md-12 col-12">
+            <div class="d-lg-flex account-avatar">
+                <img [src]="customer.HinhAnh || '/assets/images/user-avatar.png'" alt="" class="account-img">
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12 col-12">
+            <div class="row">
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="name" class="col-lg-3 col-md-12 col-12">Họ tên</label>                    
+                    <input type="text" id="name" class="account-info-input col-lg-9 col-md-12 col-12" placeholder="Họ tên" value="{{ customer.HoTenKH }}" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="birthday" class="col-lg-3 col-md-12 col-12">Ngày sinh</label>                    
+                    <input type="text" id="birthday" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Ngày sinh" value="{{ customer.NgaySinh | date:'dd/MM/yyyy' }}" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="gender" class="col-lg-3 col-md-12 col-12">Giới tính</label>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="male" class="form-check-input" value="Nam" name="gender" [checked]="customer?.GioiTinh === 'Nam'" disabled />
+                        <label class="form-check-label" for="male">Nam</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="female" class="form-check-input" value="Nữ" name="gender" [checked]="customer?.GioiTinh === 'Nữ'" disabled />
+                        <label class="form-check-label" for="female">Nữ</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="other" class="form-check-input" value="Khác" name="gender" [checked]="customer?.GioiTinh === 'Khác'" disabled />
+                        <label class="form-check-label" for="other">Khác</label>
+                    </div>
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="phone-number" class="col-lg-3 col-md-12 col-12">Điện thoại</label>                    
+                    <input type="text" id="phone-number" class="account-info-input col-lg-9 col-md-12 col-12" placeholder="Điện thoại" value="{{ customer.DienThoai }}" readonly />
+                </div>                    
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="email" class="col-lg-3 col-md-12 col-12">Email</label>                    
+                    <input type="text" id="email" class="account-info-input col-lg-9 col-md-12 col-12" placeholder="Email" value="{{ customer.Email }}" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="diaChi" class="col-lg-3 col-md-12 col-12">Địa chỉ</label>                    
+                    <input type="text" id="diaChi" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Địa chỉ" value="{{ customer.DiaChi }}" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="phuongXa" class="col-lg-3 col-md-12 col-12">Phường/Xã</label>                    
+                    <input type="text" id="phuongXa" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Phường/Xã" value="{{ customer.Phuong }}" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="quanHuyen" class="col-lg-3 col-md-12 col-12">Quận/Huyện</label>                    
+                    <input type="text" id="quanHuyen" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Quận/Huyện" value="{{ customer.Quan }}" readonly />
+                </div>
+                <div class="account-info-item d-lg-flex align-items-center mb-3">
+                    <label for="tinhTP" class="col-lg-3 col-md-12 col-12">Tỉnh/Thành phố</label>                    
+                    <input type="text" id="tinhTP" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Tỉnh/Thành phố" value="{{ customer.ThanhPho }}" readonly />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

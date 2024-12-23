@@ -38,49 +38,51 @@ namespace API_QLBH.Controllers
             return new JsonResult(table);
         }
 
-        //[HttpPost]
-        //public JsonResult Post(KhachHang khachHang)
-        //{
-        //    string query = String.Format("INSERT INTO KhachHang (Email, MatKhau, HoTenKH, GioiTinh, NgaySinh, DienThoai, DiaChi) VALUES (N'{0}', {1}, N'{2}', N'{3}', CONVERT(DATETIME, '{4}', 105), N'{5}', N'{6}')",
-        //        khachHang.Email, khachHang.MatKhau, khachHang.HoTenKH, khachHang.GioiTinh, khachHang.NgaySinh, khachHang.DienThoai, khachHang.DiaChi);
-        //    DataTable table = new DataTable();
-        //    String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
-        //    SqlDataReader myReader;
-        //    using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-        //    {
-        //        myCon.Open();
-        //        using (SqlCommand myCommand = new SqlCommand(query, myCon))
-        //        {
-        //            myReader = myCommand.ExecuteReader();
-        //            table.Load(myReader);
-        //            myReader.Close();
-        //            myCon.Close();
-        //        }
-        //    }
-        //    return new JsonResult("Thêm mới thành công!");
-        //}
+        [HttpPost]
+        public JsonResult Post(KhachHang khachHang)
+        {
+            string hinhAnhValue = string.IsNullOrEmpty(khachHang.HinhAnh) ? "NULL" : $"'{khachHang.HinhAnh}'";
+            string query = String.Format("INSERT INTO KhachHang(MaKH, HoTenKH, GioiTinh, NgaySinh, DienThoai, Email, DiaChi, Phuong, Quan, ThanhPho, HinhAnh) VALUES (dbo.f_AutoMaKH(), N'{0}', N'{1}', '{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', {9})",
+                khachHang.HoTenKH, khachHang.GioiTinh, khachHang.NgaySinh, khachHang.DienThoai, khachHang.Email, khachHang.DiaChi, khachHang.Phuong, khachHang.Quan, khachHang.ThanhPho, hinhAnhValue);
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Thêm mới thành công!");
+        }
 
-        //[HttpPut]
-        //public JsonResult Put(KhachHang khachHang)
-        //{
-        //    string query = String.Format("UPDATE KhachHang SET Email = N'{0}', MatKhau = {1}, HoTenKH = N'{2}', GioiTinh = N'{3}', NgaySinh = CONVERT(DATETIME, '{4}', 105), DienThoai = N'{5}', DiaChi = N'{6}' WHERE MaKH = {7}",
-        //        khachHang.Email, khachHang.MatKhau, khachHang.HoTenKH, khachHang.GioiTinh, khachHang.NgaySinh, khachHang.DienThoai, khachHang.DiaChi, khachHang.MaKH);
-        //    DataTable table = new DataTable();
-        //    String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
-        //    SqlDataReader myReader;
-        //    using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-        //    {
-        //        myCon.Open();
-        //        using (SqlCommand myCommand = new SqlCommand(query, myCon))
-        //        {
-        //            myReader = myCommand.ExecuteReader();
-        //            table.Load(myReader);
-        //            myReader.Close();
-        //            myCon.Close();
-        //        }
-        //    }
-        //    return new JsonResult("Cập nhật thành công!");
-        //}
+        [HttpPut]
+        public JsonResult Put(KhachHang khachHang)
+        {
+            string hinhKHValue = string.IsNullOrEmpty(khachHang.HinhAnh) ? "NULL" : $"'{khachHang.HinhAnh}'";
+            string query = String.Format("UPDATE KhachHang SET HoTenKH = N'{0}', GioiTinh = N'{1}', NgaySinh = '{2}', DienThoai = N'{3}', Email = N'{4}', DiaChi = N'{5}', Phuong = N'{6}', Quan = N'{7}', ThanhPho = N'{8}', HinhAnh = {9} WHERE MaKH = '{10}'",
+                khachHang.HoTenKH, khachHang.GioiTinh, khachHang.NgaySinh, khachHang.DienThoai, khachHang.Email, khachHang.DiaChi, khachHang.Phuong, khachHang.Quan, khachHang.ThanhPho, hinhKHValue, khachHang.MaKH);
+            DataTable table = new DataTable();
+            String sqlDataSource = _configuration.GetConnectionString("QLBH_GoodCharme");
+            SqlDataReader myReader;
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+            return new JsonResult("Cập nhật thành công!");
+        }
 
         [HttpPut("update-info/{maKH}")]
         public JsonResult Put(string maKH, KhachHangInfo khachHang)

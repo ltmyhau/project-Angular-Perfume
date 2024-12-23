@@ -23,7 +23,7 @@
             <div class="product-grid">
                 <div class="product-image">
                     <a [routerLink]="['/product', product.MaSP]" class="image">
-                        <img [src]="product.HinhSP">
+                        <img [src]="product.HinhSP || '/assets/images/perfume.png'">
                     </a>
                     <ul class="product-links">
                         <li>
@@ -60,7 +60,7 @@
             <div class="product-grid">
                 <div class="product-image">
                     <a [routerLink]="['/product', product.MaSP]" class="image">
-                        <img [src]="product.HinhSP">
+                        <img [src]="product.HinhSP || '/assets/images/perfume.png'">
                     </a>
                     <ul class="product-links">
                         <li>

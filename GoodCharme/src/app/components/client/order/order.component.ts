@@ -108,6 +108,7 @@ export class OrderComponent implements OnInit {
         this.app.addOrderDetails(orderDetails).subscribe(
           (res) => {
             alert("Đơn hàng đã được tạo thành công.");
+            this.cartService.clearCart();
 
             if (selectedPaymentMethod === 'COD') {
               this.router.navigate(['/cart/order/tracking'], { queryParams: { orderId: this.orderId } });
@@ -129,7 +130,7 @@ export class OrderComponent implements OnInit {
                   alert('Đã xảy ra lỗi khi xử lý thanh toán. Vui lòng thử lại.');
                 }
               );
-            } else if (selectedPaymentMethod === 'ATM') {
+            } else if (selectedPaymentMethod === 'CARD') {
               this.router.navigate(['/cart/order/tracking'], { queryParams: { orderId: this.orderId } });
             }
           },

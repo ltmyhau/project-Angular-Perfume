@@ -1,0 +1,152 @@
+.content {
+    padding: 24px;
+}
+
+.back-link {
+    font-size: 16px;
+    color: var(--gray-color);
+    text-decoration: none;
+    font-style: italic;
+}
+
+.back-link span {
+    margin-left: 8px;
+}
+
+.back-link:hover {
+    opacity: 0.7;
+}
+
+.heading {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.select-btn {
+    color: var(--dashboard-gray);
+    background-color: #fff;
+    border: 1px solid var(--dashboard-gray);
+}
+
+.account-info {
+    margin-bottom: 32px;
+    margin-right: 32px;
+}
+
+.account-info-item label,
+.account-info-input {
+    margin-top: 4px;
+}
+
+.account-info-warp {
+    flex: 1;
+}
+
+.account-info-warp .account-info-input {
+    width: 100%;
+}
+
+/* .account-info-input {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+} */
+
+.account-info-input {
+    width: 70%;
+    border-radius: 5px;
+    outline: none;
+    padding: 4px 8px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    pointer-events: none;
+}
+
+.account-info-input:focus{
+    outline: 0;
+}
+
+.account-info-input:focus {
+    color: var(--text-color);
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 1px  var(--border-color);
+}
+
+input.account-info-input[readonly] {
+    color: gray;
+}
+
+input.account-info-input[readonly]:focus {
+    box-shadow: none;
+}
+
+.form-check-label {
+    margin-left: 8px;
+    min-width: 100px;
+}
+
+.form-check-input:disabled {
+    opacity: 1;
+}
+
+.btn-save {
+    min-width: 150px;
+    float: right;
+}
+
+.account-avatar {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-img {
+    max-width: 200px;
+    max-height: 200px;
+    width: 80%;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.account-avatar button {
+    width: 50%;
+    margin-top: 32px;
+}
+
+.border-red {
+    border: 1px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    padding: 8px 16px;
+    margin: 0 4px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    height: 40px;
+    float: right;
+    margin-top: 16px;
+    font-weight: 600;
+}

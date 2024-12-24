@@ -163,6 +163,10 @@ export class AppService {
     return this.http.put<any>(`${api}/NhanVien`, data);
   }
 
+  statisticOverview():Observable<any[]> {
+    return this.http.get<any>(`${api}/ThongKe/overview`);
+  }
+
   // getPaymentStatus(orderId: string): Observable<any> {
   //   return this.http.get<any>(`https://b135-123-21-172-237.ngrok-free.app/check-status-transaction?orderId=${orderId}`);
   // }

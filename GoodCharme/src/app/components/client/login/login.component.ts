@@ -65,7 +65,7 @@ export class LoginComponent {
         }
 
         if (loggedInUser.PhanQuyen === 'admin') {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin/dashboard']);
         } else {
           this.router.navigate(['/']);
         }

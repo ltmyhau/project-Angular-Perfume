@@ -42,8 +42,8 @@ import { EditEmployeeComponent } from './components/admin/employee-management/ed
 
 const routes: Routes = [
   {
-    // path:'admin',component: DashboardComponent, canActivate: [AdminGuard],
-    path:'admin',component: DashboardComponent,
+    path:'admin',component: DashboardComponent, canActivate: [AdminGuard],
+    // path:'admin',component: DashboardComponent,
     children:[
     {path: '', component: DashboardComponent},
     {path: 'dashboard', component: OverviewComponent},

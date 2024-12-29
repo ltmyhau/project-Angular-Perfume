@@ -17,7 +17,7 @@ export class EditEmployeeComponent {
     private app: AppService,
     private fb: FormBuilder,
     private router: Router,
-    private location: Location,    
+    private location: Location,
     private activatedRoute: ActivatedRoute
   ) {}
   

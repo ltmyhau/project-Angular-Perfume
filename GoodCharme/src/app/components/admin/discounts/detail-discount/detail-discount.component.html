@@ -1,0 +1,55 @@
+<div class="content">
+    <div class="d-flex mb-4">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Quay lại</span>
+        </a>
+        <h5 class="heading">Thông tin khuyến mãi</h5>
+    </div>
+    <div class="order row">
+        <div class="col-lg-6 col-md-12 col-12">
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="maKM">Mã khuyến mãi</label>
+                <input type="text" id="maKM" placeholder="Mã khuyến mãi" value="{{ discount.MaKM }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="code">Code khuyến mãi</label>
+                <input type="text" id="code" placeholder="Code khuyến mãi" value="{{ discount.Code }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="loaiKM">Loại khuyến mãi</label>
+                <input type="text" id="loaiKM" placeholder="Loại khuyến mãi" value="Giảm giá theo {{ discount.LoaiKM }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="uuDai">Giá trị khuyến mãi</label>
+                <ng-container *ngIf="discount.LoaiKM === 'Phần trăm'">
+                    <input type="text" id="uuDai" placeholder="Giá trị khuyến mãi" value="{{ discount.UuDai }}%" readonly />
+                </ng-container>
+                <ng-container *ngIf="discount.LoaiKM === 'Giá trị'">
+                    <input type="text" id="uuDai" placeholder="Giá trị khuyến mãi" value="{{ discount.UuDai | currency:'VND':true }}" readonly />
+                </ng-container>
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="trangThai">Tình trạng mã</label>
+                <input type="text" id="trangThai" placeholder="Tình trạng mã" value="{{ discount.TrangThai }}" readonly />
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <input style="visibility: hidden;" />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="ngayTao">Ngày tạo</label>
+                <input type="text" id="ngayTao" placeholder="Ngày tạo" value="{{ discount.NgayTao | date:'dd/MM/yyyy HH:ss:mm' }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="ngayBD">Ngày bắt đầu</label>
+                <input type="text" id="ngayBD" placeholder="Ngày bắt đầu" value="{{ discount.NgayBD | date:'dd/MM/yyyy HH:ss:mm' }}" readonly />
+            </div>
+            <div class="col-lg-12 col-md-12 col-12 mb-3 order-item">
+                <label for="ngayKT">Ngày kết thúc</label>
+                <input type="text" id="ngayKT" placeholder="NgayKT" value="{{ discount.NgayKT | date:'dd/MM/yyyy HH:ss:mm' }}" readonly />
+            </div>
+        </div>
+    </div>
+</div>

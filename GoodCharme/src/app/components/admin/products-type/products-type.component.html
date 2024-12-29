@@ -1,0 +1,57 @@
+<div class="content">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Quản lý loại sản phẩm</h2>
+        <a routerLink="add" class="add-btn">Thêm loại sản phẩm</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;" (click)="sortProductTypes('MaLoaiSP')">
+                    <span>Mã loại sản phẩm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'MaLoaiSP' && sortDirection === 'asc', 
+                    'fa-angle-down': sortColumn === 'MaLoaiSP' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 35%;" (click)="sortProductTypes('TenLoaiSP')">
+                    <span>Tên loại sản phẩm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'TenLoaiSP' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'TenLoaiSP' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 30%;" (click)="sortProductTypes('SoLuongSP')">
+                    <span>Số lượng sản phẩm</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'SoLuongSP' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'SoLuongSP' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let productType of productTypes | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                <td style="text-align: center;">{{ productType.MaLoaiSP }}</td>
+                <td>{{ productType.TenLoaiSP }}</td>
+                <td style="text-align: center;">{{ productType.SoLuongSP }}</td>
+                <td style="text-align: center;">
+                    <a routerLink="detail/{{productType.MaLoaiSP}}" class="detail-btn">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a routerLink="edit/{{productType.MaLoaiSP}}" class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <button class="delete-btn" (click)="onDelete(productType.MaLoaiSP)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination-container">
+        <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page"
+            [class.disabled]="currentPage === 1"></a>
+        <pagination-controls class="pagination" (pageChange)="currentPage = $event; preventScrollToTop()" [maxSize]="7"
+            [autoHide]="true" [directionLinks]="true" [responsive]="true" previousLabel="" nextLabel="">
+        </pagination-controls>
+        <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page"
+            [class.disabled]="currentPage === totalPages"></a>
+    </div>
+</div>

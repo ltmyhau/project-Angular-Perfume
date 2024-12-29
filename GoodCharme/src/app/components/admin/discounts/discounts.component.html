@@ -1,0 +1,82 @@
+<div class="content">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Quản lý khuyến mãi</h2>
+        <a routerLink="add" class="add-btn">Thêm khuyến mãi</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 13%;" (click)="sortDiscounts('MaKM')">
+                    <span>Mã khuyến mãi</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'MaKM' && sortDirection === 'asc', 
+                    'fa-angle-down': sortColumn === 'MaKM' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 17%;" (click)="sortDiscounts('Code')">
+                    <span>Code khuyến mãi</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'Code' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'Code' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;" (click)="sortDiscounts('UuDai')">
+                    <span>Giá trị khuyến mãi</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'UuDai' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'UuDai' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;" (click)="sortDiscounts('NgayBD')">
+                    <span>Ngày bắt đầu</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'NgayBD' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'NgayBD' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 15%;" (click)="sortDiscounts('NgayKT')">
+                    <span>Ngày kết thúc</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'NgayKT' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'NgayKT' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 13%;" (click)="sortDiscounts('TrangThai')">
+                    <span>Trạng thái</span>
+                    <i class="fa-solid" [ngClass]="{'fa-angle-up': sortColumn === 'TrangThai' && sortDirection === 'asc', 
+                   'fa-angle-down': sortColumn === 'TrangThai' && sortDirection === 'desc'}"></i>
+                </th>
+                <th style="width: 12%;"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let discount of discounts | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+                <td style="text-align: center;">{{ discount.MaKM }}</td>
+                <td>{{ discount.Code }}</td>
+                <td style="text-align: center;">
+                    <ng-container *ngIf="discount.LoaiKM === 'Phần trăm'">
+                        {{ discount.UuDai }}%
+                    </ng-container>
+                    <ng-container *ngIf="discount.LoaiKM === 'Giá trị'">
+                        {{ discount.UuDai | currency:'VND':true }}
+                    </ng-container>
+                </td>
+                <td style="text-align: center;">{{ discount.NgayBD | date:'dd/MM/yyyy HH:ss:mm' }}</td>
+                <td style="text-align: center;">{{ discount.NgayKT | date:'dd/MM/yyyy HH:ss:mm' }}</td>
+                <td style="text-align: center;">{{ discount.TrangThai }}</td>
+                <td style="text-align: center;">
+                    <a routerLink="detail/{{discount.MaKM}}" class="detail-btn">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a routerLink="edit/{{discount.MaKM}}" class="edit-btn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <button class="delete-btn" (click)="onDelete(discount.MaKM)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination-container">
+        <a *ngIf="!isSinglePage" (click)="goToFirstPage()" class="btn-pagination btn-first-page"
+            [class.disabled]="currentPage === 1"></a>
+        <pagination-controls class="pagination" (pageChange)="currentPage = $event; preventScrollToTop()" [maxSize]="7"
+            [autoHide]="true" [directionLinks]="true" [responsive]="true" previousLabel="" nextLabel="">
+        </pagination-controls>
+        <a *ngIf="!isSinglePage" (click)="goToLastPage()" class="btn-pagination btn-last-page"
+            [class.disabled]="currentPage === totalPages"></a>
+    </div>
+</div>

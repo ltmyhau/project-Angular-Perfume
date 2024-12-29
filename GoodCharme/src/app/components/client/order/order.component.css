@@ -89,3 +89,27 @@ tr > th:first-child {
     margin-right: 10px;
     object-fit: contain;
 }
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.discount-value {
+    position: relative;
+}
+
+.discount-value p {
+    margin: 0;
+}
+
+.discount-value span {
+    position: absolute;
+    background-color: var(--goodcharme-color);
+    color: #fff;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 14px;
+    right: -100%;
+}

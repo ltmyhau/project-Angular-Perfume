@@ -66,13 +66,16 @@
             <div class="col-lg-4">
                 <div class="card mb-3 border shadow-0">
                     <div class="card-body">
-                        <form>
+                        <form action="" method="post" [formGroup]="discountForm" (submit)="applyVoucher()">
                             <div class="form-group">
                                 <label class="form-label">Mã giảm giá</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control border" name="" placeholder="Mã giảm giá" />
-                                    <button class="btn btn-light border">Áp dụng</button>
+                                    <input type="text" class="form-control border text-uppercase" formControlName="Code" placeholder="Mã giảm giá" />
+                                    <button type="submit" class="btn btn-light border">Áp dụng</button>
                                 </div>
+                                <div *ngIf="discountError && submited">
+                                    <small class="error-message">Mã giảm giá không hợp lệ hoặc đã hết hạn</small>
+                                  </div>
                             </div>
                         </form>
                     </div>
@@ -82,7 +85,7 @@
                         <p class="mb-2">Phương thức thanh toán</p>
                         <ul class="payment-list">
                             <li class="payment-item">
-                                <input type="radio" id="rdoTienMat" name="PaymentMethod" value="CASH" checked>
+                                <input type="radio" id="rdoTienMat" name="PaymentMethod" value="COD" checked>
                                 <label for="rdoTienMat">
                                     <img src="/assets/images/cod.png" alt="MoMo Logo" class="payment-logo">
                                     Thanh toán khi nhận hàng
@@ -99,7 +102,7 @@
                                 <input type="radio" id="rdoMomo" name="PaymentMethod" value="MOMO">
                                 <label for="rdoMomo">
                                     <img src="/assets/images/momo-logo.png" alt="MoMo Logo" class="payment-logo">
-                                    Thanh toán qua Momo
+                                    Thanh toán qua MoMo
                                 </label>
                             </li>
                         </ul>
@@ -108,20 +111,30 @@
                 <div class="card shadow-0 border">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <p class="mb-2">Tổng tiền hàng:</p>
+                            <p class="mb-2">Tổng tiền hàng</p>
                             <p class="mb-2">{{ tongTien() | currency:'VND':true }}</p>
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <p class="mb-2">Giảm giá:</p>
+                        <!-- <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between discount-value">
+                                <p>Giảm giá</p>
+                                <span>10%</span>
+                            </div>
                             <p class="mb-2 text-success" [(ngModel)]="giamGia">-{{ giamGia | currency:'VND':true }}</p>
-                        </div>
+                        </div> -->
                         <div class="d-flex justify-content-between">
-                            <p class="mb-2">Phí vận chuyển:</p>
+                            <div class="d-flex justify-content-between discount-value">
+                              <p>Giảm giá</p>
+                              <span *ngIf="voucher?.LoaiKM === 'Phần trăm'">{{ voucher?.UuDai }}%</span>
+                            </div>
+                            <p class="mb-2 text-success" [(ngModel)]="giamGia">-{{ giamGia | currency:'VND':true }}</p>
+                          </div>                          
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-2">Phí vận chuyển</p>
                             <p class="mb-2" [(ngModel)]="phiVanChuyen">{{ phiVanChuyen | currency:'VND':true }}</p>
                         </div>
                         <hr />
                         <div class="d-flex justify-content-between">
-                            <p class="mb-2">Tổng thanh toán:</p>
+                            <p class="mb-2">Tổng thanh toán</p>
                             <p class="mb-2 fw-bold">{{ tongThanhToan() | currency:'VND':true }}</p>
                         </div>
         

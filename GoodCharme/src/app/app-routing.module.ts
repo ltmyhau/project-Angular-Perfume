@@ -39,6 +39,14 @@ import { EmployeeManagementComponent } from './components/admin/employee-managem
 import { AddEmployeeComponent } from './components/admin/employee-management/add-employee/add-employee.component';
 import { DetailEmployeeComponent } from './components/admin/employee-management/detail-employee/detail-employee.component';
 import { EditEmployeeComponent } from './components/admin/employee-management/edit-employee/edit-employee.component';
+import { ProductsTypeComponent } from './components/admin/products-type/products-type.component';
+import { EditProductTypeComponent } from './components/admin/products-type/edit-product-type/edit-product-type.component';
+import { DiscountsComponent } from './components/admin/discounts/discounts.component';
+import { EditDiscountComponent } from './components/admin/discounts/edit-discount/edit-discount.component';
+import { AddDiscountComponent } from './components/admin/discounts/add-discount/add-discount.component';
+import { AddProductTypeComponent } from './components/admin/products-type/add-product-type/add-product-type.component';
+import { DetailProductTypeComponent } from './components/admin/products-type/detail-product-type/detail-product-type.component';
+import { DetailDiscountComponent } from './components/admin/discounts/detail-discount/detail-discount.component';
 
 const routes: Routes = [
   {
@@ -54,6 +62,14 @@ const routes: Routes = [
     {path: 'products/add', component: AddProductComponent},
     {path: 'products/detail/:id', component: DetailProductComponent},
     {path: 'products/edit/:id', component: EditProductComponent},
+    {path: 'products-type', component: ProductsTypeComponent},
+    {path: 'products-type/add', component: AddProductTypeComponent},
+    {path: 'products-type/detail/:id', component: DetailProductTypeComponent},
+    {path: 'products-type/edit/:id', component: EditProductTypeComponent},
+    {path: 'discounts', component: DiscountsComponent},
+    {path: 'discounts/add', component: AddDiscountComponent},
+    {path: 'discounts/detail/:id', component: DetailDiscountComponent},
+    {path: 'discounts/edit/:id', component: EditDiscountComponent},
     {path: 'customers', component: CustomerManagementComponent},
     {path: 'customers/add', component: AddCustomerComponent},
     {path: 'customers/detail/:id', component: DetailCustomerComponent},

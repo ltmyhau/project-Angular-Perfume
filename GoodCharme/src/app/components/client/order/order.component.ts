@@ -17,6 +17,11 @@ export class OrderComponent implements OnInit {
   tongThanhTien: number = 0;
   customerId: string = '';
   orderId: string = '';
+  submited: boolean = false;
+  voucher: any;
+  discountList: any[] = [];
+  discountError: boolean = false;
+  discountApplied: boolean = false;
 
   constructor( 
     private app: AppService,
@@ -26,6 +31,7 @@ export class OrderComponent implements OnInit {
     private router: Router,
     private momoPaymentService: MomoPaymentService
   ) {}
+
   items = this.cartService.getItems();
   tongTien(){
     let sum: number = 0;
@@ -50,6 +56,13 @@ export class OrderComponent implements OnInit {
       console.log(loggedInUser.MaKH);
       this.fillCustomerInfo(this.customerId);
     }
+    this.loadDiscountList();
+  }
+
+  loadDiscountList() {
+    this.app.discountList().subscribe((res: any) => {
+      this.discountList = res;
+    });
   }
 
   customerInfoForm : FormGroup = new FormGroup({
@@ -78,6 +91,47 @@ export class OrderComponent implements OnInit {
     });
   }
 
+  discountForm = this.fb.group({
+    Code: ['']
+  });
+  get frm() {return this.discountForm.controls}
+
+  applyVoucher() {
+    this.submited = true;
+    if (this.discountForm.invalid) {
+      return;
+    }
+
+    const voucherCode = this.discountForm.get('Code')?.value?.toUpperCase() ?? ''; 
+    // const voucherCode = this.discountForm.get('Code')?.value;
+    const voucher = this.discountList.find(v => v.Code === voucherCode);
+
+    if (voucher) {
+      if (voucher.TrangThai === 'Đang hoạt động') {
+        this.discountApplied = true;
+        this.discountError = false;
+        this.voucher = voucher;  
+        if (voucher.LoaiKM === 'Phần trăm') {
+          this.giamGia = (voucher.UuDai / 100) * this.tongTien();
+        } else {
+          this.giamGia = voucher.UuDai;
+        }
+      } else {
+        this.discountApplied = false;
+        this.discountError = true;
+        this.giamGia = 0;
+        this.voucher = null;
+        console.log('Mã giảm giá không hoạt động');
+      }
+    } else {
+      this.discountApplied = false;
+      this.discountError = true;
+      this.giamGia = 0;
+      this.voucher = null;
+      console.log('Mã giảm giá không hợp lệ');
+    }
+  }
+
   placeOrder(): void {
     const loggedInUser = this.userService.getLoggedInUser();
     if (loggedInUser) {
@@ -96,6 +150,9 @@ export class OrderComponent implements OnInit {
         MaKH: customerId,
         MaPTTT: selectedPaymentMethod
       };
+
+      
+      console.log(order)
 
       this.app.addOrder(order).subscribe(res => {
         const cartItems = this.cartService.getItems();

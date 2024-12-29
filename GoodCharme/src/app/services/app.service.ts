@@ -167,6 +167,50 @@ export class AppService {
     return this.http.get<any>(`${api}/ThongKe/overview`);
   }
 
+  productTypeList():Observable<any[]> {
+    return this.http.get<any>(`${api}/LoaiSanPham`);
+  }
+
+  getNextProductTypeId(): Observable<string> {
+    return this.http.get(`${api}/LoaiSanPham/GetNextID`, { responseType: 'text' });
+  }  
+  
+  addProductType(data: any):Observable<any> {
+    return this.http.post<any>(`${api}/LoaiSanPham`, data);
+  }
+
+  editProductType(data: any):Observable<any> {
+    return this.http.put<any>(`${api}/LoaiSanPham`, data);
+  }
+
+  deleteProductType(id: string):Observable<any> {
+    return this.http.delete<any>(`${api}/LoaiSanPham/`+id);
+  }
+
+  productTypeById(idSP: any = 'LSP000001'): any {
+    return this.http.get<any>(`${api}/LoaiSanPham/GetLoaiSanPhamTheoMaLoaiSP?id=`+idSP);
+  }
+
+  discountList():Observable<any[]> {
+    return this.http.get<any>(`${api}/KhuyenMai`);
+  }
+  
+  addDiscount(data: any):Observable<any> {
+    return this.http.post<any>(`${api}/KhuyenMai`, data);
+  }
+
+  editDiscount(data: any):Observable<any> {
+    return this.http.put<any>(`${api}/KhuyenMai`, data);
+  }
+
+  deleteDiscount(id: string):Observable<any> {
+    return this.http.delete<any>(`${api}/KhuyenMai/`+id);
+  }
+
+  discountById(idSP: any = 'KM000001'): any {
+    return this.http.get<any>(`${api}/KhuyenMai/GetKhuyenMaiTheoMaKM?id=`+idSP);
+  }
+
   // getPaymentStatus(orderId: string): Observable<any> {
   //   return this.http.get<any>(`https://b135-123-21-172-237.ngrok-free.app/check-status-transaction?orderId=${orderId}`);
   // }

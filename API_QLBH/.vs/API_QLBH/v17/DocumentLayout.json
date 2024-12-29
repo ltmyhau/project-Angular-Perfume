@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\khuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\khuyenmaicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\model\\khuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\model\\khuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|d:\\workspace\\github\\project-angular-perfume\\api_qlbh\\api_qlbh\\controllers\\loaisanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A26463-9E32-48EC-8D71-C73EFE8BCA38}|API_QLBH\\API_QLBH.csproj|solutionrelative:api_qlbh\\controllers\\loaisanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KhuyenMai.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Model\\KhuyenMai.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Model\\KhuyenMai.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Model\\KhuyenMai.cs",
+              "RelativeToolTip": "API_QLBH\\Model\\KhuyenMai.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T22:06:05.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KhuyenMaiController.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\KhuyenMaiController.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\KhuyenMaiController.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\KhuyenMaiController.cs",
+              "RelativeToolTip": "API_QLBH\\Controllers\\KhuyenMaiController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T20:40:11.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoaiSanPhamController.cs",
+              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\LoaiSanPhamController.cs",
+              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\LoaiSanPhamController.cs",
+              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\LoaiSanPhamController.cs",
+              "RelativeToolTip": "API_QLBH\\Controllers\\LoaiSanPhamController.cs",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAswIMAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T19:11:06.506Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -27,19 +74,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ThongKeController.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\ThongKeController.cs",
-              "RelativeDocumentMoniker": "API_QLBH\\Controllers\\ThongKeController.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\API_QLBH\\API_QLBH\\Controllers\\ThongKeController.cs",
-              "RelativeToolTip": "API_QLBH\\Controllers\\ThongKeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T11:29:59.757Z",
-              "EditorCaption": ""
             }
           ]
         }

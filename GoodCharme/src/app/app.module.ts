@@ -44,6 +44,14 @@ import { DetailEmployeeComponent } from './components/admin/employee-management/
 import { EditEmployeeComponent } from './components/admin/employee-management/edit-employee/edit-employee.component';
 import { AddEmployeeComponent } from './components/admin/employee-management/add-employee/add-employee.component';
 import { AddCustomerComponent } from './components/admin/customer-management/add-customer/add-customer.component';
+import { ProductsTypeComponent } from './components/admin/products-type/products-type.component';
+import { DiscountsComponent } from './components/admin/discounts/discounts.component';
+import { EditDiscountComponent } from './components/admin/discounts/edit-discount/edit-discount.component';
+import { EditProductTypeComponent } from './components/admin/products-type/edit-product-type/edit-product-type.component';
+import { AddProductTypeComponent } from './components/admin/products-type/add-product-type/add-product-type.component';
+import { AddDiscountComponent } from './components/admin/discounts/add-discount/add-discount.component';
+import { DetailDiscountComponent } from './components/admin/discounts/detail-discount/detail-discount.component';
+import { DetailProductTypeComponent } from './components/admin/products-type/detail-product-type/detail-product-type.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +93,15 @@ import { AddCustomerComponent } from './components/admin/customer-management/add
     DetailEmployeeComponent,
     EditEmployeeComponent,
     AddEmployeeComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    ProductsTypeComponent,
+    EditProductTypeComponent,
+    DiscountsComponent,
+    EditDiscountComponent,
+    AddProductTypeComponent,
+    AddDiscountComponent,
+    DetailDiscountComponent,
+    DetailProductTypeComponent
   ],
   imports: [
     BrowserModule,

@@ -86,10 +86,6 @@
     box-shadow: 0 0 0 1px  var(--border-color);
 }
 
-input.account-info-input[readonly] {
-    color: gray;
-}
-
 input.account-info-input[readonly]:focus {
     box-shadow: none;
 }

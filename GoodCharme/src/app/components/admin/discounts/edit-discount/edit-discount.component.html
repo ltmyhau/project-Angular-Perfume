@@ -1,0 +1,64 @@
+<div class="content">
+    <div class="d-flex mb-4">
+        <a routerLink="javascript:void(0)" (click)="goBack()" class="back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Quay lại</span>        
+        </a>
+        <h5 class="heading">Cập nhập khuyến mãi</h5>
+    </div>
+    <form action="" method="post" [formGroup]="discountForm" (submit)="onSubmit()">
+        <div class="row account-info">
+            <div class="account-info-item d-lg-flex align-items-center mb-3">
+                <label for="code" class="col-lg-3 col-md-12 col-12">Code khuyến mãi</label>
+                <div class="account-info-warp">
+                    <input type="text" id="code" formControlName="Code" class="account-info-input text-uppercase col-lg-9 col-md-12 col-12" placeholder="Code khuyến mãi" />
+                    <div *ngIf="submited && f.Code.errors">
+                        <small class="error-message" *ngIf="f.Code.errors['required']">Vui lòng nhập code khuyến mãi</small>
+                        <small class="error-message" *ngIf="f.Code.errors['invalidCharacters']">Code khuyến mãi không hợp lệ</small>
+                    </div>
+                </div>
+            </div>
+            <div class="account-info-item d-lg-flex align-items-center mb-3">
+                <label for="loaiKM" class="col-lg-3 col-md-12 col-12">Loại khuyến mãi</label>
+                <div class="account-info-warp">
+                    <select formControlName="LoaiKM" id="loaiKM" class="col-lg-9 col-md-12 col-12">
+                        <option value="Phần trăm">Phần trăm</option>
+                        <option value="Giá trị">Giá trị</option>
+                    </select>
+                    <div *ngIf="submited && f.LoaiKM.errors">
+                        <small class="error-message" *ngIf="f.LoaiKM.errors['required']">Vui lòng chọn loại khuyến mãi</small>
+                    </div>
+                </div>
+            </div>
+            <div class="account-info-item d-lg-flex align-items-center mb-3">
+                <label for="uuDai" class="col-lg-3 col-md-12 col-12">Giá trị khuyến mãi</label>
+                <div class="account-info-warp">
+                    <input type="text" id="uuDai" formControlName="UuDai" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Giá trị khuyến mãi" />
+                    <div *ngIf="submited && f.UuDai.errors">
+                        <small class="error-message" *ngIf="f.UuDai.errors['required']">Vui lòng nhập giá trị khuyến mãi</small>
+                        <small class="error-message" *ngIf="f.UuDai.errors['positiveNumber']">Giá trị khuyến mãi phải là số dương</small>
+                    </div>
+                </div>
+            </div>
+            <div class="account-info-item d-lg-flex align-items-center mb-3">
+                <label for="ngayBD" class="col-lg-3 col-md-12 col-12">Ngày bắt đầu</label>
+                <div class="account-info-warp">
+                    <input type="datetime-local" id="ngayBD" formControlName="NgayBD" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Ngày bắt đầu" />
+                    <div *ngIf="submited && f.NgayBD.errors">
+                        <small class="error-message" *ngIf="f.NgayBD.errors['required']">Vui lòng nhập ngày bắt đầu</small>
+                    </div>
+                </div>
+            </div>
+            <div class="account-info-item d-lg-flex align-items-center mb-3">
+                <label for="ngayKT" class="col-lg-3 col-md-12 col-12">Ngày kết thúc</label>
+                <div class="account-info-warp">
+                    <input type="datetime-local" id="ngayKT" formControlName="NgayKT" class="account-info-input col-lg-9 col-md-12 col-12" name="" placeholder="Ngày kết thúc" />
+                    <div *ngIf="submited && f.NgayKT.errors">
+                        <small class="error-message" *ngIf="f.NgayKT.errors['required']">Vui lòng nhập ngày kết thúc</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn">Lưu thông tin</button>
+    </form>
+</div>

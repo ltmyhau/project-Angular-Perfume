@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace GoodCharmePerfume.GUI.Admin.Order
 {
-    public partial class fAddEditOrder : Form
+    public partial class fEditOrder : Form
     {
-        public fAddEditOrder()
+        public fEditOrder()
         {
             InitializeComponent();
 

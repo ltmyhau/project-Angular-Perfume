@@ -226,7 +226,7 @@ namespace GoodCharmePerfume.GUI.Admin.Order
 
             if (e.ColumnIndex == dgvOrder.Columns["EditColumn"].Index)
             {
-                fAddEditOrder f = new fAddEditOrder();
+                fEditOrder f = new fEditOrder();
                 f.Text = "Chỉnh sửa thông tin đơn hàng";
                 f.LoadData(dgvOrder.Rows[e.RowIndex]);
                 f.ShowDialog();
@@ -259,7 +259,7 @@ namespace GoodCharmePerfume.GUI.Admin.Order
                 return;
             }
             DataGridViewRow selectedRow = dgvOrder.CurrentRow;
-            fAddEditOrder f = new fAddEditOrder();
+            fEditOrder f = new fEditOrder();
             f.Text = "Chỉnh sửa thông tin đơn hàng";
             f.LoadData(selectedRow);
             f.ShowDialog();
@@ -322,9 +322,9 @@ namespace GoodCharmePerfume.GUI.Admin.Order
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //fAddEditOrder f = new fAddEditOrder();
-            //f.Text = "Thêm hoá đơn mới";
-            //f.ShowDialog();
+            fAddOrder f = new fAddOrder();
+            f.Text = "Thêm hoá đơn mới";
+            f.ShowDialog();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

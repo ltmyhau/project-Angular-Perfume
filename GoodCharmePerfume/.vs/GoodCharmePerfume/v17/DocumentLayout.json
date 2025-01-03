@@ -3,36 +3,8 @@
   "WorkspaceRootPath": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\admin\\order\\forder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\admin\\order\\forder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\admin\\order\\forder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\admin\\order\\forder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\admin\\order\\faddeditorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\admin\\order\\faddeditorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\admin\\statistic\\fstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\admin\\statistic\\fstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\admin\\statistic\\fstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\admin\\statistic\\fstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\employee\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\employee\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|d:\\workspace\\github\\project-angular-perfume\\goodcharmeperfume\\goodcharmeperfume\\gui\\employee\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{16D856FC-9D7C-472B-915C-A5BFF20C1D45}|GoodCharmePerfume\\GoodCharmePerfume.csproj|solutionrelative:goodcharmeperfume\\gui\\employee\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,100 +31,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "fOrder.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs",
-              "ViewState": "AQIAADMBAAAAAAAAAADwvzoBAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:38:48.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fOrder.cs [Design]",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs [Design]",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Admin\\Order\\fOrder.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:38:47.53Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "fAddEditOrder.cs [Design]",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Order\\fAddEditOrder.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Admin\\Order\\fAddEditOrder.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Order\\fAddEditOrder.cs [Design]",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Admin\\Order\\fAddEditOrder.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:38:44.337Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "fLogin.cs [Design]",
               "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\fLogin.cs",
               "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\fLogin.cs",
               "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\fLogin.cs [Design]",
               "RelativeToolTip": "GoodCharmePerfume\\GUI\\fLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:36:38.908Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "fStatistic.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs",
-              "ViewState": "AQIAAJoAAAAAAAAAAADwv7QAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:34:20.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "fStatistic.cs [Design]",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs [Design]",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Admin\\Statistic\\fStatistic.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:34:15.612Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "fMain.cs",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Employee\\fMain.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Employee\\fMain.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Employee\\fMain.cs",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Employee\\fMain.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:22:03.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "fMain.cs [Design]",
-              "DocumentMoniker": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Employee\\fMain.cs",
-              "RelativeDocumentMoniker": "GoodCharmePerfume\\GUI\\Employee\\fMain.cs",
-              "ToolTip": "D:\\Workspace\\GitHub\\project-Angular-Perfume\\GoodCharmePerfume\\GoodCharmePerfume\\GUI\\Employee\\fMain.cs [Design]",
-              "RelativeToolTip": "GoodCharmePerfume\\GUI\\Employee\\fMain.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T15:21:58.884Z",
+              "WhenOpened": "2025-01-03T07:00:56.599Z",
               "EditorCaption": " [Design]"
             }
           ]

@@ -19,9 +19,10 @@ D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Employee.fAddEditEmloyee.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Customer.fAddEditCustoner.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Product.fAddEditProduct.resources
-D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Order.fAddEditOrder.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Statistic.fChart.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Employee.Order.fOrder.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Employee.Category.fCategory.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Employee.Product.fProduct.resources
 D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Employee.Sell.fSell.resources
+D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Order.fEditOrder.resources
+D:\Workspace\GitHub\project-Angular-Perfume\GoodCharmePerfume\GoodCharmePerfume\obj\Debug\GoodCharmePerfume.GUI.Admin.Order.fAddOrder.resources
